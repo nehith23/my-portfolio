@@ -53,7 +53,7 @@ export default function PublicationsSection() {
       id: "4",
       title: "Strategic Network Intervention: Simulating and Blocking Contagion Spread Using Dominating Sets",
       authors: "Nehith Sai Vemulapalli; P. Pruthvi; N. Moneesh; S. Srivastav; J. D. Udayan",
-      venue: "World Congress on Smart Computing (pp.109-122)",
+      venue: "Chapter in World Congress on Smart Computing (pp.109-122)",
       year: "2025",
       status: "published",
       keywords: ["Network Analysis", "Graph Theory", "Optimization"],
