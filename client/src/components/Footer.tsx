@@ -162,9 +162,9 @@ export default function Footer() {
           <div className="border-t mt-8 pt-8 flex flex-col sm:flex-row justify-between items-center gap-4">
             <div className="text-sm text-muted-foreground text-center sm:text-left">
               <p className="flex items-center gap-1">
-                © {currentYear} Nehith Sai Vemulapalli. Built with 
+                © {currentYear} Nehith Sai Vemulapalli. Crafted with 
                 <Heart className="w-3 h-3 text-red-500" /> 
-                for academic excellence.
+                care for academic excellence.
               </p>
             </div>
             <div className="flex items-center gap-4">
