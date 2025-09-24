@@ -25,7 +25,6 @@ export default function SkillsSection() {
         { name: "Python", level: "Expert", description: "Primary language for research and development" },
         { name: "C++", level: "Intermediate", description: "Working knowledge for robotics applications" },
         { name: "MATLAB", level: "Intermediate", description: "Used for algorithm prototyping and analysis" },
-        { name: "JavaScript/TypeScript", level: "Intermediate", description: "Web development and visualization" }
       ]
     },
     {
@@ -37,7 +36,7 @@ export default function SkillsSection() {
         { name: "TensorFlow", level: "Advanced", description: "Machine learning model development" },
         { name: "OpenCV", level: "Expert", description: "Computer vision and image processing" },
         { name: "Open3D", level: "Advanced", description: "3D data processing and visualization" },
-        { name: "NumPy/Pandas", level: "Expert", description: "Scientific computing and data analysis" },
+        { name: "NumPy/Pandas/matplotlib", level: "Expert", description: "Scientific computing and data analysis" },
         { name: "Scikit-learn", level: "Advanced", description: "Machine learning algorithms" }
       ]
     },
@@ -60,11 +59,10 @@ export default function SkillsSection() {
       icon: Wrench,
       skills: [
         { name: "CloudCompare", level: "Advanced", description: "Point cloud processing and analysis" },
-        { name: "COLMAP", level: "Advanced", description: "Structure-from-Motion and photogrammetry" },
         { name: "Fusion 360", level: "Intermediate", description: "CAD design and 3D modeling" },
         { name: "Git", level: "Advanced", description: "Version control and collaboration" },
         { name: "Docker", level: "Intermediate", description: "Containerization and deployment" },
-        { name: "LaTeX", level: "Advanced", description: "Academic writing and documentation" }
+        { name: "LaTeX - expert", level: "Advanced", description: "Academic writing and documentation" }
       ]
     },
     {
@@ -75,7 +73,7 @@ export default function SkillsSection() {
         { name: "Linux", level: "Advanced", description: "Primary development environment" },
         { name: "Anaconda/Mamba", level: "Advanced", description: "Python environment management" },
         { name: "CUDA", level: "Intermediate", description: "GPU computing and acceleration" },
-        { name: "AWS/Cloud", level: "Intermediate", description: "Cloud computing and deployment" }
+        { name: "AWS/Google Cloud", level: "Intermediate", description: "Cloud computing and deployment" }
       ]
     }
   ];
