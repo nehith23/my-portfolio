@@ -36,7 +36,7 @@ export default function SkillsSection() {
         { name: "TensorFlow", level: "Advanced", description: "Machine learning model development" },
         { name: "OpenCV", level: "Expert", description: "Computer vision and image processing" },
         { name: "Open3D", level: "Advanced", description: "3D data processing and visualization" },
-        { name: "NumPy/Pandas/matplotlib", level: "Expert", description: "Scientific computing and data analysis" },
+        { name: "NumPy/Pandas/Matplotlib", level: "Expert", description: "Scientific computing and data analysis" },
         { name: "Scikit-learn", level: "Advanced", description: "Machine learning algorithms" }
       ]
     },
@@ -62,7 +62,7 @@ export default function SkillsSection() {
         { name: "Fusion 360", level: "Intermediate", description: "CAD design and 3D modeling" },
         { name: "Git", level: "Advanced", description: "Version control and collaboration" },
         { name: "Docker", level: "Intermediate", description: "Containerization and deployment" },
-        { name: "LaTeX - expert", level: "Advanced", description: "Academic writing and documentation" }
+        { name: "LaTeX", level: "Expert", description: "Academic writing and documentation" }
       ]
     },
     {
