@@ -134,7 +134,7 @@ export default function HeroSection() {
           </div>
 
           {/* Research Highlights */}
-          <div className="mt-12 grid grid-cols-1 md:grid-cols-3 gap-6 text-center">
+          <div className="mt-12 grid grid-cols-1 md:grid-cols-2 gap-6 text-center">
             <div>
               <div className="text-2xl font-bold text-primary mb-2">4</div>
               <div className="text-sm text-muted-foreground">Publications</div>
@@ -142,10 +142,6 @@ export default function HeroSection() {
             <div>
               <div className="text-2xl font-bold text-primary mb-2">8+</div>
               <div className="text-sm text-muted-foreground">Research Projects</div>
-            </div>
-            <div>
-              <div className="text-2xl font-bold text-primary mb-2">2</div>
-              <div className="text-sm text-muted-foreground">Under Review</div>
             </div>
           </div>
         </div>
