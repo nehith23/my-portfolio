@@ -63,10 +63,10 @@ export default function HeroSection() {
           {/* Key Achievements */}
           <div className="mb-8">
             <div className="flex flex-wrap justify-center gap-3 mb-6">
-              <Badge variant="outline">6 Peer-Reviewed Publications</Badge>
+              <Badge variant="outline">4 Publications</Badge>
               <Badge variant="outline">UCL Xplore Winner</Badge>
               <Badge variant="outline">MSc Robotics & AI</Badge>
-              <Badge variant="outline">First Class Honours</Badge>
+              <Badge variant="outline">BEng First Class Honours</Badge>
             </div>
           </div>
 
@@ -136,7 +136,7 @@ export default function HeroSection() {
           {/* Research Highlights */}
           <div className="mt-12 grid grid-cols-1 md:grid-cols-3 gap-6 text-center">
             <div>
-              <div className="text-2xl font-bold text-primary mb-2">6+</div>
+              <div className="text-2xl font-bold text-primary mb-2">4</div>
               <div className="text-sm text-muted-foreground">Publications</div>
             </div>
             <div>
@@ -144,8 +144,8 @@ export default function HeroSection() {
               <div className="text-sm text-muted-foreground">Research Projects</div>
             </div>
             <div>
-              <div className="text-2xl font-bold text-primary mb-2">3+</div>
-              <div className="text-sm text-muted-foreground">Years Experience</div>
+              <div className="text-2xl font-bold text-primary mb-2">2</div>
+              <div className="text-sm text-muted-foreground">Under Review</div>
             </div>
           </div>
         </div>
