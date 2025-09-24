@@ -255,6 +255,12 @@ export default function ExperienceSection() {
                         First Class with Distinction
                       </Badge>
                     </div>
+                    <div className="mt-4">
+                      <p className="text-sm font-medium mb-2">Thesis:</p>
+                      <p className="text-sm text-muted-foreground">
+                        Reinforcement Learning-Based Autonomous Landing of AirSim Simulated Quadcopter in Unreal Engine
+                      </p>
+                    </div>
                   </div>
                 </CardContent>
               </Card>
