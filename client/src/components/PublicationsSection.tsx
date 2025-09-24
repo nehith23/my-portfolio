@@ -1,6 +1,7 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
+import { Tooltip, TooltipContent, TooltipTrigger } from "@/components/ui/tooltip";
 import { ExternalLink, Calendar, Users } from "lucide-react";
 
 interface Publication {
@@ -174,10 +175,24 @@ export default function PublicationsSection() {
               <div className="text-2xl font-bold text-primary mb-2">2</div>
               <div className="text-sm text-muted-foreground">In Preparation</div>
             </div>
-            <div className="p-6 bg-background rounded-lg border">
-              <div className="text-2xl font-bold text-primary mb-2">3</div>
-              <div className="text-sm text-muted-foreground">Research Areas</div>
-            </div>
+            <Tooltip>
+              <TooltipTrigger asChild>
+                <div className="p-6 bg-background rounded-lg border cursor-pointer hover-elevate">
+                  <div className="text-2xl font-bold text-primary mb-2">3</div>
+                  <div className="text-sm text-muted-foreground">Research Areas</div>
+                </div>
+              </TooltipTrigger>
+              <TooltipContent>
+                <div className="text-sm">
+                  <div className="font-medium mb-1">Research Areas:</div>
+                  <ul className="space-y-1">
+                    <li>• Computer Vision</li>
+                    <li>• Machine Learning/AI</li>
+                    <li>• Robotics</li>
+                  </ul>
+                </div>
+              </TooltipContent>
+            </Tooltip>
           </div>
         </div>
       </div>
