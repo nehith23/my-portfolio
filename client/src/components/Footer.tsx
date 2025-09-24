@@ -30,14 +30,14 @@ export default function Footer() {
             <div className="space-y-4">
               <h3 className="text-lg font-semibold">Nehith Sai Vemulapalli</h3>
               <p className="text-sm text-muted-foreground leading-relaxed">
-                PhD candidate in Robotics & AI with expertise in computer vision, 
+                Master's Graduate in Robotics & AI with expertise in computer vision, 
                 SLAM, and 3D reconstruction. Passionate about advancing autonomous 
-                systems and cultural heritage preservation through innovative technology.
+                systems and aerial robotics through innovative technology.
               </p>
               <div className="flex flex-wrap gap-2">
                 <Badge variant="outline" className="text-xs">Robotics Researcher</Badge>
                 <Badge variant="outline" className="text-xs">AI Engineer</Badge>
-                <Badge variant="outline" className="text-xs">PhD Candidate</Badge>
+                <Badge variant="outline" className="text-xs">Master's Graduate</Badge>
               </div>
             </div>
 
