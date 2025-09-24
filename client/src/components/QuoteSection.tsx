@@ -1,4 +1,4 @@
-import roboticsBackground from '@assets/stock_images/futuristic_robotics__5d4ea784.jpg';
+import roboticsBackground from '@assets/image_1758728862834.png';
 
 export default function QuoteSection() {
   return (
