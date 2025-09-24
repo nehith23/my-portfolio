@@ -161,7 +161,7 @@ export default function SkillsSection() {
           </div>
 
           {/* Skills Summary */}
-          <div className="mt-12 grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
+          <div className="mt-12 grid grid-cols-1 md:grid-cols-3 gap-6 text-center">
             <div className="p-6 bg-muted/30 rounded-lg">
               <div className="text-2xl font-bold text-primary mb-2">3</div>
               <div className="text-sm text-muted-foreground">Programming Languages</div>
@@ -174,16 +174,12 @@ export default function SkillsSection() {
               <div className="text-2xl font-bold text-primary mb-2">5</div>
               <div className="text-sm text-muted-foreground">Skill Categories</div>
             </div>
-            <div className="p-6 bg-muted/30 rounded-lg">
-              <div className="text-2xl font-bold text-primary mb-2">3+</div>
-              <div className="text-sm text-muted-foreground">Years Experience</div>
-            </div>
           </div>
 
           {/* Research Areas */}
           <div className="mt-12">
             <h3 className="text-2xl font-bold text-foreground mb-6 text-center">
-              Research Specializations
+              Research Interests
             </h3>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
               <Card className="text-center hover-elevate">
