@@ -179,7 +179,7 @@ export default function SkillsSection() {
           {/* Research Areas */}
           <div className="mt-12">
             <h3 className="text-2xl font-bold text-foreground mb-6 text-center">
-              Research Interests
+              Research Specializations
             </h3>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
               <Card className="text-center hover-elevate">
@@ -189,7 +189,7 @@ export default function SkillsSection() {
                   </div>
                   <h4 className="font-semibold mb-2">Computer Vision</h4>
                   <p className="text-sm text-muted-foreground">
-                    3D reconstruction, SLAM, object detection, and photogrammetry
+                    3D reconstruction, SLAM, object detection, and environmental monitoring
                   </p>
                 </CardContent>
               </Card>
@@ -201,7 +201,7 @@ export default function SkillsSection() {
                   </div>
                   <h4 className="font-semibold mb-2">Robotics & Control</h4>
                   <p className="text-sm text-muted-foreground">
-                    Autonomous systems, path planning, and multi-agent coordination
+                    Aerial robotics (UAV, drones), autonomous systems, and path planning
                   </p>
                 </CardContent>
               </Card>

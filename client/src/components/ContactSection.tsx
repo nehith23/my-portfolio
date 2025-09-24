@@ -152,7 +152,7 @@ export default function ContactSection() {
                         data-testid="link-github-contact"
                       >
                         <Github className="w-4 h-4 mr-2" />
-                        GitHub
+                        View my GitHub
                       </Button>
                       <Button
                         variant="outline"
@@ -161,7 +161,7 @@ export default function ContactSection() {
                         data-testid="link-linkedin-contact"
                       >
                         <Linkedin className="w-4 h-4 mr-2" />
-                        LinkedIn
+                        Connect on LinkedIn
                       </Button>
                     </div>
                   </div>
@@ -192,8 +192,8 @@ export default function ContactSection() {
                     <Badge variant="secondary">Robotics</Badge>
                     <Badge variant="secondary">AI/ML</Badge>
                     <Badge variant="secondary">Autonomous Systems</Badge>
-                    <Badge variant="secondary">Cultural Heritage</Badge>
-                    <Badge variant="secondary">Space Exploration</Badge>
+                    <Badge variant="secondary">Aerial Robotics (UAV, Drones)</Badge>
+                    <Badge variant="secondary">Environment</Badge>
                   </div>
                 </CardContent>
               </Card>
