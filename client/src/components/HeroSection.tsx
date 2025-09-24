@@ -34,13 +34,13 @@ export default function HeroSection() {
         <div className="max-w-4xl mx-auto text-center">
           {/* Main Introduction */}
           <div className="mb-8">
-            <Badge variant="secondary" className="mb-4">
-              <GraduationCap className="w-3 h-3 mr-1" />
-              PhD Candidate in Robotics & AI
-            </Badge>
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-foreground mb-6">
+            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-foreground mb-4">
               Nehith Sai Vemulapalli
             </h1>
+            <Badge variant="secondary" className="mb-6">
+              <GraduationCap className="w-3 h-3 mr-1" />
+              Masters Graduate
+            </Badge>
             <div className="flex items-center justify-center text-muted-foreground mb-6">
               <MapPin className="w-4 h-4 mr-2" />
               <span>London, United Kingdom</span>
