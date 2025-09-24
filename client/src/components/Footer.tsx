@@ -6,7 +6,15 @@ export default function Footer() {
   const currentYear = new Date().getFullYear();
 
   const handleExternalLink = (platform: string) => {
-    console.log(`Opening ${platform} profile`);
+    const urls = {
+      GitHub: "https://github.com/nehith23",
+      LinkedIn: "https://linkedin.com/in/nehith-v"
+    };
+    
+    const url = urls[platform as keyof typeof urls];
+    if (url) {
+      window.open(url, '_blank');
+    }
   };
 
   const scrollToTop = () => {
