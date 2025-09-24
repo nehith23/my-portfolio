@@ -33,9 +33,25 @@ export default function Header({ activeSection }: HeaderProps) {
     setIsMobileMenuOpen(false);
   };
 
-  const downloadCV = () => {
-    console.log("Downloading CV...");
-    // TODO: Replace with actual CV download functionality
+  const downloadCV = async () => {
+    try {
+      const response = await fetch("/api/download-cv");
+      if (response.ok) {
+        const blob = await response.blob();
+        const url = window.URL.createObjectURL(blob);
+        const a = document.createElement("a");
+        a.href = url;
+        a.download = "Nehith_Sai_Vemulapalli_CV.pdf";
+        document.body.appendChild(a);
+        a.click();
+        document.body.removeChild(a);
+        window.URL.revokeObjectURL(url);
+      } else {
+        console.error("Failed to download CV");
+      }
+    } catch (error) {
+      console.error("Error downloading CV:", error);
+    }
   };
 
   return (

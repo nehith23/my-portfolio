@@ -19,19 +19,60 @@ export default function ContactSection() {
     console.log(`Updated ${field}:`, value);
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    console.log("Form submitted:", formData);
-    // TODO: Replace with actual form submission
+    
+    try {
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      });
+      
+      const result = await response.json();
+      
+      if (response.ok) {
+        console.log("Message sent successfully!");
+        // Reset form
+        setFormData({ name: "", email: "", subject: "", message: "" });
+        alert(result.message || "Thank you for your message! I'll get back to you soon.");
+      } else {
+        console.error("Failed to send message:", result.error);
+        alert(result.error || "Failed to send message. Please try again.");
+      }
+    } catch (error) {
+      console.error("Error sending message:", error);
+      alert("Failed to send message. Please check your connection and try again.");
+    }
   };
 
   const handleExternalLink = (platform: string) => {
     console.log(`Opening ${platform} profile`);
   };
 
-  const downloadCV = () => {
-    console.log("Downloading CV...");
-    // TODO: Replace with actual CV download functionality
+  const downloadCV = async () => {
+    try {
+      const response = await fetch("/api/download-cv");
+      if (response.ok) {
+        const blob = await response.blob();
+        const url = window.URL.createObjectURL(blob);
+        const a = document.createElement("a");
+        a.href = url;
+        a.download = "Nehith_Sai_Vemulapalli_CV.pdf";
+        document.body.appendChild(a);
+        a.click();
+        document.body.removeChild(a);
+        window.URL.revokeObjectURL(url);
+      } else {
+        console.error("Failed to download CV");
+        alert("Failed to download CV. Please try again.");
+      }
+    } catch (error) {
+      console.error("Error downloading CV:", error);
+      alert("Error downloading CV. Please check your connection and try again.");
+    }
   };
 
   return (
