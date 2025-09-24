@@ -41,11 +41,12 @@ export default function PublicationsSection() {
     {
       id: "3",
       title: "Reinforcement Learning-Based Autonomous Landing of AirSim Simulated Quadcopter in Unreal Engine",
-      authors: "Vemulapalli, N. S.",
-      venue: "IEEE 15th International Conference on Computing, Communication and Networking Technologies (ICCCNT)",
+      authors: "Nehith Sai Vemulapalli; Pruthvi Paladugula; Guggilam Sai Prabhat; S Don",
+      venue: "2024 15th International Conference on Computing Communication and Networking Technologies (ICCCNT)",
       year: "2024",
       status: "published",
       keywords: ["Reinforcement Learning", "Autonomous Systems", "Simulation"],
+      link: "https://ieeexplore.ieee.org/document/10725648",
     },
     {
       id: "4",
