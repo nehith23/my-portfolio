@@ -39,7 +39,7 @@ export default function HeroSection() {
             </h1>
             <Badge variant="secondary" className="mb-6">
               <GraduationCap className="w-3 h-3 mr-1" />
-              Masters Graduate
+              Master's Graduate in Robotics & AI
             </Badge>
             <div className="flex items-center justify-center text-muted-foreground mb-6">
               <MapPin className="w-4 h-4 mr-2" />
