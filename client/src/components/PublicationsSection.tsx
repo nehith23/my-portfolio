@@ -21,7 +21,7 @@ export default function PublicationsSection() {
     {
       id: "1",
       title: "Face Detection with Landmark using YOLOv8",
-      authors: "Nehith Sai Vemulapalli; Pruthvi Paladugula; Guggilam Sai Prabhat; S Abhishek; Anjali T",
+      authors: "Nehith Sai Vemulapalli; P. Paladugula; G. S. Prabhat; S. Abhishek; A. T",
       venue: "2023 3rd International Conference on Emerging Frontiers in Electrical and Electronic Technologies (ICEFEET)",
       year: "2023",
       status: "published",
@@ -31,7 +31,7 @@ export default function PublicationsSection() {
     {
       id: "2",
       title: "Application of Unsupervised Learning in Detecting Behavioral Patterns in E-commerce Customers",
-      authors: "Nehith Sai Vemulapalli; Pruthvi Paladugula; Nagireddy Moneesh Rakshith Sakhamuri; J. Divya Udayan",
+      authors: "Nehith Sai Vemulapalli; P. Paladugula; N. M. R. Sakhamuri; J. D. Udayan",
       venue: "Proceedings of the 5th International Conference on Data Science, Machine Learning and Applications; Volume 1 (pp.1208-1217)",
       year: "2024",
       status: "published",
@@ -41,7 +41,7 @@ export default function PublicationsSection() {
     {
       id: "3",
       title: "Reinforcement Learning-Based Autonomous Landing of AirSim Simulated Quadcopter in Unreal Engine",
-      authors: "Nehith Sai Vemulapalli; Pruthvi Paladugula; Guggilam Sai Prabhat; S Don",
+      authors: "Nehith Sai Vemulapalli; P. Paladugula; G. S. Prabhat; S. Don",
       venue: "2024 15th International Conference on Computing Communication and Networking Technologies (ICCCNT)",
       year: "2024",
       status: "published",
@@ -51,7 +51,7 @@ export default function PublicationsSection() {
     {
       id: "4",
       title: "Strategic Network Intervention: Simulating and Blocking Contagion Spread Using Dominating Sets",
-      authors: "Nehith Sai Vemulapalli; Pruthvi Paladugula; Nagireddy Moneesh, Seshabhattar Srivastav; J. Divya Udayan",
+      authors: "Nehith Sai Vemulapalli; P. Paladugula; N. Moneesh; S. Srivastav; J. D. Udayan",
       venue: "World Congress on Smart Computing (pp.109-122)",
       year: "2025",
       status: "published",
