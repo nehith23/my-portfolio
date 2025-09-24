@@ -189,11 +189,11 @@ export default function ContactSection() {
                     <Badge variant="secondary">Computer Vision</Badge>
                     <Badge variant="secondary">3D Reconstruction</Badge>
                     <Badge variant="secondary">SLAM</Badge>
-                    <Badge variant="secondary">Robotics</Badge>
+                    <Badge variant="secondary">Aerial Robotics</Badge>
                     <Badge variant="secondary">AI/ML</Badge>
+                    <Badge variant="secondary">Robots</Badge>
+                    <Badge variant="secondary">Intelligent Systems</Badge>
                     <Badge variant="secondary">Autonomous Systems</Badge>
-                    <Badge variant="secondary">Aerial Robotics (UAV, Drones)</Badge>
-                    <Badge variant="secondary">Environment</Badge>
                   </div>
                 </CardContent>
               </Card>
