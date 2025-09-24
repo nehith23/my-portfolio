@@ -53,7 +53,10 @@ export default function HeroSection() {
               Building intelligent systems that see, understand, and preserve our world
             </p>
             <p className="text-lg text-muted-foreground">
-              Pioneering computer vision and robotics for autonomous systems and cultural heritage preservation
+              In a world where robots struggle to truly understand what they see, I bridge the gap between raw sensor data 
+              and intelligent perception. By combining advanced computer vision with SLAM and 3D reconstruction, I create 
+              systems that don't just capture images—they comprehend environments, enabling autonomous systems to navigate 
+              and interact with the complexity of our real world.
             </p>
           </div>
 
