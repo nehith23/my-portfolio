@@ -163,16 +163,16 @@ export default function SkillsSection() {
           {/* Skills Summary */}
           <div className="mt-12 grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
             <div className="p-6 bg-muted/30 rounded-lg">
-              <div className="text-2xl font-bold text-primary mb-2">4</div>
+              <div className="text-2xl font-bold text-primary mb-2">3</div>
               <div className="text-sm text-muted-foreground">Programming Languages</div>
             </div>
             <div className="p-6 bg-muted/30 rounded-lg">
-              <div className="text-2xl font-bold text-primary mb-2">15+</div>
-              <div className="text-sm text-muted-foreground">Frameworks & Libraries</div>
+              <div className="text-2xl font-bold text-primary mb-2">20+</div>
+              <div className="text-sm text-muted-foreground">Technologies</div>
             </div>
             <div className="p-6 bg-muted/30 rounded-lg">
-              <div className="text-2xl font-bold text-primary mb-2">10+</div>
-              <div className="text-sm text-muted-foreground">Development Tools</div>
+              <div className="text-2xl font-bold text-primary mb-2">5</div>
+              <div className="text-sm text-muted-foreground">Skill Categories</div>
             </div>
             <div className="p-6 bg-muted/30 rounded-lg">
               <div className="text-2xl font-bold text-primary mb-2">3+</div>
