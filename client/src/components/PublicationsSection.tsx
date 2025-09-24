@@ -31,7 +31,7 @@ export default function PublicationsSection() {
     {
       id: "2",
       title: "Application of Unsupervised Learning in Detecting Behavioral Patterns in E-commerce Customers",
-      authors: "Nehith Sai Vemulapalli; P. Pruthvi; N. M. S. Rakshith; J. D. Udayan",
+      authors: "Nehith Sai Vemulapalli; P. Pruthvi; N. Moneesh; S. Rakshith; J. D. Udayan",
       venue: "Proceedings of the 5th International Conference on Data Science, Machine Learning and Applications; Volume 1 (pp.1208-1217)",
       year: "2024",
       status: "published",
