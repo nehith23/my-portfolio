@@ -30,12 +30,13 @@ export default function PublicationsSection() {
     },
     {
       id: "2",
-      title: "Application of Unsupervised Learning in Detecting Behavioural Patterns in E-commerce Customers",
-      authors: "Vemulapalli, N. S.",
-      venue: "5th International Conference on Data Science, Machine Learning and Applications (ICDSMLA)",
+      title: "Application of Unsupervised Learning in Detecting Behavioral Patterns in E-commerce Customers",
+      authors: "Nehith Sai Vemulapalli; Pruthvi Paladugula; Nagireddy Moneesh Rakshith Sakhamuri; J. Divya Udayan",
+      venue: "Proceedings of the 5th International Conference on Data Science, Machine Learning and Applications; Volume 1 (pp.1208-1217)",
       year: "2024",
       status: "published",
       keywords: ["Machine Learning", "Unsupervised Learning", "Data Analysis"],
+      link: "https://www.researchgate.net/publication/386110391_Application_of_Unsupervised_Learning_in_Detecting_Behavioral_Patterns_in_E-commerce_Customers",
     },
     {
       id: "3",
