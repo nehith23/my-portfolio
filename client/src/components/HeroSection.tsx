@@ -4,7 +4,16 @@ import { Mail, Github, Linkedin, MapPin, GraduationCap } from "lucide-react";
 
 export default function HeroSection() {
   const handleContactClick = () => {
-    console.log("Scrolling to contact section");
+    const element = document.getElementById('contact');
+    if (element) {
+      const headerHeight = 64;
+      const elementPosition = element.offsetTop - headerHeight;
+      
+      window.scrollTo({
+        top: elementPosition,
+        behavior: 'smooth'
+      });
+    }
   };
 
   const handleExternalLink = (platform: string) => {
@@ -77,7 +86,18 @@ export default function HeroSection() {
             <Button
               variant="outline"
               size="lg"
-              onClick={() => console.log("Viewing research projects")}
+              onClick={() => {
+                const element = document.getElementById('projects');
+                if (element) {
+                  const headerHeight = 64;
+                  const elementPosition = element.offsetTop - headerHeight;
+                  
+                  window.scrollTo({
+                    top: elementPosition,
+                    behavior: 'smooth'
+                  });
+                }
+              }}
               data-testid="button-view-research"
             >
               View Research

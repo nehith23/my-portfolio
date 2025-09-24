@@ -11,7 +11,6 @@ export default function Footer() {
 
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
-    console.log("Scrolling to top");
   };
 
   return (
@@ -39,35 +38,70 @@ export default function Footer() {
               <h3 className="text-lg font-semibold">Quick Links</h3>
               <div className="grid grid-cols-2 gap-2 text-sm">
                 <button 
-                  onClick={() => console.log("Navigate to Publications")}
+                  onClick={() => {
+                    const element = document.getElementById('publications');
+                    if (element) {
+                      const headerHeight = 64;
+                      const elementPosition = element.offsetTop - headerHeight;
+                      window.scrollTo({ top: elementPosition, behavior: 'smooth' });
+                    }
+                  }}
                   className="text-left text-muted-foreground hover:text-foreground transition-colors"
                   data-testid="footer-link-publications"
                 >
                   Publications
                 </button>
                 <button 
-                  onClick={() => console.log("Navigate to Projects")}
+                  onClick={() => {
+                    const element = document.getElementById('projects');
+                    if (element) {
+                      const headerHeight = 64;
+                      const elementPosition = element.offsetTop - headerHeight;
+                      window.scrollTo({ top: elementPosition, behavior: 'smooth' });
+                    }
+                  }}
                   className="text-left text-muted-foreground hover:text-foreground transition-colors"
                   data-testid="footer-link-projects"
                 >
                   Projects
                 </button>
                 <button 
-                  onClick={() => console.log("Navigate to Experience")}
+                  onClick={() => {
+                    const element = document.getElementById('experience');
+                    if (element) {
+                      const headerHeight = 64;
+                      const elementPosition = element.offsetTop - headerHeight;
+                      window.scrollTo({ top: elementPosition, behavior: 'smooth' });
+                    }
+                  }}
                   className="text-left text-muted-foreground hover:text-foreground transition-colors"
                   data-testid="footer-link-experience"
                 >
                   Experience
                 </button>
                 <button 
-                  onClick={() => console.log("Navigate to Skills")}
+                  onClick={() => {
+                    const element = document.getElementById('skills');
+                    if (element) {
+                      const headerHeight = 64;
+                      const elementPosition = element.offsetTop - headerHeight;
+                      window.scrollTo({ top: elementPosition, behavior: 'smooth' });
+                    }
+                  }}
                   className="text-left text-muted-foreground hover:text-foreground transition-colors"
                   data-testid="footer-link-skills"
                 >
                   Skills
                 </button>
                 <button 
-                  onClick={() => console.log("Navigate to Contact")}
+                  onClick={() => {
+                    const element = document.getElementById('contact');
+                    if (element) {
+                      const headerHeight = 64;
+                      const elementPosition = element.offsetTop - headerHeight;
+                      window.scrollTo({ top: elementPosition, behavior: 'smooth' });
+                    }
+                  }}
                   className="text-left text-muted-foreground hover:text-foreground transition-colors"
                   data-testid="footer-link-contact"
                 >

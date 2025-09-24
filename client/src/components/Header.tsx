@@ -29,7 +29,16 @@ export default function Header({ activeSection }: HeaderProps) {
   ];
 
   const scrollToSection = (sectionId: string) => {
-    console.log(`Scrolling to section: ${sectionId}`);
+    const element = document.getElementById(sectionId);
+    if (element) {
+      const headerHeight = 64; // Height of fixed header
+      const elementPosition = element.offsetTop - headerHeight;
+      
+      window.scrollTo({
+        top: elementPosition,
+        behavior: 'smooth'
+      });
+    }
     setIsMobileMenuOpen(false);
   };
 
