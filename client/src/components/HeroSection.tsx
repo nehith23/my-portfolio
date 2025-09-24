@@ -66,7 +66,7 @@ export default function HeroSection() {
               <Badge variant="outline">4 Publications</Badge>
               <Badge variant="outline">UCL Xplore Winner</Badge>
               <Badge variant="outline">MSc Robotics & AI</Badge>
-              <Badge variant="outline">BEng First Class Honours</Badge>
+              <Badge variant="outline">BTech First Class Honours</Badge>
             </div>
           </div>
 
@@ -90,7 +90,7 @@ export default function HeroSection() {
               size="lg"
               data-testid="button-contact-me"
             >
-              Get In Touch
+              Let's Connect
             </Button>
             <Button
               variant="outline"
@@ -109,7 +109,7 @@ export default function HeroSection() {
               }}
               data-testid="button-view-research"
             >
-              View Research
+              Explore My Projects
             </Button>
           </div>
 
