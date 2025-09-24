@@ -12,6 +12,7 @@ interface Publication {
   status: "published" | "in-preparation";
   abstract?: string;
   keywords: string[];
+  link?: string;
 }
 
 export default function PublicationsSection() {
@@ -20,11 +21,12 @@ export default function PublicationsSection() {
     {
       id: "1",
       title: "Face Detection with Landmark using YOLOv8",
-      authors: "Vemulapalli, N. S.",
-      venue: "IEEE 3rd International Conference on Electronics, Future Technologies and Engineering Trends (ICEFEET)",
+      authors: "Nehith Sai Vemulapalli; Pruthvi Paladugula; Guggilam Sai Prabhat; S Abhishek; Anjali T",
+      venue: "2023 3rd International Conference on Emerging Frontiers in Electrical and Electronic Technologies (ICEFEET)",
       year: "2023",
       status: "published",
       keywords: ["Computer Vision", "Deep Learning", "Object Detection"],
+      link: "https://ieeexplore.ieee.org/document/10452204/metrics#metrics",
     },
     {
       id: "2",
@@ -74,7 +76,12 @@ export default function PublicationsSection() {
   ];
 
   const handleViewPublication = (id: string) => {
-    console.log(`Viewing publication: ${id}`);
+    const publication = publications.find(pub => pub.id === id);
+    if (publication?.link) {
+      window.open(publication.link, '_blank');
+    } else {
+      console.log(`Viewing publication: ${id}`);
+    }
   };
 
   return (
@@ -104,7 +111,9 @@ export default function PublicationsSection() {
                       </CardTitle>
                       <div className="flex items-center gap-2 text-sm text-muted-foreground mb-2">
                         <Users className="w-4 h-4" />
-                        <span>{publication.authors}</span>
+                        <span dangerouslySetInnerHTML={{
+                          __html: publication.authors.replace('Nehith Sai Vemulapalli', '<strong>Nehith Sai Vemulapalli</strong>')
+                        }} />
                       </div>
                       <div className="flex items-center gap-2 text-sm text-muted-foreground">
                         <Calendar className="w-4 h-4" />
