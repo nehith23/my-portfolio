@@ -237,6 +237,9 @@ export default function ExperienceSection() {
                       <p className="text-sm text-primary font-medium">
                         Amrita Vishwa Vidyapeetham
                       </p>
+                      <Badge variant="outline" className="text-xs mt-1">
+                        First Class with Distinction
+                      </Badge>
                     </div>
                   </div>
                 </CardHeader>
@@ -249,11 +252,6 @@ export default function ExperienceSection() {
                     <div className="flex items-center gap-2 text-sm text-muted-foreground">
                       <MapPin className="w-4 h-4" />
                       <span>Kerala, India</span>
-                    </div>
-                    <div className="mt-4">
-                      <Badge variant="outline" className="text-xs">
-                        First Class with Distinction
-                      </Badge>
                     </div>
                     <div className="mt-4">
                       <p className="text-sm font-medium mb-2">Thesis:</p>
