@@ -49,13 +49,11 @@ export default function HeroSection() {
 
           {/* Research Focus */}
           <div className="mb-8">
-            <p className="text-lg sm:text-xl text-muted-foreground mb-6 leading-relaxed">
-              Master's graduate in Robotics and AI with extensive experience in{" "}
-              <span className="text-foreground font-medium">computer vision</span>,{" "}
-              <span className="text-foreground font-medium">SLAM</span>, and{" "}
-              <span className="text-foreground font-medium">3D reconstruction</span>.
-              My research focuses on developing hybrid reconstruction pipelines for 
-              cultural heritage preservation and autonomous robotics systems.
+            <p className="text-xl sm:text-2xl font-medium text-foreground mb-6 leading-relaxed">
+              Building intelligent systems that see, understand, and preserve our world
+            </p>
+            <p className="text-lg text-muted-foreground">
+              Pioneering computer vision and robotics for autonomous systems and cultural heritage preservation
             </p>
           </div>
 
