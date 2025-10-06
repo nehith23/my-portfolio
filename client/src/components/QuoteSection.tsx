@@ -1,55 +1,37 @@
 import roboticsBackground from '@assets/image_1759772285383.png';
-import { motion, useScroll, useTransform } from 'framer-motion';
-import { useRef } from 'react';
 import ScrollReveal from '@/components/animations/ScrollReveal';
 
 export default function QuoteSection() {
-  const ref = useRef(null);
-  const { scrollYProgress } = useScroll({
-    target: ref,
-    offset: ["start end", "end start"],
-  });
-
-  const y = useTransform(scrollYProgress, [0, 1], ['0%', '50%']);
-  const opacity = useTransform(scrollYProgress, [0, 0.3, 0.5, 0.7, 1], [0.3, 1, 1, 1, 0.3]);
-  const scale = useTransform(scrollYProgress, [0, 0.5, 1], [1, 1, 1]);
-
   return (
-    <section 
-      ref={ref}
-      className="h-screen flex items-center relative overflow-hidden -mt-16 pt-16"
-    >
-      {/* Parallax background with scale effect */}
-      <motion.div
-        className="absolute -inset-y-32 inset-x-0"
-        style={{
-          y,
-          scale,
-          backgroundImage: `url(${roboticsBackground})`,
-          backgroundSize: 'cover',
-          backgroundPosition: 'center',
-          backgroundRepeat: 'no-repeat',
-        }}
-      />
-      
-      {/* Dark overlay for text readability with animated opacity */}
-      <motion.div 
-        className="absolute -inset-y-32 inset-x-0 bg-black/60"
-        style={{ opacity }}
-      />
-      
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 w-full relative z-10">
-        <div className="max-w-4xl mx-auto text-center">
-          <ScrollReveal direction="up" delay={0.3} duration={1.5}>
-            <blockquote className="relative">
-              <div className="text-6xl text-white/30 font-serif absolute -top-4 -left-4">"</div>
-              <p className="text-xl sm:text-2xl lg:text-3xl font-medium text-white leading-relaxed italic drop-shadow-lg">
+    <section className="min-h-screen bg-white py-16">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+        {/* Quote Text */}
+        <div className="mb-16">
+          <ScrollReveal direction="up" delay={0.2} duration={1.2}>
+            <blockquote className="max-w-4xl">
+              <p className="text-4xl sm:text-5xl lg:text-6xl font-normal text-black leading-tight tracking-tight">
                 We built the body—the robot. We gave it the mind—the intelligent system. 
                 We set it free—the autonomous system. We are not just building tools, 
                 we're giving them will.
               </p>
-              <div className="text-6xl text-white/30 font-serif absolute -bottom-8 -right-4">"</div>
             </blockquote>
+          </ScrollReveal>
+        </div>
+
+        {/* Horizontal Line */}
+        <div className="border-t border-black mb-16"></div>
+
+        {/* Image - Right Aligned */}
+        <div className="flex justify-end">
+          <ScrollReveal direction="right" delay={0.4} duration={1.2}>
+            <div className="w-full md:w-3/4 lg:w-2/3">
+              <img 
+                src={roboticsBackground} 
+                alt="Robot in forest" 
+                className="w-full h-auto rounded-lg shadow-lg"
+                data-testid="img-robot-quote"
+              />
+            </div>
           </ScrollReveal>
         </div>
       </div>
