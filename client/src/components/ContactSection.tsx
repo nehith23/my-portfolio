@@ -85,7 +85,7 @@ export default function ContactSection() {
   };
 
   return (
-    <section id="contact" className="min-h-screen flex items-center py-24">
+    <section id="contact" className="min-h-screen flex items-center">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 w-full">
         <div className="max-w-6xl mx-auto">
           {/* Section Header */}
