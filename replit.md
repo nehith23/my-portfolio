@@ -40,6 +40,7 @@ Preferred communication style: Simple, everyday language.
 - **Component Theming**: CSS variables enforcing monochrome black/white/gray with electric cyan as the only accent color
 - **Visual Style**: Ultra-minimal and modern - pure black backgrounds with sharp cyan highlights creating a high-tech console or HUD aesthetic
 - **Responsive Design**: Mobile-first approach optimized for clarity and precision
+- **UI/UX Approach**: Full-screen chapter-like sections (min-h-screen) with vertical centering, rounded corners on all components (1.5rem/24px radius), and generous breathing room (py-24 section spacing, mb-16 header spacing) for premium presentation
 
 ### Content Management
 - **Portfolio Sections**: Hero, Publications, Projects, Experience, Skills, Contact
