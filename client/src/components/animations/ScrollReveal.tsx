@@ -15,8 +15,8 @@ export default function ScrollReveal({
   children,
   direction = "up",
   delay = 0,
-  duration = 0.8,
-  distance = 50,
+  duration = 1.2,
+  distance = 60,
   className = "",
   once = true,
 }: ScrollRevealProps) {
@@ -39,25 +39,28 @@ export default function ScrollReveal({
       initial={{ 
         opacity: 0, 
         y: offset.y, 
-        x: offset.x 
+        x: offset.x,
+        filter: "blur(8px)"
       }}
       animate={
         isInView
           ? { 
               opacity: 1, 
               y: 0, 
-              x: 0 
+              x: 0,
+              filter: "blur(0px)"
             }
           : { 
               opacity: 0, 
               y: offset.y, 
-              x: offset.x 
+              x: offset.x,
+              filter: "blur(8px)"
             }
       }
       transition={{
         duration,
         delay,
-        ease: [0.25, 0.4, 0.25, 1],
+        ease: [0.16, 1, 0.3, 1],
       }}
       className={className}
     >

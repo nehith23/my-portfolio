@@ -10,7 +10,7 @@ interface StaggerContainerProps {
 
 export default function StaggerContainer({
   children,
-  staggerDelay = 0.1,
+  staggerDelay = 0.15,
   className = "",
   once = true,
 }: StaggerContainerProps) {
@@ -41,13 +41,18 @@ export function StaggerItem({ children, className = "" }: { children: ReactNode;
   return (
     <motion.div
       variants={{
-        hidden: { opacity: 0, y: 20 },
+        hidden: { 
+          opacity: 0, 
+          y: 30,
+          filter: "blur(6px)"
+        },
         visible: { 
           opacity: 1, 
           y: 0,
+          filter: "blur(0px)",
           transition: {
-            duration: 0.6,
-            ease: [0.25, 0.4, 0.25, 1],
+            duration: 1.0,
+            ease: [0.16, 1, 0.3, 1],
           },
         },
       }}

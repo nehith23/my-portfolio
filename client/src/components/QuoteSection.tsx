@@ -10,19 +10,21 @@ export default function QuoteSection() {
     offset: ["start end", "end start"],
   });
 
-  const y = useTransform(scrollYProgress, [0, 1], ['0%', '30%']);
-  const opacity = useTransform(scrollYProgress, [0, 0.5, 1], [0.4, 1, 0.4]);
+  const y = useTransform(scrollYProgress, [0, 1], ['0%', '50%']);
+  const opacity = useTransform(scrollYProgress, [0, 0.3, 0.5, 0.7, 1], [0.3, 1, 1, 1, 0.3]);
+  const scale = useTransform(scrollYProgress, [0, 0.5, 1], [1.1, 1, 1.1]);
 
   return (
     <section 
       ref={ref}
       className="min-h-screen flex items-center py-24 relative overflow-hidden"
     >
-      {/* Parallax background */}
+      {/* Parallax background with scale effect */}
       <motion.div
         className="absolute inset-0"
         style={{
           y,
+          scale,
           backgroundImage: `url(${roboticsBackground})`,
           backgroundSize: 'cover',
           backgroundPosition: 'center',
@@ -38,7 +40,7 @@ export default function QuoteSection() {
       
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 w-full relative z-10">
         <div className="max-w-4xl mx-auto text-center">
-          <ScrollReveal direction="up" delay={0.2} duration={1}>
+          <ScrollReveal direction="up" delay={0.3} duration={1.5}>
             <blockquote className="relative">
               <div className="text-6xl text-white/30 font-serif absolute -top-4 -left-4">"</div>
               <p className="text-xl sm:text-2xl lg:text-3xl font-medium text-white leading-relaxed italic drop-shadow-lg">
