@@ -17,7 +17,7 @@ export default function QuoteSection() {
   return (
     <section 
       ref={ref}
-      className="h-screen flex items-center relative overflow-hidden"
+      className="h-screen flex items-center relative overflow-hidden -mt-16"
     >
       {/* Parallax background with scale effect */}
       <motion.div
@@ -38,7 +38,7 @@ export default function QuoteSection() {
         style={{ opacity }}
       />
       
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 w-full relative z-10">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 w-full relative z-10 mt-16">
         <div className="max-w-4xl mx-auto text-center">
           <ScrollReveal direction="up" delay={0.3} duration={1.5}>
             <blockquote className="relative">
