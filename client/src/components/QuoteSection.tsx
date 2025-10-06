@@ -17,7 +17,7 @@ export default function QuoteSection() {
   return (
     <section 
       ref={ref}
-      className="min-h-screen flex items-center relative overflow-hidden"
+      className="h-screen flex items-center relative overflow-hidden"
     >
       {/* Parallax background with scale effect */}
       <motion.div
