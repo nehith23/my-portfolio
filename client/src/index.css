@@ -79,7 +79,7 @@
   --font-sans: Inter, system-ui, -apple-system, sans-serif;
   --font-serif: Georgia, serif;
   --font-mono: 'JetBrains Mono', 'Fira Code', Consolas, monospace;
-  --radius: .125rem; /* 2px - ultra minimal */
+  --radius: 1.5rem; /* 24px - noticeable rounded corners */
   --shadow-2xs: 0px 0px 0px 0px hsl(180 100% 50% / 0.00);
   --shadow-xs: 0px 0px 0px 0px hsl(180 100% 50% / 0.00);
   --shadow-sm: 0px 0px 0px 0px hsl(180 100% 50% / 0.00);
