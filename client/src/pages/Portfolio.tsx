@@ -1,6 +1,5 @@
 import { useState, useEffect } from "react";
 import Header from "@/components/Header";
-import QuoteSection from "@/components/QuoteSection";
 import HeroSection from "@/components/HeroSection";
 import PublicationsSection from "@/components/PublicationsSection";
 import ProjectsSection from "@/components/ProjectsSection";
@@ -36,7 +35,6 @@ export default function Portfolio() {
     <div className="min-h-screen bg-background">
       <Header activeSection={activeSection} />
       <main>
-        <QuoteSection />
         <HeroSection />
         <PublicationsSection />
         <ProjectsSection />
