@@ -21,7 +21,7 @@ export default function QuoteSection() {
     >
       {/* Parallax background with scale effect */}
       <motion.div
-        className="absolute inset-0 -top-32 -bottom-32"
+        className="absolute -inset-y-32 inset-x-0"
         style={{
           y,
           scale,
