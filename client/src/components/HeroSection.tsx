@@ -29,8 +29,8 @@ export default function HeroSection() {
   };
 
   return (
-    <section id="home" className="min-h-screen flex items-center pt-16">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="home" className="min-h-screen flex items-center py-24">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 w-full">
         <div className="max-w-4xl mx-auto text-center">
           {/* Main Introduction */}
           <div className="mb-8">
@@ -114,7 +114,7 @@ export default function HeroSection() {
           </div>
 
           {/* Social Links */}
-          <div className="flex justify-center gap-4">
+          <div className="flex flex-wrap justify-center gap-4">
             <Button
               variant="ghost"
               size="icon"
@@ -134,7 +134,7 @@ export default function HeroSection() {
           </div>
 
           {/* Research Highlights */}
-          <div className="mt-12 flex justify-center gap-8 text-center">
+          <div className="mt-12 flex flex-wrap justify-center gap-8 text-center">
             <div>
               <div className="text-2xl font-bold text-primary mb-2">4</div>
               <div className="text-sm text-muted-foreground">Publications</div>

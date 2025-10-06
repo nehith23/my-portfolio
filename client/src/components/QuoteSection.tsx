@@ -3,7 +3,7 @@ import roboticsBackground from '@assets/image_1758728862834.png';
 export default function QuoteSection() {
   return (
     <section 
-      className="min-h-screen flex items-center justify-center relative"
+      className="min-h-screen flex items-center py-24 relative"
       style={{
         backgroundImage: `url(${roboticsBackground})`,
         backgroundSize: 'cover',
@@ -14,7 +14,7 @@ export default function QuoteSection() {
       {/* Dark overlay for text readability */}
       <div className="absolute inset-0 bg-black/60"></div>
       
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 w-full relative z-10">
         <div className="max-w-4xl mx-auto text-center">
           <blockquote className="relative">
             <div className="text-6xl text-white/30 font-serif absolute -top-4 -left-4">"</div>
