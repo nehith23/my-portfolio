@@ -35,10 +35,10 @@ Preferred communication style: Simple, everyday language.
 - **Future-Ready**: Infrastructure prepared for user management and admin access
 
 ### Design System
-- **Color Palette**: High-tech HUD aesthetic with nearly black backgrounds, bright cyan accents (#06B6D4), and minimal borders for a premium console feel
-- **Typography**: Inter font family with monospace accents for technical precision
-- **Component Theming**: CSS variables with cyan-infused dark themes for both light and dark modes
-- **Visual Style**: Minimal, sleek, and modern - designed to feel like a high-end application or heads-up display rather than a traditional website
+- **Color Palette**: Strict dark mode with pure black background (#000000), white/light gray text, and single electric cyan accent (HSL 180 100% 50-60%)
+- **Typography**: Inter font family with generous letter spacing (0.05em body, 0.03em headings, 0.08em interactive elements) for modern minimal aesthetic
+- **Component Theming**: CSS variables enforcing monochrome black/white/gray with electric cyan as the only accent color
+- **Visual Style**: Ultra-minimal and modern - pure black backgrounds with sharp cyan highlights creating a high-tech console or HUD aesthetic
 - **Responsive Design**: Mobile-first approach optimized for clarity and precision
 
 ### Content Management
