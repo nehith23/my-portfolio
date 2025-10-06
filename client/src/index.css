@@ -2,93 +2,93 @@
 @tailwind components;
 @tailwind utilities;
 
-/* LIGHT MODE */
+/* LIGHT MODE (High-tech HUD theme - mostly using dark mode colors) */
 :root {
-  --button-outline: rgba(0,0,0, .10);
-  --badge-outline: rgba(0,0,0, .05);
+  --button-outline: rgba(6, 182, 212, .15);
+  --badge-outline: rgba(6, 182, 212, .08);
 
   /* Automatic computation of border around primary / danger buttons */
-  --opaque-button-border-intensity: -8; /* In terms of percentages */
+  --opaque-button-border-intensity: -5; /* In terms of percentages */
 
   /* Backgrounds applied on top of other backgrounds when hovered/active */
-  --elevate-1: rgba(0,0,0, .03);
-  --elevate-2: rgba(0,0,0, .08);
+  --elevate-1: rgba(6, 182, 212, .05);
+  --elevate-2: rgba(6, 182, 212, .12);
 
-  --background: 210 40% 96%;
+  --background: 200 20% 8%;
 
-  --foreground: 207 28% 15%;
+  --foreground: 190 100% 95%;
 
-  --border: 200 25% 85%;
+  --border: 190 50% 18%;
 
-  --card: 210 40% 98%;
+  --card: 200 18% 11%;
 
-  --card-foreground: 207 28% 15%;
+  --card-foreground: 190 100% 95%;
 
-  --card-border: 200 25% 88%;
+  --card-border: 190 40% 16%;
 
-  --sidebar: 210 35% 94%;
+  --sidebar: 200 20% 9%;
 
-  --sidebar-foreground: 207 28% 15%;
+  --sidebar-foreground: 190 100% 95%;
 
-  --sidebar-border: 200 25% 88%;
+  --sidebar-border: 190 40% 16%;
 
-  --sidebar-primary: 207 28% 15%;
+  --sidebar-primary: 188 100% 50%;
 
-  --sidebar-primary-foreground: 210 40% 96%;
+  --sidebar-primary-foreground: 200 20% 8%;
 
-  --sidebar-accent: 200 40% 85%;
+  --sidebar-accent: 190 35% 15%;
 
-  --sidebar-accent-foreground: 207 28% 20%;
+  --sidebar-accent-foreground: 188 100% 70%;
 
-  --sidebar-ring: 207 28% 15%;
+  --sidebar-ring: 188 100% 50%;
 
-  --popover: 210 40% 95%;
+  --popover: 200 18% 10%;
 
-  --popover-foreground: 207 28% 15%;
+  --popover-foreground: 190 100% 95%;
 
-  --popover-border: 200 25% 85%;
+  --popover-border: 190 40% 16%;
 
-  --primary: 207 28% 15%;
+  --primary: 188 100% 50%;
 
-  --primary-foreground: 210 40% 96%;
+  --primary-foreground: 200 20% 8%;
 
-  --secondary: 200 40% 74%;
+  --secondary: 190 30% 20%;
 
-  --secondary-foreground: 207 28% 15%;
+  --secondary-foreground: 188 100% 85%;
 
-  --muted: 140 17% 87%;
+  --muted: 200 15% 16%;
 
-  --muted-foreground: 184 11% 28%;
+  --muted-foreground: 190 30% 55%;
 
-  --accent: 200 40% 74%;
+  --accent: 188 100% 50%;
 
-  --accent-foreground: 207 28% 15%;
+  --accent-foreground: 200 20% 8%;
 
-  --destructive: 0 70% 35%;
+  --destructive: 0 70% 50%;
 
   --destructive-foreground: 0 0% 98%;
 
-  --input: 220 15% 70%;
-  --ring: 220 15% 25%;
-  --chart-1: 220 15% 25%;
-  --chart-2: 180 25% 35%;
-  --chart-3: 200 20% 30%;
-  --chart-4: 160 30% 30%;
-  --chart-5: 240 20% 30%;
+  --input: 190 40% 22%;
+  --ring: 188 100% 50%;
+  --chart-1: 188 100% 50%;
+  --chart-2: 173 80% 45%;
+  --chart-3: 198 70% 50%;
+  --chart-4: 158 64% 52%;
+  --chart-5: 212 90% 55%;
 
-  --font-sans: Inter, sans-serif;
+  --font-sans: Inter, system-ui, -apple-system, sans-serif;
   --font-serif: Georgia, serif;
-  --font-mono: Menlo, monospace;
-  --radius: .5rem; /* 8px */
-  --shadow-2xs: 0px 2px 0px 0px hsl(220 15% 15% / 0.00);
-  --shadow-xs: 0px 2px 0px 0px hsl(220 15% 15% / 0.00);
-  --shadow-sm: 0px 2px 0px 0px hsl(220 15% 15% / 0.00), 0px 1px 2px -1px hsl(220 15% 15% / 0.00);
-  --shadow: 0px 2px 0px 0px hsl(220 15% 15% / 0.00), 0px 1px 2px -1px hsl(220 15% 15% / 0.00);
-  --shadow-md: 0px 2px 0px 0px hsl(220 15% 15% / 0.00), 0px 2px 4px -1px hsl(220 15% 15% / 0.00);
-  --shadow-lg: 0px 2px 0px 0px hsl(220 15% 15% / 0.00), 0px 4px 6px -1px hsl(220 15% 15% / 0.00);
-  --shadow-xl: 0px 2px 0px 0px hsl(220 15% 15% / 0.00), 0px 8px 10px -1px hsl(220 15% 15% / 0.00);
-  --shadow-2xl: 0px 2px 0px 0px hsl(220 15% 15% / 0.00);
-  --tracking-normal: 0em;
+  --font-mono: 'JetBrains Mono', 'Fira Code', Consolas, monospace;
+  --radius: .25rem; /* 4px - minimal sharp corners */
+  --shadow-2xs: 0px 0px 0px 0px hsl(188 100% 50% / 0.00);
+  --shadow-xs: 0px 0px 0px 0px hsl(188 100% 50% / 0.00);
+  --shadow-sm: 0px 0px 0px 0px hsl(188 100% 50% / 0.00);
+  --shadow: 0px 0px 0px 0px hsl(188 100% 50% / 0.00);
+  --shadow-md: 0px 0px 0px 0px hsl(188 100% 50% / 0.00);
+  --shadow-lg: 0px 0px 8px 0px hsl(188 100% 50% / 0.08);
+  --shadow-xl: 0px 0px 12px 0px hsl(188 100% 50% / 0.12);
+  --shadow-2xl: 0px 0px 16px 0px hsl(188 100% 50% / 0.15);
+  --tracking-normal: 0.01em;
   --spacing: 0.25rem;
 
   /* Automatically computed borders - intensity can be controlled by the user by the --opaque-button-border-intensity setting */
@@ -123,86 +123,85 @@
 }
 
 .dark {
-  --button-outline: rgba(255,255,255, .10);
-  --badge-outline: rgba(255,255,255, .05);
+  --button-outline: rgba(6, 182, 212, .20);
+  --badge-outline: rgba(6, 182, 212, .10);
 
-  --opaque-button-border-intensity: 9;  /* In terms of percentages */
+  --opaque-button-border-intensity: 8;  /* In terms of percentages */
 
   /* Backgrounds applied on top of other backgrounds when hovered/active */
-  --elevate-1: rgba(255,255,255, .04);
-  --elevate-2: rgba(255,255,255, .09);
+  --elevate-1: rgba(6, 182, 212, .08);
+  --elevate-2: rgba(6, 182, 212, .15);
 
-  --background: 207 28% 15%;
+  --background: 200 25% 4%;
 
-  --foreground: 210 40% 90%;
+  --foreground: 180 100% 98%;
 
-  --border: 184 11% 35%;
+  --border: 190 60% 20%;
 
-  --card: 184 11% 28%;
+  --card: 200 20% 7%;
 
-  --card-foreground: 210 40% 90%;
+  --card-foreground: 180 100% 98%;
 
-  --card-border: 184 11% 35%;
+  --card-border: 190 50% 18%;
 
-  --sidebar: 207 28% 18%;
+  --sidebar: 200 25% 5%;
 
-  --sidebar-foreground: 210 40% 90%;
+  --sidebar-foreground: 180 100% 98%;
 
-  --sidebar-border: 184 11% 35%;
+  --sidebar-border: 190 50% 18%;
 
-  --sidebar-primary: 200 40% 74%;
+  --sidebar-primary: 188 100% 55%;
 
-  --sidebar-primary-foreground: 207 28% 15%;
+  --sidebar-primary-foreground: 200 25% 4%;
 
-  --sidebar-accent: 184 11% 32%;
+  --sidebar-accent: 190 35% 12%;
 
-  --sidebar-accent-foreground: 200 40% 80%;
+  --sidebar-accent-foreground: 188 100% 75%;
 
-  --sidebar-ring: 200 40% 74%;
+  --sidebar-ring: 188 100% 55%;
 
-  --popover: 184 11% 25%;
+  --popover: 200 20% 6%;
 
-  --popover-foreground: 210 40% 90%;
+  --popover-foreground: 180 100% 98%;
 
-  --popover-border: 184 11% 35%;
+  --popover-border: 190 50% 18%;
 
-  --primary: 200 40% 74%;
+  --primary: 188 100% 55%;
 
-  --primary-foreground: 207 28% 15%;
+  --primary-foreground: 200 25% 4%;
 
-  --secondary: 184 11% 32%;
+  --secondary: 190 25% 18%;
 
-  --secondary-foreground: 210 40% 90%;
+  --secondary-foreground: 188 100% 90%;
 
-  --muted: 184 11% 25%;
+  --muted: 200 15% 12%;
 
-  --muted-foreground: 140 17% 70%;
+  --muted-foreground: 190 25% 60%;
 
-  --accent: 200 40% 65%;
+  --accent: 188 100% 55%;
 
-  --accent-foreground: 207 28% 15%;
+  --accent-foreground: 200 25% 4%;
 
-  --destructive: 0 70% 30%;
+  --destructive: 0 80% 55%;
 
-  --destructive-foreground: 0 20% 95%;
+  --destructive-foreground: 0 0% 98%;
 
-  /* Used as the border around inputs. Dark mode: Should be a border that is light enough to have high contrast when rendered on a --card background. More contrast than standard --border */
-  --input: 220 15% 35%;
-  --ring: 220 15% 25%;
-  --chart-1: 220 15% 75%;
-  --chart-2: 180 25% 65%;
-  --chart-3: 200 20% 70%;
-  --chart-4: 160 30% 70%;
-  --chart-5: 240 20% 70%;
+  --input: 190 45% 24%;
+  --ring: 188 100% 55%;
+  --chart-1: 188 100% 55%;
+  --chart-2: 173 85% 50%;
+  --chart-3: 198 75% 55%;
+  --chart-4: 158 70% 57%;
+  --chart-5: 212 95% 60%;
 
-  --shadow-2xs: 0px 2px 0px 0px hsl(220 15% 5% / 0.00);
-  --shadow-xs: 0px 2px 0px 0px hsl(220 15% 5% / 0.00);
-  --shadow-sm: 0px 2px 0px 0px hsl(220 15% 5% / 0.00), 0px 1px 2px -1px hsl(220 15% 5% / 0.00);
-  --shadow: 0px 2px 0px 0px hsl(220 15% 5% / 0.00), 0px 1px 2px -1px hsl(220 15% 5% / 0.00);
-  --shadow-md: 0px 2px 0px 0px hsl(220 15% 5% / 0.00), 0px 2px 4px -1px hsl(220 15% 5% / 0.00);
-  --shadow-lg: 0px 2px 0px 0px hsl(220 15% 5% / 0.00), 0px 4px 6px -1px hsl(220 15% 5% / 0.00);
-  --shadow-xl: 0px 2px 0px 0px hsl(220 15% 5% / 0.00), 0px 8px 10px -1px hsl(220 15% 5% / 0.00);
-  --shadow-2xl: 0px 2px 0px 0px hsl(220 15% 5% / 0.00);
+  --shadow-2xs: 0px 0px 0px 0px hsl(188 100% 50% / 0.00);
+  --shadow-xs: 0px 0px 0px 0px hsl(188 100% 50% / 0.00);
+  --shadow-sm: 0px 0px 0px 0px hsl(188 100% 50% / 0.00);
+  --shadow: 0px 0px 0px 0px hsl(188 100% 50% / 0.00);
+  --shadow-md: 0px 0px 0px 0px hsl(188 100% 50% / 0.00);
+  --shadow-lg: 0px 0px 10px 0px hsl(188 100% 50% / 0.10);
+  --shadow-xl: 0px 0px 16px 0px hsl(188 100% 50% / 0.15);
+  --shadow-2xl: 0px 0px 20px 0px hsl(188 100% 50% / 0.20);
 
 }
 
