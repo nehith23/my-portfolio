@@ -84,12 +84,12 @@ export default function ContactSection() {
   };
 
   return (
-    <section id="contact" className="py-20 bg-muted/30">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="contact" className="min-h-screen flex items-center py-24">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 w-full">
         <div className="max-w-6xl mx-auto">
           {/* Section Header */}
-          <div className="text-center mb-12">
-            <h2 className="text-3xl sm:text-4xl font-bold text-foreground mb-4">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl sm:text-4xl font-bold text-foreground mb-6">
               Get In Touch
             </h2>
             <p className="text-lg text-muted-foreground max-w-3xl mx-auto">

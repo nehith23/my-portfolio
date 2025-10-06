@@ -86,23 +86,23 @@ export default function ExperienceSection() {
   const getTypeColor = (type: string) => {
     switch (type) {
       case "research":
-        return "bg-blue-500/10 text-blue-600 dark:text-blue-400";
+        return "bg-primary/10 text-primary";
       case "startup":
-        return "bg-green-500/10 text-green-600 dark:text-green-400";
+        return "bg-primary/10 text-primary";
       case "ambassador":
-        return "bg-purple-500/10 text-purple-600 dark:text-purple-400";
+        return "bg-primary/10 text-primary";
       default:
-        return "bg-gray-500/10 text-gray-600 dark:text-gray-400";
+        return "bg-muted text-muted-foreground";
     }
   };
 
   return (
-    <section id="experience" className="py-20 bg-muted/30">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="experience" className="min-h-screen flex items-center py-24">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 w-full">
         <div className="max-w-4xl mx-auto">
           {/* Section Header */}
-          <div className="text-center mb-12">
-            <h2 className="text-3xl sm:text-4xl font-bold text-foreground mb-4">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl sm:text-4xl font-bold text-foreground mb-6">
               Research Experience
             </h2>
             <p className="text-lg text-muted-foreground max-w-3xl mx-auto">

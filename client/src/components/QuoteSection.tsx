@@ -3,7 +3,7 @@ import roboticsBackground from '@assets/image_1758728862834.png';
 export default function QuoteSection() {
   return (
     <section 
-      className="min-h-[50vh] flex items-center justify-center relative pt-16"
+      className="min-h-screen flex items-center justify-center relative"
       style={{
         backgroundImage: `url(${roboticsBackground})`,
         backgroundSize: 'cover',

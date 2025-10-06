@@ -90,21 +90,21 @@ export default function SkillsSection() {
 
   const getLevelColor = (level: string) => {
     switch (level) {
-      case "Beginner": return "text-yellow-600 dark:text-yellow-400";
-      case "Intermediate": return "text-blue-600 dark:text-blue-400";
-      case "Advanced": return "text-green-600 dark:text-green-400";
-      case "Expert": return "text-purple-600 dark:text-purple-400";
-      default: return "text-gray-600 dark:text-gray-400";
+      case "Beginner": return "text-muted-foreground";
+      case "Intermediate": return "text-primary/80";
+      case "Advanced": return "text-primary";
+      case "Expert": return "text-primary";
+      default: return "text-muted-foreground";
     }
   };
 
   return (
-    <section id="skills" className="py-20">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="skills" className="min-h-screen flex items-center py-24">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 w-full">
         <div className="max-w-6xl mx-auto">
           {/* Section Header */}
-          <div className="text-center mb-12">
-            <h2 className="text-3xl sm:text-4xl font-bold text-foreground mb-4">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl sm:text-4xl font-bold text-foreground mb-6">
               Technical Skills & Expertise
             </h2>
             <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
