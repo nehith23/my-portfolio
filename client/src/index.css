@@ -14,23 +14,23 @@
   --elevate-1: rgba(93, 150, 90, .08);
   --elevate-2: rgba(93, 150, 90, .15);
 
-  --background: 0 0% 97%;
+  --background: 56 44% 86%;
 
   --foreground: 215 16% 35%;
 
   --border: 117 25% 65%;
 
-  --card: 0 0% 100%;
+  --card: 56 50% 93%;
 
   --card-foreground: 215 16% 35%;
 
   --card-border: 117 15% 80%;
 
-  --sidebar: 0 0% 99%;
+  --sidebar: 56 40% 90%;
 
   --sidebar-foreground: 215 16% 35%;
 
-  --sidebar-border: 117 15% 80%;
+  --sidebar-border: 117 15% 75%;
 
   --sidebar-primary: 117 25% 47%;
 
@@ -42,11 +42,11 @@
 
   --sidebar-ring: 117 25% 47%;
 
-  --popover: 0 0% 100%;
+  --popover: 56 50% 93%;
 
   --popover-foreground: 215 16% 35%;
 
-  --popover-border: 117 15% 80%;
+  --popover-border: 117 15% 75%;
 
   --primary: 117 25% 47%;
 
