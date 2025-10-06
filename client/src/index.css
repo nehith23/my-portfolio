@@ -14,19 +14,19 @@
   --elevate-1: rgba(93, 150, 90, .08);
   --elevate-2: rgba(93, 150, 90, .15);
 
-  --background: 56 44% 86%;
+  --background: 57 42% 90%;
 
   --foreground: 215 16% 35%;
 
   --border: 117 25% 65%;
 
-  --card: 56 50% 93%;
+  --card: 57 45% 95%;
 
   --card-foreground: 215 16% 35%;
 
   --card-border: 117 15% 80%;
 
-  --sidebar: 56 40% 90%;
+  --sidebar: 57 38% 92%;
 
   --sidebar-foreground: 215 16% 35%;
 
@@ -42,7 +42,7 @@
 
   --sidebar-ring: 117 25% 47%;
 
-  --popover: 56 50% 93%;
+  --popover: 57 45% 95%;
 
   --popover-foreground: 215 16% 35%;
 
