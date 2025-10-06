@@ -185,26 +185,6 @@ export default function ContactSection() {
                   </Card>
                 </StaggerItem>
 
-                {/* Research Interests */}
-                <StaggerItem>
-                  <Card className="hover-elevate">
-                    <CardHeader>
-                      <CardTitle className="text-xl">Research Interests</CardTitle>
-                    </CardHeader>
-                    <CardContent>
-                      <div className="flex flex-wrap gap-2">
-                        <Badge variant="secondary">Computer Vision</Badge>
-                        <Badge variant="secondary">3D Reconstruction</Badge>
-                        <Badge variant="secondary">SLAM</Badge>
-                        <Badge variant="secondary">Aerial Robotics</Badge>
-                        <Badge variant="secondary">AI/ML</Badge>
-                        <Badge variant="secondary">Robots</Badge>
-                        <Badge variant="secondary">Intelligent Systems</Badge>
-                        <Badge variant="secondary">Autonomous Systems</Badge>
-                      </div>
-                    </CardContent>
-                  </Card>
-                </StaggerItem>
               </div>
             </StaggerContainer>
 
@@ -285,18 +265,38 @@ export default function ContactSection() {
             </ScrollReveal>
           </div>
 
-          {/* Additional Info */}
+          {/* Research Interests and Opportunities - Side by Side */}
           <ScrollReveal direction="up" delay={0.3}>
-            <div className="mt-12 text-center">
-              <Card className="max-w-2xl mx-auto">
-                <CardContent className="p-6">
-                  <h3 className="text-lg font-semibold mb-4">Open to Opportunities</h3>
+            <div className="mt-12 grid grid-cols-1 md:grid-cols-2 gap-6">
+              <Card className="hover-elevate">
+                <CardHeader>
+                  <CardTitle className="text-xl">Research Interests</CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <div className="flex flex-wrap gap-2">
+                    <Badge variant="secondary">Computer Vision</Badge>
+                    <Badge variant="secondary">3D Reconstruction</Badge>
+                    <Badge variant="secondary">SLAM</Badge>
+                    <Badge variant="secondary">Aerial Robotics</Badge>
+                    <Badge variant="secondary">AI/ML</Badge>
+                    <Badge variant="secondary">Robots</Badge>
+                    <Badge variant="secondary">Intelligent Systems</Badge>
+                    <Badge variant="secondary">Autonomous Systems</Badge>
+                  </div>
+                </CardContent>
+              </Card>
+
+              <Card className="hover-elevate">
+                <CardHeader>
+                  <CardTitle className="text-xl">Open to Opportunities</CardTitle>
+                </CardHeader>
+                <CardContent>
                   <p className="text-muted-foreground mb-4">
                     I'm actively seeking PhD positions and research collaborations in robotics, 
                     computer vision, and AI. I'm particularly interested in projects involving 
                     3D reconstruction, autonomous systems, and practical applications of AI in robotics.
                   </p>
-                  <div className="flex flex-wrap justify-center gap-2">
+                  <div className="flex flex-wrap gap-2">
                     <Badge variant="outline">PhD Positions</Badge>
                     <Badge variant="outline">Research Collaborations</Badge>
                     <Badge variant="outline">Industry Projects</Badge>
