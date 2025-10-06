@@ -1,4 +1,4 @@
-import roboticsBackground from '@assets/image_1758728862834.png';
+import roboticsBackground from '@assets/image_1759772285383.png';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { useRef } from 'react';
 import ScrollReveal from '@/components/animations/ScrollReveal';
