@@ -4,6 +4,8 @@ import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { ExternalLink, Github, Brain, Camera, Cpu, Zap } from "lucide-react";
 import ProjectDetailModal from "./ProjectDetailModal";
+import ScrollReveal from "@/components/animations/ScrollReveal";
+import StaggerContainer, { StaggerItem } from "@/components/animations/StaggerContainer";
 
 interface Project {
   id: string;
@@ -21,7 +23,6 @@ interface Project {
 }
 
 export default function ProjectsSection() {
-  // TODO: Replace with actual project data
   const projects: Project[] = [
     {
       id: "1",
@@ -190,127 +191,137 @@ export default function ProjectsSection() {
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 w-full">
         <div className="max-w-6xl mx-auto">
           {/* Section Header */}
-          <div className="text-center mb-16">
-            <h2 className="text-3xl sm:text-4xl font-bold text-foreground mb-6">
-              Research Projects
-            </h2>
-            <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
-              A comprehensive portfolio of research projects spanning robotics, computer vision, 
-              and AI with practical implementations and novel contributions.
-            </p>
-          </div>
+          <ScrollReveal direction="up" delay={0.1}>
+            <div className="text-center mb-16">
+              <h2 className="text-3xl sm:text-4xl font-bold text-foreground mb-6">
+                Research Projects
+              </h2>
+              <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
+                A comprehensive portfolio of research projects spanning robotics, computer vision, 
+                and AI with practical implementations and novel contributions.
+              </p>
+            </div>
+          </ScrollReveal>
 
           {/* Category Filter */}
-          <div className="flex flex-wrap justify-center gap-2 mb-8">
-            {categories.map((category) => (
-              <Button
-                key={category}
-                variant={selectedCategory === category ? "default" : "outline"}
-                size="sm"
-                onClick={() => setSelectedCategory(category)}
-                data-testid={`filter-${category.toLowerCase().replace(/\//g, '-')}`}
-              >
-                {category}
-              </Button>
-            ))}
-          </div>
+          <ScrollReveal direction="up" delay={0.2}>
+            <div className="flex flex-wrap justify-center gap-2 mb-8">
+              {categories.map((category) => (
+                <Button
+                  key={category}
+                  variant={selectedCategory === category ? "default" : "outline"}
+                  size="sm"
+                  onClick={() => setSelectedCategory(category)}
+                  data-testid={`filter-${category.toLowerCase().replace(/\//g, '-')}`}
+                >
+                  {category}
+                </Button>
+              ))}
+            </div>
+          </ScrollReveal>
 
           {/* Projects Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            {filteredProjects.map((project) => {
-              const IconComponent = project.icon;
-              return (
-                <Card key={project.id} className="hover-elevate h-full">
-                  <CardHeader>
-                    <div className="flex items-start gap-4">
-                      <div className="p-2 bg-primary/10 rounded-lg flex-shrink-0">
-                        <IconComponent className="w-6 h-6 text-primary" />
-                      </div>
-                      <div className="flex-1">
-                        <CardTitle className="text-lg leading-tight mb-2">
-                          {project.title}
-                        </CardTitle>
-                        <Badge variant="secondary" className="text-xs">
-                          {project.category}
-                        </Badge>
-                      </div>
-                    </div>
-                  </CardHeader>
-                  <CardContent>
-                    <p className="text-sm text-muted-foreground mb-4 leading-relaxed">
-                      {project.description}
-                    </p>
-                    
-                    <div className="mb-4">
-                      <h4 className="text-sm font-medium mb-2">Key Highlights:</h4>
-                      <ul className="text-xs text-muted-foreground space-y-1">
-                        {project.highlights.map((highlight, index) => (
-                          <li key={index} className="flex items-start">
-                            <span className="w-1 h-1 bg-primary rounded-full mt-2 mr-2 flex-shrink-0" />
-                            {highlight}
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
+          <StaggerContainer staggerDelay={0.12} key={selectedCategory}>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              {filteredProjects.map((project) => {
+                const IconComponent = project.icon;
+                return (
+                  <StaggerItem key={project.id}>
+                    <Card className="hover-elevate h-full">
+                      <CardHeader>
+                        <div className="flex items-start gap-4">
+                          <div className="p-2 bg-primary/10 rounded-lg flex-shrink-0">
+                            <IconComponent className="w-6 h-6 text-primary" />
+                          </div>
+                          <div className="flex-1">
+                            <CardTitle className="text-lg leading-tight mb-2">
+                              {project.title}
+                            </CardTitle>
+                            <Badge variant="secondary" className="text-xs">
+                              {project.category}
+                            </Badge>
+                          </div>
+                        </div>
+                      </CardHeader>
+                      <CardContent>
+                        <p className="text-sm text-muted-foreground mb-4 leading-relaxed">
+                          {project.description}
+                        </p>
+                        
+                        <div className="mb-4">
+                          <h4 className="text-sm font-medium mb-2">Key Highlights:</h4>
+                          <ul className="text-xs text-muted-foreground space-y-1">
+                            {project.highlights.map((highlight, index) => (
+                              <li key={index} className="flex items-start">
+                                <span className="w-1 h-1 bg-primary rounded-full mt-2 mr-2 flex-shrink-0" />
+                                {highlight}
+                              </li>
+                            ))}
+                          </ul>
+                        </div>
 
-                    <div className="flex flex-wrap gap-1 mb-4">
-                      {project.technologies.slice(0, 4).map((tech) => (
-                        <Badge key={tech} variant="outline" className="text-xs">
-                          {tech}
-                        </Badge>
-                      ))}
-                      {project.technologies.length > 4 && (
-                        <Badge variant="outline" className="text-xs">
-                          +{project.technologies.length - 4} more
-                        </Badge>
-                      )}
-                    </div>
+                        <div className="flex flex-wrap gap-1 mb-4">
+                          {project.technologies.slice(0, 4).map((tech) => (
+                            <Badge key={tech} variant="outline" className="text-xs">
+                              {tech}
+                            </Badge>
+                          ))}
+                          {project.technologies.length > 4 && (
+                            <Badge variant="outline" className="text-xs">
+                              +{project.technologies.length - 4} more
+                            </Badge>
+                          )}
+                        </div>
 
-                    <div className="flex gap-2">
-                      <Button
-                        variant="ghost"
-                        size="sm"
-                        onClick={() => handleViewProject(project.id)}
-                        data-testid={`button-view-project-${project.id}`}
-                      >
-                        <ExternalLink className="w-4 h-4 mr-2" />
-                        Details
-                      </Button>
-                      <Button
-                        variant="ghost"
-                        size="sm"
-                        onClick={() => handleViewCode(project.id)}
-                        data-testid={`button-view-code-${project.id}`}
-                      >
-                        <Github className="w-4 h-4 mr-2" />
-                        Code
-                      </Button>
-                    </div>
-                  </CardContent>
-                </Card>
-              );
-            })}
-          </div>
+                        <div className="flex gap-2">
+                          <Button
+                            variant="ghost"
+                            size="sm"
+                            onClick={() => handleViewProject(project.id)}
+                            data-testid={`button-view-project-${project.id}`}
+                          >
+                            <ExternalLink className="w-4 h-4 mr-2" />
+                            Details
+                          </Button>
+                          <Button
+                            variant="ghost"
+                            size="sm"
+                            onClick={() => handleViewCode(project.id)}
+                            data-testid={`button-view-code-${project.id}`}
+                          >
+                            <Github className="w-4 h-4 mr-2" />
+                            Code
+                          </Button>
+                        </div>
+                      </CardContent>
+                    </Card>
+                  </StaggerItem>
+                );
+              })}
+            </div>
+          </StaggerContainer>
 
           {/* Project Stats */}
-          <div className="mt-12 grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
-            <div className="p-6 bg-muted/30 rounded-lg">
-              <div className="text-2xl font-bold text-primary mb-2">8</div>
-              <div className="text-sm text-muted-foreground">Major Projects</div>
+          <ScrollReveal direction="up" delay={0.2}>
+            <div className="mt-12 grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
+              <div className="p-6 bg-muted/30 rounded-lg">
+                <div className="text-2xl font-bold text-primary mb-2">8</div>
+                <div className="text-sm text-muted-foreground">Major Projects</div>
+              </div>
+              <div className="p-6 bg-muted/30 rounded-lg">
+                <div className="text-2xl font-bold text-primary mb-2">4</div>
+                <div className="text-sm text-muted-foreground">Research Areas</div>
+              </div>
+              <div className="p-6 bg-muted/30 rounded-lg">
+                <div className="text-2xl font-bold text-primary mb-2">15+</div>
+                <div className="text-sm text-muted-foreground">Technologies</div>
+              </div>
+              <div className="p-6 bg-muted/30 rounded-lg">
+                <div className="text-2xl font-bold text-primary mb-2">100%</div>
+                <div className="text-sm text-muted-foreground">Hands-on</div>
+              </div>
             </div>
-            <div className="p-6 bg-muted/30 rounded-lg">
-              <div className="text-2xl font-bold text-primary mb-2">4</div>
-              <div className="text-sm text-muted-foreground">Research Areas</div>
-            </div>
-            <div className="p-6 bg-muted/30 rounded-lg">
-              <div className="text-2xl font-bold text-primary mb-2">15+</div>
-              <div className="text-sm text-muted-foreground">Technologies</div>
-            </div>
-            <div className="p-6 bg-muted/30 rounded-lg">
-              <div className="text-2xl font-bold text-primary mb-2">100%</div>
-              <div className="text-sm text-muted-foreground">Hands-on</div>
-            </div>
-          </div>
+          </ScrollReveal>
         </div>
       </div>
 
