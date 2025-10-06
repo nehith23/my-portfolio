@@ -26,7 +26,7 @@ export default function QuoteSection() {
           y,
           scale,
           backgroundImage: `url(${roboticsBackground})`,
-          backgroundSize: 'cover',
+          backgroundSize: 'contain',
           backgroundPosition: 'center',
           backgroundRepeat: 'no-repeat',
         }}
