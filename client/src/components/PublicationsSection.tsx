@@ -3,6 +3,8 @@ import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Tooltip, TooltipContent, TooltipTrigger } from "@/components/ui/tooltip";
 import { ExternalLink, Calendar, Users } from "lucide-react";
+import ScrollReveal from "@/components/animations/ScrollReveal";
+import StaggerContainer, { StaggerItem } from "@/components/animations/StaggerContainer";
 
 interface Publication {
   id: string;
@@ -17,7 +19,6 @@ interface Publication {
 }
 
 export default function PublicationsSection() {
-  // TODO: Replace with actual publication data
   const publications: Publication[] = [
     {
       id: "1",
@@ -93,107 +94,115 @@ export default function PublicationsSection() {
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 w-full">
         <div className="max-w-6xl mx-auto">
           {/* Section Header */}
-          <div className="text-center mb-16">
-            <h2 className="text-3xl sm:text-4xl font-bold text-foreground mb-6">
-              Publications & Research
-            </h2>
-            <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
-              Peer-reviewed publications spanning computer vision, robotics, and AI with focus on 
-              practical applications and novel methodologies.
-            </p>
-          </div>
+          <ScrollReveal direction="up" delay={0.1}>
+            <div className="text-center mb-16">
+              <h2 className="text-3xl sm:text-4xl font-bold text-foreground mb-6">
+                Publications & Research
+              </h2>
+              <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
+                Peer-reviewed publications spanning computer vision, robotics, and AI with focus on 
+                practical applications and novel methodologies.
+              </p>
+            </div>
+          </ScrollReveal>
 
           {/* Publications Grid */}
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-            {publications.map((publication) => (
-              <Card key={publication.id} className="hover-elevate">
-                <CardHeader>
-                  <div className="flex items-start justify-between gap-4">
-                    <div className="flex-1">
-                      <CardTitle className="text-lg leading-tight mb-2">
-                        {publication.title}
-                      </CardTitle>
-                      <div className="flex items-center gap-2 text-sm text-muted-foreground mb-2">
-                        <Users className="w-4 h-4" />
-                        <span dangerouslySetInnerHTML={{
-                          __html: publication.authors.replace('Nehith Sai Vemulapalli', '<strong>Nehith Sai Vemulapalli</strong>')
-                        }} />
+          <StaggerContainer staggerDelay={0.15}>
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+              {publications.map((publication) => (
+                <StaggerItem key={publication.id}>
+                  <Card className="hover-elevate h-full">
+                    <CardHeader>
+                      <div className="flex items-start justify-between gap-4">
+                        <div className="flex-1">
+                          <CardTitle className="text-lg leading-tight mb-2">
+                            {publication.title}
+                          </CardTitle>
+                          <div className="flex items-center gap-2 text-sm text-muted-foreground mb-2">
+                            <Users className="w-4 h-4" />
+                            <span dangerouslySetInnerHTML={{
+                              __html: publication.authors.replace('Nehith Sai Vemulapalli', '<strong>Nehith Sai Vemulapalli</strong>')
+                            }} />
+                          </div>
+                          <div className="flex items-center gap-2 text-sm text-muted-foreground">
+                            <Calendar className="w-4 h-4" />
+                            <span>{publication.year}</span>
+                          </div>
+                        </div>
+                        <Badge 
+                          variant={publication.status === "published" ? "default" : "secondary"}
+                          className="flex-shrink-0"
+                        >
+                          {publication.status === "published" ? "Published" : "In Preparation"}
+                        </Badge>
                       </div>
-                      <div className="flex items-center gap-2 text-sm text-muted-foreground">
-                        <Calendar className="w-4 h-4" />
-                        <span>{publication.year}</span>
+                    </CardHeader>
+                    <CardContent>
+                      <div className="mb-4">
+                        <p className="text-sm text-muted-foreground italic">
+                          {publication.venue}
+                        </p>
                       </div>
-                    </div>
-                    <Badge 
-                      variant={publication.status === "published" ? "default" : "secondary"}
-                      className="flex-shrink-0"
-                    >
-                      {publication.status === "published" ? "Published" : "In Preparation"}
-                    </Badge>
-                  </div>
-                </CardHeader>
-                <CardContent>
-                  <div className="mb-4">
-                    <p className="text-sm text-muted-foreground italic">
-                      {publication.venue}
-                    </p>
-                  </div>
-                  
-                  <div className="flex flex-wrap gap-2 mb-4">
-                    {publication.keywords.map((keyword) => (
-                      <Badge key={keyword} variant="outline" className="text-xs">
-                        {keyword}
-                      </Badge>
-                    ))}
-                  </div>
+                      
+                      <div className="flex flex-wrap gap-2 mb-4">
+                        {publication.keywords.map((keyword) => (
+                          <Badge key={keyword} variant="outline" className="text-xs">
+                            {keyword}
+                          </Badge>
+                        ))}
+                      </div>
 
-                  <Button
-                    variant="ghost"
-                    size="sm"
-                    onClick={() => handleViewPublication(publication.id)}
-                    data-testid={`button-view-publication-${publication.id}`}
-                  >
-                    <ExternalLink className="w-4 h-4 mr-2" />
-                    View Details
-                  </Button>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
+                      <Button
+                        variant="ghost"
+                        size="sm"
+                        onClick={() => handleViewPublication(publication.id)}
+                        data-testid={`button-view-publication-${publication.id}`}
+                      >
+                        <ExternalLink className="w-4 h-4 mr-2" />
+                        View Details
+                      </Button>
+                    </CardContent>
+                  </Card>
+                </StaggerItem>
+              ))}
+            </div>
+          </StaggerContainer>
 
           {/* Publication Stats */}
-          <div className="mt-12 grid grid-cols-1 md:grid-cols-4 gap-6 text-center">
-            <div className="p-6 bg-background rounded-lg border">
-              <div className="text-2xl font-bold text-primary mb-2">6</div>
-              <div className="text-sm text-muted-foreground">Total Publications</div>
+          <ScrollReveal direction="up" delay={0.2}>
+            <div className="mt-12 grid grid-cols-1 md:grid-cols-4 gap-6 text-center">
+              <div className="p-6 bg-background rounded-lg border">
+                <div className="text-2xl font-bold text-primary mb-2">6</div>
+                <div className="text-sm text-muted-foreground">Total Publications</div>
+              </div>
+              <div className="p-6 bg-background rounded-lg border">
+                <div className="text-2xl font-bold text-primary mb-2">4</div>
+                <div className="text-sm text-muted-foreground">Published Papers</div>
+              </div>
+              <div className="p-6 bg-background rounded-lg border">
+                <div className="text-2xl font-bold text-primary mb-2">2</div>
+                <div className="text-sm text-muted-foreground">In Preparation</div>
+              </div>
+              <Tooltip>
+                <TooltipTrigger asChild>
+                  <div className="p-6 bg-background rounded-lg border cursor-pointer hover-elevate">
+                    <div className="text-2xl font-bold text-primary mb-2">3</div>
+                    <div className="text-sm text-muted-foreground">Research Areas</div>
+                  </div>
+                </TooltipTrigger>
+                <TooltipContent>
+                  <div className="text-sm">
+                    <div className="font-medium mb-1">Research Areas:</div>
+                    <ul className="space-y-1">
+                      <li>• Computer Vision</li>
+                      <li>• Machine Learning/AI</li>
+                      <li>• Robotics</li>
+                    </ul>
+                  </div>
+                </TooltipContent>
+              </Tooltip>
             </div>
-            <div className="p-6 bg-background rounded-lg border">
-              <div className="text-2xl font-bold text-primary mb-2">4</div>
-              <div className="text-sm text-muted-foreground">Published Papers</div>
-            </div>
-            <div className="p-6 bg-background rounded-lg border">
-              <div className="text-2xl font-bold text-primary mb-2">2</div>
-              <div className="text-sm text-muted-foreground">In Preparation</div>
-            </div>
-            <Tooltip>
-              <TooltipTrigger asChild>
-                <div className="p-6 bg-background rounded-lg border cursor-pointer hover-elevate">
-                  <div className="text-2xl font-bold text-primary mb-2">3</div>
-                  <div className="text-sm text-muted-foreground">Research Areas</div>
-                </div>
-              </TooltipTrigger>
-              <TooltipContent>
-                <div className="text-sm">
-                  <div className="font-medium mb-1">Research Areas:</div>
-                  <ul className="space-y-1">
-                    <li>• Computer Vision</li>
-                    <li>• Machine Learning/AI</li>
-                    <li>• Robotics</li>
-                  </ul>
-                </div>
-              </TooltipContent>
-            </Tooltip>
-          </div>
+          </ScrollReveal>
         </div>
       </div>
     </section>
