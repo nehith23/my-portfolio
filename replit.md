@@ -35,10 +35,11 @@ Preferred communication style: Simple, everyday language.
 - **Future-Ready**: Infrastructure prepared for user management and admin access
 
 ### Design System
-- **Color Palette**: Academic-focused with deep blue primary colors and sophisticated dark mode
-- **Typography**: Inter font family optimized for academic content readability
-- **Component Theming**: CSS variables with light/dark mode support
-- **Responsive Design**: Mobile-first approach with academic reviewer experience optimization
+- **Color Palette**: High-tech HUD aesthetic with nearly black backgrounds, bright cyan accents (#06B6D4), and minimal borders for a premium console feel
+- **Typography**: Inter font family with monospace accents for technical precision
+- **Component Theming**: CSS variables with cyan-infused dark themes for both light and dark modes
+- **Visual Style**: Minimal, sleek, and modern - designed to feel like a high-end application or heads-up display rather than a traditional website
+- **Responsive Design**: Mobile-first approach optimized for clarity and precision
 
 ### Content Management
 - **Portfolio Sections**: Hero, Publications, Projects, Experience, Skills, Contact
