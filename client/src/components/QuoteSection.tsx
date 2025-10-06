@@ -12,7 +12,7 @@ export default function QuoteSection() {
 
   const y = useTransform(scrollYProgress, [0, 1], ['0%', '50%']);
   const opacity = useTransform(scrollYProgress, [0, 0.3, 0.5, 0.7, 1], [0.3, 1, 1, 1, 0.3]);
-  const scale = useTransform(scrollYProgress, [0, 0.5, 1], [1.1, 1, 1.1]);
+  const scale = useTransform(scrollYProgress, [0, 0.5, 1], [1, 1, 1]);
 
   return (
     <section 
@@ -27,7 +27,7 @@ export default function QuoteSection() {
           scale,
           backgroundImage: `url(${roboticsBackground})`,
           backgroundSize: 'cover',
-          backgroundPosition: 'center bottom',
+          backgroundPosition: 'center',
           backgroundRepeat: 'no-repeat',
         }}
       />
