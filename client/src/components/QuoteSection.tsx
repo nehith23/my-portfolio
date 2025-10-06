@@ -17,7 +17,7 @@ export default function QuoteSection() {
   return (
     <section 
       ref={ref}
-      className="h-screen flex items-center relative overflow-hidden -mt-16 pt-16 bg-white"
+      className="h-screen flex items-center relative overflow-hidden -mt-16 pt-16"
     >
       {/* Parallax background with scale effect */}
       <motion.div
@@ -26,7 +26,7 @@ export default function QuoteSection() {
           y,
           scale,
           backgroundImage: `url(${roboticsBackground})`,
-          backgroundSize: 'contain',
+          backgroundSize: 'cover',
           backgroundPosition: 'center',
           backgroundRepeat: 'no-repeat',
         }}
