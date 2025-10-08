@@ -72,7 +72,7 @@ export default function ProjectsSection() {
         "Published evaluation framework adopted by research community",
         "Identified optimal parameters for different environmental scenarios"
       ],
-      githubUrl: "https://github.com/nehith23/orb-slam2-evaluation"
+      githubUrl: "https://github.com/nehith23/Robot-Vision-and-Navigation"
     },
     {
       id: "3",
