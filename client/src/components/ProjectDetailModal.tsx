@@ -8,7 +8,7 @@ import {
 } from "@/components/ui/dialog";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { ExternalLink, Github, X } from "lucide-react";
+import { ExternalLink, Github } from "lucide-react";
 
 interface Project {
   id: string;
@@ -42,47 +42,35 @@ export default function ProjectDetailModal({ project, isOpen, onClose }: Project
     <Dialog open={isOpen} onOpenChange={onClose}>
       <DialogContent className="max-w-4xl max-h-[90vh] overflow-y-auto">
         <DialogHeader>
-          <div className="flex items-start justify-between gap-4">
-            <div className="flex-1">
-              <DialogTitle className="text-2xl leading-tight mb-2">
-                {project.title}
-              </DialogTitle>
-              <div className="flex items-center gap-3 mb-4">
-                <Badge variant="secondary">{project.category}</Badge>
-                <div className="flex items-center gap-2">
-                  {project.githubUrl && (
-                    <Button
-                      variant="outline"
-                      size="sm"
-                      onClick={() => handleExternalLink(project.githubUrl!)}
-                      data-testid={`button-github-${project.id}`}
-                    >
-                      <Github className="w-4 h-4 mr-2" />
-                      Code
-                    </Button>
-                  )}
-                  {project.demoUrl && (
-                    <Button
-                      variant="outline"
-                      size="sm"
-                      onClick={() => handleExternalLink(project.demoUrl!)}
-                      data-testid={`button-demo-${project.id}`}
-                    >
-                      <ExternalLink className="w-4 h-4 mr-2" />
-                      Demo
-                    </Button>
-                  )}
-                </div>
-              </div>
+          <DialogTitle className="text-2xl leading-tight mb-2">
+            {project.title}
+          </DialogTitle>
+          <div className="flex items-center gap-3 mb-4">
+            <Badge variant="secondary">{project.category}</Badge>
+            <div className="flex items-center gap-2">
+              {project.githubUrl && (
+                <Button
+                  variant="outline"
+                  size="sm"
+                  onClick={() => handleExternalLink(project.githubUrl!)}
+                  data-testid={`button-github-${project.id}`}
+                >
+                  <Github className="w-4 h-4 mr-2" />
+                  Code
+                </Button>
+              )}
+              {project.demoUrl && (
+                <Button
+                  variant="outline"
+                  size="sm"
+                  onClick={() => handleExternalLink(project.demoUrl!)}
+                  data-testid={`button-demo-${project.id}`}
+                >
+                  <ExternalLink className="w-4 h-4 mr-2" />
+                  Demo
+                </Button>
+              )}
             </div>
-            <Button
-              variant="ghost"
-              size="icon"
-              onClick={onClose}
-              data-testid="button-close-modal"
-            >
-              <X className="w-4 h-4" />
-            </Button>
           </div>
         </DialogHeader>
 
