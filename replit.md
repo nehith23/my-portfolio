@@ -35,18 +35,30 @@ Preferred communication style: Simple, everyday language.
 - **Future-Ready**: Infrastructure prepared for user management and admin access
 
 ### Design System
-- **Color Palette**: Strict dark mode with pure black background (#000000), white/light gray text, and single electric cyan accent (HSL 180 100% 50-60%)
-- **Typography**: Inter font family with generous letter spacing (0.05em body, 0.03em headings, 0.08em interactive elements) for modern minimal aesthetic
-- **Component Theming**: CSS variables enforcing monochrome black/white/gray with electric cyan as the only accent color
-- **Visual Style**: Ultra-minimal and modern - pure black backgrounds with sharp cyan highlights creating a high-tech console or HUD aesthetic
-- **Responsive Design**: Mobile-first approach optimized for clarity and precision
-- **UI/UX Approach**: Full-screen chapter-like sections (min-h-screen) with vertical centering, rounded corners on all components (1.5rem/24px radius), and generous breathing room (py-24 section spacing, mb-16 header spacing) for premium presentation
+- **Color Palette**: Sage/forest green color scheme (#5d965a sage green, #366133 forest green) with dark mode support
+- **Typography**: Space Grotesk font family throughout for modern, professional aesthetic
+- **Component Theming**: Uniform py-16 spacing and centered layouts with card-based components
+- **Visual Style**: Clean, academic aesthetic with consistent section spacing and card-based project displays
+- **Responsive Design**: Mobile-first approach with responsive grid layouts for Contact section
+- **UI/UX Approach**: Uniform section layouts with centered content, comprehensive project modals with detailed technical information
+- **Dark Mode**: High contrast text (90% lightness) on dark backgrounds for optimal readability
 
 ### Content Management
 - **Portfolio Sections**: Hero, Publications, Projects, Experience, Skills, Contact
 - **Data Structure**: TypeScript interfaces for publications, projects, and experience entries
 - **Asset Management**: PDF CV download and project imagery support
 - **SEO Optimization**: Meta tags and Open Graph properties for academic discovery
+- **Project Portfolio**: 10 comprehensive research projects with detailed descriptions, challenges, and outcomes sourced from actual GitHub repositories
+  - Project 1: Hybrid 3D Reconstruction Pipeline (Cultural Heritage)
+  - Project 2: Graph-Based SLAM & ORB-SLAM2 Evaluation
+  - Project 3: Structural Inspection Path Planning & Multi-Agent Swarm Control
+  - Project 4: Motor Modelling & Trajectory Learning (7-DoF Panda Arm)
+  - Project 5: EKF Localization & Model Predictive Control
+  - Project 6: Self-Reconfigurable Robots for Space Exploration
+  - Project 7: Object Segmentation & Geometric Estimation (Autonomous Drone Landing)
+  - Project 8: Multimodal Affective State Classification in Video Games
+  - Project 9: Pick-n-Place Manipulation using 7-DOF Robot Arm
+  - Project 10: YouBot Kinematics and Trajectory Planning
 
 ## External Dependencies
 
