@@ -85,7 +85,8 @@ export default function ProjectsSection() {
         "TSP-optimized path planning",
         "Multi-agent coordination",
         "Real drone validation"
-      ]
+      ],
+      githubUrl: "https://github.com/nehith23/uav-navigation-and-swarm-control"
     },
     {
       id: "4",
