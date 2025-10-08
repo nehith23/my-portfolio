@@ -99,7 +99,8 @@ export default function ProjectsSection() {
         "Neural network motor modeling",
         "Trajectory prediction",
         "Feedback control integration"
-      ]
+      ],
+      githubUrl: "https://github.com/nehith23/Learning-Based-Robot-Arm-Control"
     },
     {
       id: "5",
