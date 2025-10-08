@@ -139,7 +139,8 @@ export default function ProjectsSection() {
         "Multi-sensor fusion",
         "Geometric estimation",
         "Rotation analysis"
-      ]
+      ],
+      githubUrl: "https://github.com/nehith23/Drone-Landing-on-Astronomical-Object"
     },
     {
       id: "8",
