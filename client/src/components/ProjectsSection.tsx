@@ -47,8 +47,7 @@ export default function ProjectsSection() {
         "Successfully reconstructed heritage sites in challenging conditions",
         "Framework adopted for multiple archaeological projects"
       ],
-      githubUrl: "https://github.com/nehith23",
-      demoUrl: "https://example.com/3d-reconstruction-demo"
+      githubUrl: "https://github.com/nehith23/Hybrid-3D-Reconstruction-Pipeline-for-Cultural-Heritage"
     },
     {
       id: "2",
