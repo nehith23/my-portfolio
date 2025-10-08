@@ -112,7 +112,8 @@ export default function ProjectsSection() {
         "EKF localization system",
         "MPC trajectory tracking",
         "Noise-robust validation"
-      ]
+      ],
+      githubUrl: "https://github.com/nehith23/Robot-Localization-MPC-EKF"
     },
     {
       id: "6",
