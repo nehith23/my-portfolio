@@ -127,7 +127,8 @@ export default function ProjectsSection() {
         "Morphology-shifting design",
         "Multi-terrain adaptation",
         "Space exploration focus"
-      ]
+      ],
+      githubUrl: "https://github.com/nehith23/Self-Reconfigurable-Soft-Robot-for-Space-Exploration"
     },
     {
       id: "7",
