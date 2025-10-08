@@ -155,7 +155,8 @@ export default function ProjectsSection() {
         "Multimodal data fusion",
         "Real-time classification",
         "Physiological sensors"
-      ]
+      ],
+      githubUrl: "https://github.com/nehith23/Multimodal-Affective-State-Classification-in-Video-Games"
     }
   ];
 
