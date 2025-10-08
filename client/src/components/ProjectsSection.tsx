@@ -300,10 +300,13 @@ export default function ProjectsSection() {
   const [selectedCategory, setSelectedCategory] = useState("All");
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [showAll, setShowAll] = useState(false);
 
   const filteredProjects = selectedCategory === "All" 
     ? projects 
     : projects.filter(project => project.category === selectedCategory);
+  
+  const displayedProjects = showAll ? filteredProjects : filteredProjects.slice(0, 6);
 
   const handleViewProject = (id: string) => {
     const project = projects.find(p => p.id === id);
@@ -362,85 +365,108 @@ export default function ProjectsSection() {
           </ScrollReveal>
 
           {/* Projects Grid */}
-          <StaggerContainer staggerDelay={0.12} key={selectedCategory}>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              {filteredProjects.map((project) => {
-                const IconComponent = project.icon;
-                return (
-                  <StaggerItem key={project.id}>
-                    <Card className="hover-elevate h-full">
-                      <CardHeader>
-                        <div className="flex items-start gap-4">
-                          <div className="p-2 bg-primary/10 rounded-lg flex-shrink-0">
-                            <IconComponent className="w-6 h-6 text-primary" />
+          <div className="relative">
+            <StaggerContainer staggerDelay={0.12} key={selectedCategory}>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                {displayedProjects.map((project) => {
+                  const IconComponent = project.icon;
+                  return (
+                    <StaggerItem key={project.id}>
+                      <Card className="hover-elevate h-full">
+                        <CardHeader>
+                          <div className="flex items-start gap-4">
+                            <div className="p-2 bg-primary/10 rounded-lg flex-shrink-0">
+                              <IconComponent className="w-6 h-6 text-primary" />
+                            </div>
+                            <div className="flex-1">
+                              <CardTitle className="text-lg leading-tight mb-2">
+                                {project.title}
+                              </CardTitle>
+                              <Badge variant="secondary" className="text-xs">
+                                {project.category}
+                              </Badge>
+                            </div>
                           </div>
-                          <div className="flex-1">
-                            <CardTitle className="text-lg leading-tight mb-2">
-                              {project.title}
-                            </CardTitle>
-                            <Badge variant="secondary" className="text-xs">
-                              {project.category}
-                            </Badge>
+                        </CardHeader>
+                        <CardContent>
+                          <p className="text-sm text-muted-foreground mb-4 leading-relaxed">
+                            {project.description}
+                          </p>
+                          
+                          <div className="mb-4">
+                            <h4 className="text-sm font-medium mb-2">Key Highlights:</h4>
+                            <ul className="text-xs text-muted-foreground space-y-1">
+                              {project.highlights.map((highlight, index) => (
+                                <li key={index} className="flex items-start">
+                                  <span className="w-1 h-1 bg-primary rounded-full mt-2 mr-2 flex-shrink-0" />
+                                  {highlight}
+                                </li>
+                              ))}
+                            </ul>
                           </div>
-                        </div>
-                      </CardHeader>
-                      <CardContent>
-                        <p className="text-sm text-muted-foreground mb-4 leading-relaxed">
-                          {project.description}
-                        </p>
-                        
-                        <div className="mb-4">
-                          <h4 className="text-sm font-medium mb-2">Key Highlights:</h4>
-                          <ul className="text-xs text-muted-foreground space-y-1">
-                            {project.highlights.map((highlight, index) => (
-                              <li key={index} className="flex items-start">
-                                <span className="w-1 h-1 bg-primary rounded-full mt-2 mr-2 flex-shrink-0" />
-                                {highlight}
-                              </li>
+
+                          <div className="flex flex-wrap gap-1 mb-4">
+                            {project.technologies.slice(0, 4).map((tech) => (
+                              <Badge key={tech} variant="outline" className="text-xs">
+                                {tech}
+                              </Badge>
                             ))}
-                          </ul>
-                        </div>
+                            {project.technologies.length > 4 && (
+                              <Badge variant="outline" className="text-xs">
+                                +{project.technologies.length - 4} more
+                              </Badge>
+                            )}
+                          </div>
 
-                        <div className="flex flex-wrap gap-1 mb-4">
-                          {project.technologies.slice(0, 4).map((tech) => (
-                            <Badge key={tech} variant="outline" className="text-xs">
-                              {tech}
-                            </Badge>
-                          ))}
-                          {project.technologies.length > 4 && (
-                            <Badge variant="outline" className="text-xs">
-                              +{project.technologies.length - 4} more
-                            </Badge>
-                          )}
-                        </div>
+                          <div className="flex gap-2">
+                            <Button
+                              variant="ghost"
+                              size="sm"
+                              onClick={() => handleViewProject(project.id)}
+                              data-testid={`button-view-project-${project.id}`}
+                            >
+                              <ExternalLink className="w-4 h-4 mr-2" />
+                              Details
+                            </Button>
+                            <Button
+                              variant="ghost"
+                              size="sm"
+                              onClick={() => handleViewCode(project.id)}
+                              data-testid={`button-view-code-${project.id}`}
+                            >
+                              <Github className="w-4 h-4 mr-2" />
+                              Code
+                            </Button>
+                          </div>
+                        </CardContent>
+                      </Card>
+                    </StaggerItem>
+                  );
+                })}
+              </div>
+            </StaggerContainer>
+            
+            {/* Fade overlay when not showing all */}
+            {!showAll && filteredProjects.length > 6 && (
+              <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-background via-background/80 to-transparent pointer-events-none" />
+            )}
+          </div>
 
-                        <div className="flex gap-2">
-                          <Button
-                            variant="ghost"
-                            size="sm"
-                            onClick={() => handleViewProject(project.id)}
-                            data-testid={`button-view-project-${project.id}`}
-                          >
-                            <ExternalLink className="w-4 h-4 mr-2" />
-                            Details
-                          </Button>
-                          <Button
-                            variant="ghost"
-                            size="sm"
-                            onClick={() => handleViewCode(project.id)}
-                            data-testid={`button-view-code-${project.id}`}
-                          >
-                            <Github className="w-4 h-4 mr-2" />
-                            Code
-                          </Button>
-                        </div>
-                      </CardContent>
-                    </Card>
-                  </StaggerItem>
-                );
-              })}
-            </div>
-          </StaggerContainer>
+          {/* Show More Button */}
+          {filteredProjects.length > 6 && (
+            <ScrollReveal direction="up" delay={0.3}>
+              <div className="flex justify-center mt-8">
+                <Button
+                  variant="outline"
+                  size="lg"
+                  onClick={() => setShowAll(!showAll)}
+                  data-testid="button-show-more-projects"
+                >
+                  {showAll ? "Show Less" : `Show More (${filteredProjects.length - 6} more projects)`}
+                </Button>
+              </div>
+            </ScrollReveal>
+          )}
 
           {/* Project Stats */}
           <ScrollReveal direction="up" delay={0.2}>

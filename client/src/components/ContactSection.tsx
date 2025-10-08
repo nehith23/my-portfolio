@@ -282,6 +282,7 @@ export default function ContactSection() {
                     <Badge variant="secondary">Robots</Badge>
                     <Badge variant="secondary">Intelligent Systems</Badge>
                     <Badge variant="secondary">Autonomous Systems</Badge>
+                    <Badge variant="secondary">Teleoperation</Badge>
                   </div>
                 </CardContent>
               </Card>
