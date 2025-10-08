@@ -157,6 +157,34 @@ export default function ProjectsSection() {
         "Physiological sensors"
       ],
       githubUrl: "https://github.com/nehith23/Multimodal-Affective-State-Classification-in-Video-Games"
+    },
+    {
+      id: "9",
+      title: "Pick-n-Place Manipulation using 7-DOF Robot Arm",
+      description: "Implemented pick-and-place manipulation tasks using a 7-DOF robotic arm with inverse kinematics, motion planning, and precise object handling capabilities.",
+      technologies: ["7-DOF Robot Arm", "Inverse Kinematics", "Motion Planning", "Python", "ROS"],
+      category: "Robotics",
+      icon: Cpu,
+      highlights: [
+        "Inverse kinematics implementation",
+        "Precise object manipulation",
+        "Motion planning algorithms"
+      ],
+      githubUrl: "https://github.com/nehith23/Pick-n-Place-manipulation-using-7-DOF-robot-arm"
+    },
+    {
+      id: "10",
+      title: "YouBot Kinematics and Trajectory Planning",
+      description: "Developed kinematics and trajectory planning algorithms for the KUKA YouBot mobile manipulator, enabling autonomous navigation and manipulation tasks.",
+      technologies: ["KUKA YouBot", "Kinematics", "Trajectory Planning", "Python", "ROS"],
+      category: "Robotics",
+      icon: Brain,
+      highlights: [
+        "Mobile manipulator control",
+        "Trajectory optimization",
+        "Autonomous task execution"
+      ],
+      githubUrl: "https://github.com/nehith23/YouBot-Kinematics-and-Trajectory-Planning"
     }
   ];
 
@@ -310,7 +338,7 @@ export default function ProjectsSection() {
           <ScrollReveal direction="up" delay={0.2}>
             <div className="mt-12 grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
               <div className="p-6 bg-muted/30 rounded-lg">
-                <div className="text-2xl font-bold text-primary mb-2">8</div>
+                <div className="text-2xl font-bold text-primary mb-2">10</div>
                 <div className="text-sm text-muted-foreground">Major Projects</div>
               </div>
               <div className="p-6 bg-muted/30 rounded-lg">
