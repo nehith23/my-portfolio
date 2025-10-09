@@ -20,7 +20,7 @@ export default function ExperienceSection() {
     {
       id: "1",
       title: "Graduate Research Project",
-      organization: "UCL Hereeast",
+      organization: "UCL HereEast",
       location: "London, UK",
       period: "May 2025 – September 2025",
       type: "research",

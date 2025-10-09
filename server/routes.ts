@@ -7,7 +7,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
   // CV Download endpoint
   app.get("/api/download-cv", (req, res) => {
     try {
-      const cvPath = path.join(process.cwd(), "attached_assets", "cv_phd_1758712202187.pdf");
+      const cvPath = path.join(process.cwd(), "attached_assets", "cv_phd_1760007892664.pdf");
       
       // Set appropriate headers for PDF download
       res.setHeader('Content-Type', 'application/pdf');

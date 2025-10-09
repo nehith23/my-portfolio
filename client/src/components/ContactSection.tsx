@@ -293,15 +293,15 @@ export default function ContactSection() {
                 </CardHeader>
                 <CardContent>
                   <p className="text-muted-foreground mb-4">
-                    I'm actively seeking PhD positions and research collaborations in robotics, 
-                    computer vision, and AI. I'm particularly interested in projects involving 
+                    I'm actively seeking PhD positions, research roles, and job opportunities in robotics, 
+                    computer vision, and AI. I'm particularly interested in positions and collaborations involving 
                     3D reconstruction, autonomous systems, and practical applications of AI in robotics.
                   </p>
                   <div className="flex flex-wrap gap-2">
                     <Badge variant="outline">PhD Positions</Badge>
+                    <Badge variant="outline">Jobs & Internships</Badge>
                     <Badge variant="outline">Research Collaborations</Badge>
                     <Badge variant="outline">Industry Projects</Badge>
-                    <Badge variant="outline">Conference Speaking</Badge>
                   </div>
                 </CardContent>
               </Card>

@@ -1,6 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { Mail, Github, Linkedin, MapPin, GraduationCap } from "lucide-react";
+import { Mail, Github, Linkedin, MapPin, GraduationCap, FileText } from "lucide-react";
 import StaggerContainer, { StaggerItem } from "@/components/animations/StaggerContainer";
 
 export default function HeroSection() {
@@ -27,6 +27,10 @@ export default function HeroSection() {
     if (url) {
       window.open(url, '_blank');
     }
+  };
+
+  const handleViewCV = () => {
+    window.open("/attached_assets/cv_phd_1760007892664.pdf", '_blank');
   };
 
   return (
@@ -102,6 +106,15 @@ export default function HeroSection() {
                   data-testid="button-contact-me"
                 >
                   Let's Connect
+                </Button>
+                <Button
+                  variant="outline"
+                  size="lg"
+                  onClick={handleViewCV}
+                  data-testid="button-view-cv"
+                >
+                  <FileText className="w-4 h-4 mr-2" />
+                  View CV
                 </Button>
                 <Button
                   variant="outline"

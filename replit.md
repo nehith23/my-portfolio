@@ -2,7 +2,7 @@
 
 ## Overview
 
-This is a modern academic research portfolio website for Nehith Sai Vemulapalli, a PhD candidate in Robotics & AI. The application showcases research publications, academic projects, professional experience, technical skills, and provides contact functionality. Built as a full-stack web application with a focus on professional presentation and academic credibility.
+This is a modern academic research portfolio website for Nehith Sai Vemulapalli, a Master's graduate in Robotics & AI seeking PhD positions, jobs, and internships. The application showcases research publications, academic projects, professional experience, technical skills, and provides contact functionality. Built as a full-stack web application with a focus on professional presentation and academic credibility optimized for job applications.
 
 ## User Preferences
 
@@ -47,18 +47,22 @@ Preferred communication style: Simple, everyday language.
 - **Portfolio Sections**: Hero, Publications, Projects, Experience, Skills, Contact
 - **Data Structure**: TypeScript interfaces for publications, projects, and experience entries
 - **Asset Management**: PDF CV download and project imagery support
+- **CV Management**: 
+  - Current CV file: `cv_phd_1760007892664.pdf`
+  - View CV button in Hero section (opens in new tab)
+  - Download CV button in Contact section (triggers download)
 - **SEO Optimization**: Meta tags and Open Graph properties for academic discovery
-- **Project Portfolio**: 10 comprehensive research projects with detailed descriptions, challenges, and outcomes sourced from actual GitHub repositories
-  - Project 1: Hybrid 3D Reconstruction Pipeline (Cultural Heritage)
-  - Project 2: Graph-Based SLAM & ORB-SLAM2 Evaluation
-  - Project 3: Structural Inspection Path Planning & Multi-Agent Swarm Control
-  - Project 4: Motor Modelling & Trajectory Learning (7-DoF Panda Arm)
-  - Project 5: EKF Localization & Model Predictive Control
-  - Project 6: Self-Reconfigurable Robots for Space Exploration
-  - Project 7: Object Segmentation & Geometric Estimation (Autonomous Drone Landing)
-  - Project 8: Multimodal Affective State Classification in Video Games
-  - Project 9: Pick-n-Place Manipulation using 7-DOF Robot Arm
-  - Project 10: YouBot Kinematics and Trajectory Planning
+- **Project Portfolio**: 10 comprehensive research projects with "Show More" functionality
+  - Initially displays 6 projects with fade overlay
+  - "Show More" button reveals remaining 4 projects
+  - Dynamically adapts to category filters
+  - Projects 1-10: Hybrid 3D Reconstruction, SLAM, Multi-Agent Swarm, Motor Control, EKF/MPC, Self-Reconfigurable Robots, Object Segmentation, Affective Computing, Pick-n-Place, YouBot Kinematics
+- **Experience Highlights**:
+  - UCL HereEast Graduate Research Project
+  - AquaScout Founder (UCL Xplore Winner)
+  - UCL Department of Computer Science Student Ambassador
+- **Research Interests**: Computer Vision, 3D Reconstruction, SLAM, Aerial Robotics, AI/ML, Robots, Intelligent Systems, Autonomous Systems, Teleoperation
+- **Opportunities**: Open to PhD Positions, Jobs & Internships, Research Collaborations, and Industry Projects
 
 ## External Dependencies
 
