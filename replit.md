@@ -54,8 +54,9 @@ Preferred communication style: Simple, everyday language.
 - **SEO Optimization**: Meta tags and Open Graph properties for academic discovery
 - **Project Portfolio**: 10 comprehensive research projects with "Show More" functionality
   - Initially displays 6 projects with fade overlay
-  - "Show More" button reveals remaining 4 projects
-  - Dynamically adapts to category filters
+  - "Show More" button reveals remaining projects
+  - Dynamically adapts to category filters with automatic state reset
+  - Categories: Computer Vision (2 projects), Robotics (7 projects), AI/ML (1 project)
   - Projects 1-10: Hybrid 3D Reconstruction, SLAM, Multi-Agent Swarm, Motor Control, EKF/MPC, Self-Reconfigurable Robots, Object Segmentation, Affective Computing, Pick-n-Place, YouBot Kinematics
 - **Experience Highlights**:
   - UCL HereEast Graduate Research Project

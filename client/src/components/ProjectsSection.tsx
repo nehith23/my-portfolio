@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
@@ -12,7 +12,7 @@ interface Project {
   title: string;
   description: string;
   technologies: string[];
-  category: "Computer Vision" | "Robotics" | "AI/ML" | "Simulation";
+  category: "Computer Vision" | "Robotics" | "AI/ML";
   icon: any;
   highlights: string[];
   fullDescription?: string;
@@ -138,7 +138,7 @@ export default function ProjectsSection() {
       description: "Developed an integrated EKF-based localization and MPC trajectory tracking system; validated under sensor noise in PyBullet simulation environments.",
       fullDescription: "This project demonstrates a robust localization and control system for a differential drive robot in PyBullet simulation using Model Predictive Control (MPC) for real-time trajectory tracking and Extended Kalman Filter (EKF) for accurate state estimation under noisy sensor conditions. The system integrates MPC with EKF to enable reliable navigation to target positions while filtering sensor noise. The differential drive kinematic model simulates movement based on wheel velocities, predicting position over time. A continuous feedback loop allows the EKF's estimates to feed into MPC for adaptive control.",
       technologies: ["Model Predictive Control", "Extended Kalman Filter", "PyBullet", "Python", "Differential Drive Kinematics"],
-      category: "Simulation",
+      category: "Robotics",
       icon: Brain,
       highlights: [
         "Real-time EKF state estimation from noisy range-bearing measurements",
@@ -165,7 +165,7 @@ export default function ProjectsSection() {
       description: "Designed morphology-shifting robots with adaptive modes ('Octopus' and 'Turtle') in PyBullet for efficient planetary navigation across diverse terrains.",
       fullDescription: "This project explores a self-reconfigurable soft robot concept for planetary exploration, validating morphological adaptation as a strategy for navigating unpredictable, unstructured terrain like the Martian surface. The robot consists of a central spherical body with four symmetric appendages actuated through prismatic joints, mimicking pneumatic extension and retraction. It autonomously switches between two bio-inspired locomotion modes: Turtle Mode for efficient long-distance rolling movement with all appendages retracted into a compact sphere, and Octopus Mode for localized exploration using oscillating sine/cosine actuation patterns to generate crawling motion.",
       technologies: ["PyBullet", "URDF", "Prismatic Joints", "Python", "Soft Robotics Simulation"],
-      category: "Simulation",
+      category: "Robotics",
       icon: Zap,
       highlights: [
         "Bio-inspired morphological transformation for planetary exploration",
@@ -296,11 +296,16 @@ export default function ProjectsSection() {
     }
   ];
 
-  const categories = ["All", "Computer Vision", "Robotics", "AI/ML", "Simulation"];
+  const categories = ["All", "Computer Vision", "Robotics", "AI/ML"];
   const [selectedCategory, setSelectedCategory] = useState("All");
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [showAll, setShowAll] = useState(false);
+
+  // Reset showAll when category changes
+  useEffect(() => {
+    setShowAll(false);
+  }, [selectedCategory]);
 
   const filteredProjects = selectedCategory === "All" 
     ? projects 
