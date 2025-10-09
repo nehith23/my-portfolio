@@ -2,8 +2,12 @@ import type { Express } from "express";
 import { createServer, type Server } from "http";
 import { storage } from "./storage";
 import path from "path";
+import express from "express";
 
 export async function registerRoutes(app: Express): Promise<Server> {
+  // Serve attached assets (PDFs, images, etc.)
+  app.use('/attached_assets', express.static(path.join(process.cwd(), 'attached_assets')));
+
   // CV Download endpoint
   app.get("/api/download-cv", (req, res) => {
     try {

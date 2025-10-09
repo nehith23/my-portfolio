@@ -49,7 +49,7 @@ Preferred communication style: Simple, everyday language.
 - **Asset Management**: PDF CV download and project imagery support
 - **CV Management**: 
   - Current CV file: `cv_phd_1760007892664.pdf`
-  - View CV button in Hero section (opens in new tab)
+  - View CV button in Header navigation (opens in new tab)
   - Download CV button in Contact section (triggers download)
 - **SEO Optimization**: Meta tags and Open Graph properties for academic discovery
 - **Project Portfolio**: 10 comprehensive research projects with "Show More" functionality

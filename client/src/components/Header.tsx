@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
-import { Moon, Sun, Download, Menu, X } from "lucide-react";
+import { Moon, Sun, FileText, Menu, X } from "lucide-react";
 
 interface HeaderProps {
   activeSection?: string;
@@ -42,25 +42,8 @@ export default function Header({ activeSection }: HeaderProps) {
     setIsMobileMenuOpen(false);
   };
 
-  const downloadCV = async () => {
-    try {
-      const response = await fetch("/api/download-cv");
-      if (response.ok) {
-        const blob = await response.blob();
-        const url = window.URL.createObjectURL(blob);
-        const a = document.createElement("a");
-        a.href = url;
-        a.download = "Nehith_Sai_Vemulapalli_CV.pdf";
-        document.body.appendChild(a);
-        a.click();
-        document.body.removeChild(a);
-        window.URL.revokeObjectURL(url);
-      } else {
-        console.error("Failed to download CV");
-      }
-    } catch (error) {
-      console.error("Error downloading CV:", error);
-    }
+  const viewCV = () => {
+    window.open("/attached_assets/cv_phd_1760007892664.pdf", '_blank');
   };
 
   return (
@@ -93,13 +76,13 @@ export default function Header({ activeSection }: HeaderProps) {
           {/* Desktop Actions */}
           <div className="hidden md:flex items-center space-x-4">
             <Button
-              onClick={downloadCV}
+              onClick={viewCV}
               variant="outline"
               size="sm"
-              data-testid="button-download-cv"
+              data-testid="button-view-cv"
             >
-              <Download className="w-4 h-4 mr-2" />
-              Download CV
+              <FileText className="w-4 h-4 mr-2" />
+              View CV
             </Button>
             <Button
               variant="ghost"
@@ -149,14 +132,14 @@ export default function Header({ activeSection }: HeaderProps) {
                 </button>
               ))}
               <Button
-                onClick={downloadCV}
+                onClick={viewCV}
                 variant="outline"
                 size="sm"
                 className="self-start"
-                data-testid="button-download-cv-mobile"
+                data-testid="button-view-cv-mobile"
               >
-                <Download className="w-4 h-4 mr-2" />
-                Download CV
+                <FileText className="w-4 h-4 mr-2" />
+                View CV
               </Button>
             </nav>
           </div>
