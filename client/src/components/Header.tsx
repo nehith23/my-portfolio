@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Moon, Sun, FileText, Menu, X } from "lucide-react";
-import { motion, useScroll, useTransform } from "framer-motion";
+import { motion, useScroll, useTransform, AnimatePresence } from "framer-motion";
 
 interface HeaderProps {
   activeSection?: string;
@@ -31,6 +31,7 @@ export default function Header({ activeSection }: HeaderProps) {
     { id: "publications", label: "Publications" },
     { id: "projects", label: "Projects" },
     { id: "experience", label: "Experience" },
+    { id: "skills", label: "Skills" },
     { id: "contact", label: "Contact" },
   ];
 
@@ -44,6 +45,14 @@ export default function Header({ activeSection }: HeaderProps) {
         behavior: 'smooth'
       });
     }
+    setIsMobileMenuOpen(false);
+  };
+
+  const scrollToTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    });
     setIsMobileMenuOpen(false);
   };
 
@@ -76,7 +85,7 @@ export default function Header({ activeSection }: HeaderProps) {
           {/* Logo */}
           <div
             className="flex-shrink-0 cursor-pointer"
-            onClick={() => scrollToSection('home')}
+            onClick={scrollToTop}
           >
             <h1 className="text-xl font-display font-medium tracking-wide">
               NSV<span className="text-accent"></span>
@@ -84,7 +93,7 @@ export default function Header({ activeSection }: HeaderProps) {
           </div>
 
           {/* Desktop Navigation */}
-          <nav className="hidden lg:flex space-x-10">
+          <nav className="hidden min-[960px]:flex space-x-6">
             {navItems.map((item) => (
               <button
                 key={item.id}
@@ -98,10 +107,10 @@ export default function Header({ activeSection }: HeaderProps) {
           </nav>
 
           {/* Desktop Actions */}
-          <div className="hidden lg:flex items-center space-x-6">
+          <div className="hidden min-[960px]:flex items-center space-x-4">
             <button
               onClick={viewCV}
-              className="group relative px-6 py-2 overflow-hidden rounded-full bg-white/5 hover:bg-white/10 transition-colors"
+              className="group relative px-5 py-2 overflow-hidden rounded-full bg-white/5 hover:bg-white/10 transition-colors"
             >
               <div className="absolute inset-0 w-0 bg-accent transition-all duration-[250ms] ease-out group-hover:w-full opacity-10" />
               <span className="relative flex items-center text-sm font-medium tracking-wide">
@@ -118,8 +127,8 @@ export default function Header({ activeSection }: HeaderProps) {
             </button>
           </div>
 
-          {/* Mobile Menu Button - Visible below LG breakpoint */}
-          <div className="lg:hidden flex items-center space-x-4">
+          {/* Mobile Menu Button - Visible below 960px */}
+          <div className="min-[960px]:hidden flex items-center space-x-4">
             <button
               onClick={() => setIsDark(!isDark)}
               className="text-muted-foreground hover:text-foreground transition-colors mr-2"
@@ -137,46 +146,48 @@ export default function Header({ activeSection }: HeaderProps) {
       </motion.header>
 
       {/* Mobile Menu Overlay */}
-      {isMobileMenuOpen && (
-        <motion.div
-          initial={{ opacity: 0, x: "100%" }}
-          animate={{ opacity: 1, x: 0 }}
-          exit={{ opacity: 0, x: "100%" }}
-          transition={{ type: "spring", damping: 25, stiffness: 200 }}
-          className="fixed inset-0 z-[60] bg-background/95 backdrop-blur-xl"
-        >
-          <div className="p-6 flex justify-between items-center border-b border-white/10 h-20">
-            <span className="font-display font-medium text-xl pl-2">Menu</span>
-            <button
-              onClick={() => setIsMobileMenuOpen(false)}
-              className="p-2 text-foreground hover:text-accent transition-colors"
-            >
-              <X className="w-8 h-8" />
-            </button>
-          </div>
-          <div className="flex flex-col items-center justify-center h-[calc(100vh-80px)] space-y-8">
-            {navItems.map((item) => (
+      <AnimatePresence>
+        {isMobileMenuOpen && (
+          <motion.div
+            initial={{ opacity: 0, x: "100%" }}
+            animate={{ opacity: 1, x: 0 }}
+            exit={{ opacity: 0, x: "100%" }}
+            transition={{ type: "spring", damping: 25, stiffness: 200 }}
+            className="fixed inset-0 z-[60] bg-background/95 backdrop-blur-xl"
+          >
+            <div className="p-6 flex justify-between items-center border-b border-white/10 h-20">
+              <span className="font-display font-medium text-xl pl-2">Menu</span>
               <button
-                key={item.id}
-                onClick={() => scrollToSection(item.id)}
-                className="text-3xl font-display font-light tracking-wider hover:text-accent transition-colors"
+                onClick={() => setIsMobileMenuOpen(false)}
+                className="p-2 text-foreground hover:text-accent transition-colors"
               >
-                {item.label}
-              </button>
-            ))}
-
-            <div className="pt-8 flex flex-col items-center gap-6">
-              <button
-                onClick={viewCV}
-                className="flex items-center px-8 py-3 rounded-full bg-accent text-accent-foreground font-medium text-lg hover:opacity-90 transition-opacity"
-              >
-                <FileText className="w-5 h-5 mr-3" />
-                Resume
+                <X className="w-8 h-8" />
               </button>
             </div>
-          </div>
-        </motion.div>
-      )}
+            <div className="flex flex-col items-center justify-center h-[calc(100vh-80px)] space-y-8">
+              {navItems.map((item) => (
+                <button
+                  key={item.id}
+                  onClick={() => scrollToSection(item.id)}
+                  className="text-3xl font-display font-light tracking-wider hover:text-accent transition-colors"
+                >
+                  {item.label}
+                </button>
+              ))}
+
+              <div className="pt-8 flex flex-col items-center gap-6">
+                <button
+                  onClick={viewCV}
+                  className="flex items-center px-8 py-3 rounded-full bg-accent text-accent-foreground font-medium text-lg hover:opacity-90 transition-opacity"
+                >
+                  <FileText className="w-5 h-5 mr-3" />
+                  Resume
+                </button>
+              </div>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </>
   );
 }
