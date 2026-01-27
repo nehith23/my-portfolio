@@ -106,14 +106,14 @@ export default function HeroSection() {
           >
             <Button
               onClick={() => handleExternalLink("https://linkedin.com/in/nehith-v")}
-              className="h-12 px-8 rounded-md bg-accent text-accent-foreground hover:bg-accent/90 text-base font-medium shadow-[0_0_20px_rgba(var(--accent),0.3)] hover:shadow-[0_0_30px_rgba(var(--accent),0.5)] transition-all"
+              className="h-12 px-8 rounded-full bg-accent text-accent-foreground hover:bg-accent/90 text-base font-medium shadow-[0_0_20px_rgba(var(--accent),0.3)] hover:shadow-[0_0_30px_rgba(var(--accent),0.5)] transition-all"
             >
               Let's Connect
             </Button>
 
             <Button
               variant="outline"
-              className="h-12 px-8 rounded-md border-white/10 hover:bg-white/5 text-base font-medium"
+              className="h-12 px-8 rounded-full border-white/10 hover:bg-white/5 text-base font-medium"
               onClick={scrollToProjects}
             >
               Explore My Projects
