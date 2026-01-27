@@ -10,18 +10,18 @@ export default function QuoteSection() {
         backgroundImage: `url(${roboticsBackground})`
       }}
     >
-      {/* Dark Overlay for readability */}
-      <div className="absolute inset-0 bg-background/80 backdrop-blur-sm" />
+      {/* Dark Overlay for readability - lighter and no blur for better image visibility */}
+      <div className="absolute inset-0 bg-black/60" />
 
       <div className="container relative z-10 mx-auto px-4 sm:px-6 lg:px-8 w-full">
         <div className="max-w-4xl mx-auto text-center">
           {/* Section Header */}
           <ScrollReveal direction="up" delay={0.1}>
             <div className="mb-12">
-              <h2 className="text-3xl sm:text-4xl font-bold text-foreground mb-6">
+              <h2 className="text-3xl sm:text-4xl font-bold text-white mb-6">
                 Philosophy & Vision
               </h2>
-              <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+              <p className="text-lg text-white/80 max-w-2xl mx-auto">
                 A guiding principle that shapes my approach to robotics and artificial intelligence.
               </p>
             </div>
@@ -31,12 +31,12 @@ export default function QuoteSection() {
           <ScrollReveal direction="up" delay={0.2} duration={1.2}>
             <div className="relative">
               {/* Decorative quotation mark */}
-              <div className="absolute -top-12 -left-8 text-8xl text-accent/20 font-serif leading-none select-none">
+              <div className="absolute -top-12 -left-8 text-8xl text-white/10 font-serif leading-none select-none">
                 "
               </div>
 
               <blockquote className="relative space-y-6">
-                <p className="text-2xl sm:text-3xl md:text-4xl font-display font-medium text-foreground leading-relaxed italic">
+                <p className="text-2xl sm:text-3xl md:text-4xl font-display font-medium text-white leading-relaxed italic">
                   "We built the body—the robot. We gave it the mind—the intelligent system.
                   We set it free—the autonomous system. We are not just building tools,
                   we're giving them will."
@@ -44,7 +44,7 @@ export default function QuoteSection() {
               </blockquote>
 
               {/* Decorative quotation mark */}
-              <div className="absolute -bottom-24 -right-8 text-8xl text-accent/20 font-serif leading-none select-none rotate-180">
+              <div className="absolute -bottom-24 -right-8 text-8xl text-white/10 font-serif leading-none select-none rotate-180">
                 "
               </div>
             </div>
