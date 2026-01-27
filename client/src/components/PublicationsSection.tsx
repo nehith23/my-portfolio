@@ -113,7 +113,7 @@ export default function PublicationsSection() {
                 <div className="flex justify-between items-start mb-4 gap-4">
                   <Badge
                     variant={pub.status === "published" ? "default" : "secondary"}
-                    className="bg-white/5 text-foreground hover:bg-white/10 border-transparent"
+                    className="bg-accent/10 text-accent border-accent/20 hover:bg-accent/20"
                   >
                     {pub.status === "published" ? "Published" : "In Preparation"}
                   </Badge>

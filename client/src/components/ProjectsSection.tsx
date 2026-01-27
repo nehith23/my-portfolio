@@ -306,7 +306,7 @@ export default function ProjectsSection() {
                   onClick={() => handleViewProject(project)}
                 >
                   <div className="flex justify-between items-start mb-6">
-                    <Badge variant="outline" className="border-white/10 text-muted-foreground bg-transparent font-normal tracking-wide">
+                    <Badge variant="outline" className="bg-accent/10 text-accent border-accent/20 hover:bg-accent/20 font-normal tracking-wide">
                       {project.category}
                     </Badge>
                     <ArrowRight className="w-5 h-5 text-muted-foreground group-hover:text-accent transform group-hover:translate-x-1 transition-all" />
