@@ -3,48 +3,52 @@ import ScrollReveal from '@/components/animations/ScrollReveal';
 
 export default function QuoteSection() {
   return (
-    <section id="quote" className="min-h-screen flex items-center py-16">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 w-full">
-        <div className="max-w-6xl mx-auto">
+    <section
+      id="quote"
+      className="relative min-h-screen flex items-center justify-center py-16 bg-cover bg-center bg-no-repeat bg-fixed"
+      style={{
+        backgroundImage: `url(${roboticsBackground})`
+      }}
+    >
+      {/* Dark Overlay for readability */}
+      <div className="absolute inset-0 bg-background/80 backdrop-blur-sm" />
+
+      <div className="container relative z-10 mx-auto px-4 sm:px-6 lg:px-8 w-full">
+        <div className="max-w-4xl mx-auto text-center">
           {/* Section Header */}
           <ScrollReveal direction="up" delay={0.1}>
-            <div className="text-center mb-16">
+            <div className="mb-12">
               <h2 className="text-3xl sm:text-4xl font-bold text-foreground mb-6">
                 Philosophy & Vision
               </h2>
-              <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
+              <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
                 A guiding principle that shapes my approach to robotics and artificial intelligence.
               </p>
             </div>
           </ScrollReveal>
 
-          {/* Quote and Image Grid */}
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
-            {/* Quote */}
-            <ScrollReveal direction="up" delay={0.2} duration={1.2}>
-              <div className="bg-card p-8 rounded-lg border border-card-border">
-                <blockquote className="space-y-4">
-                  <p className="text-xl sm:text-2xl font-medium text-foreground leading-relaxed italic">
-                    "We built the body—the robot. We gave it the mind—the intelligent system. 
-                    We set it free—the autonomous system. We are not just building tools, 
-                    we're giving them will."
-                  </p>
-                </blockquote>
+          {/* Quote */}
+          <ScrollReveal direction="up" delay={0.2} duration={1.2}>
+            <div className="relative">
+              {/* Decorative quotation mark */}
+              <div className="absolute -top-12 -left-8 text-8xl text-accent/20 font-serif leading-none select-none">
+                "
               </div>
-            </ScrollReveal>
 
-            {/* Image */}
-            <ScrollReveal direction="right" delay={0.4} duration={1.2}>
-              <div className="rounded-lg overflow-hidden shadow-lg">
-                <img 
-                  src={roboticsBackground} 
-                  alt="Robot in forest environment" 
-                  className="w-full h-auto"
-                  data-testid="img-robot-quote"
-                />
+              <blockquote className="relative space-y-6">
+                <p className="text-2xl sm:text-3xl md:text-4xl font-display font-medium text-foreground leading-relaxed italic">
+                  "We built the body—the robot. We gave it the mind—the intelligent system.
+                  We set it free—the autonomous system. We are not just building tools,
+                  we're giving them will."
+                </p>
+              </blockquote>
+
+              {/* Decorative quotation mark */}
+              <div className="absolute -bottom-24 -right-8 text-8xl text-accent/20 font-serif leading-none select-none rotate-180">
+                "
               </div>
-            </ScrollReveal>
-          </div>
+            </div>
+          </ScrollReveal>
         </div>
       </div>
     </section>
