@@ -137,7 +137,7 @@ export default function ExperienceSection() {
                     {experience.achievements && (
                       <div className="flex flex-wrap gap-2">
                         {experience.achievements.map((achievement) => (
-                          <Badge key={achievement} variant="secondary" className="bg-white/5 hover:bg-white/10 text-primary-foreground border-transparent">
+                          <Badge key={achievement} variant="outline" className="bg-accent/10 text-accent border-accent/20 hover:bg-accent/20 px-3 py-1 transition-colors">
                             {achievement}
                           </Badge>
                         ))}
