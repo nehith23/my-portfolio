@@ -1,15 +1,14 @@
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { Mail, Github, Linkedin, MapPin, GraduationCap } from "lucide-react";
-import StaggerContainer, { StaggerItem } from "@/components/animations/StaggerContainer";
+import { Mail, Github, Linkedin, ArrowDown, ExternalLink } from "lucide-react";
+import { motion } from "framer-motion";
 
 export default function HeroSection() {
-  const handleContactClick = () => {
-    const element = document.getElementById('contact');
+  const scrollToProjects = () => {
+    const element = document.getElementById('projects');
     if (element) {
-      const headerHeight = 64;
+      const headerHeight = 80;
       const elementPosition = element.offsetTop - headerHeight;
-      
       window.scrollTo({
         top: elementPosition,
         behavior: 'smooth'
@@ -17,152 +16,95 @@ export default function HeroSection() {
     }
   };
 
-  const handleExternalLink = (platform: string) => {
-    const urls = {
-      GitHub: "https://github.com/nehith23",
-      LinkedIn: "https://linkedin.com/in/nehith-v"
-    };
-    
-    const url = urls[platform as keyof typeof urls];
-    if (url) {
-      window.open(url, '_blank');
-    }
+  const handleExternalLink = (url: string) => {
+    window.open(url, '_blank');
   };
 
   return (
-    <section id="home" className="min-h-screen flex items-center py-16">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 w-full">
-        <div className="max-w-4xl mx-auto text-center">
-          <StaggerContainer staggerDelay={0.15}>
-            {/* Main Introduction */}
-            <StaggerItem>
-              <div className="mb-8">
-                <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-foreground mb-4">
-                  Nehith Sai Vemulapalli
-                </h1>
-                <Badge variant="secondary" className="mb-6">
-                  <GraduationCap className="w-3 h-3 mr-1" />
-                  Master's Graduate in Robotics & AI
-                </Badge>
-                <div className="flex items-center justify-center text-muted-foreground mb-6">
-                  <MapPin className="w-4 h-4 mr-2" />
-                  <span>London, United Kingdom</span>
-                </div>
-              </div>
-            </StaggerItem>
+    <section id="home" className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20">
+      {/* Background Ambience */}
+      <div className="absolute inset-0 z-0">
+        <div className="absolute top-[-20%] right-[-10%] w-[600px] h-[600px] bg-primary/5 rounded-full blur-[120px]" />
+        <div className="absolute bottom-[-10%] left-[-10%] w-[500px] h-[500px] bg-accent/5 rounded-full blur-[100px]" />
+      </div>
 
-            {/* Research Focus */}
-            <StaggerItem>
-              <div className="mb-8">
-                <p className="text-xl sm:text-2xl font-medium text-foreground mb-6 leading-relaxed">
-                  Building intelligent systems that see, understand, and preserve our world
-                </p>
-                <p className="text-lg text-muted-foreground">
-                  In a world where robots struggle to truly understand what they see, I bridge the gap between raw sensor data 
-                  and intelligent perception. By combining advanced computer vision with SLAM and 3D reconstruction, I create 
-                  systems that don't just capture images—they comprehend environments, enabling autonomous systems to navigate 
-                  and interact with the complexity of our real world.
-                </p>
-              </div>
-            </StaggerItem>
+      <div className="container relative z-10 px-6 max-w-7xl mx-auto">
+        <div className="flex flex-col items-start max-w-4xl">
 
-            {/* Key Achievements */}
-            <StaggerItem>
-              <div className="mb-8">
-                <div className="flex flex-wrap justify-center gap-3 mb-6">
-                  <Badge variant="outline">4 Publications</Badge>
-                  <Badge variant="outline">UCL Xplore Winner</Badge>
-                  <Badge variant="outline">MSc Robotics & AI</Badge>
-                  <Badge variant="outline">BTech First Class Honours</Badge>
-                </div>
-              </div>
-            </StaggerItem>
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, ease: "easeOut" }}
+          >
+            <Badge variant="outline" className="mb-8 px-4 py-1 text-xs tracking-[0.2em] uppercase border-white/10 text-muted-foreground">
+              Robotics & AI Engineer
+            </Badge>
+          </motion.div>
 
-            {/* Contact Information */}
-            <StaggerItem>
-              <div className="mb-8">
-                <div className="flex flex-wrap justify-center gap-4 text-sm text-muted-foreground mb-6">
-                  <div className="flex items-center">
-                    <Mail className="w-4 h-4 mr-2" />
-                    <span>vemulapallinehith@gmail.com</span>
-                  </div>
-                  <div className="flex items-center">
-                    <span>+44 7936 634011</span>
-                  </div>
-                </div>
-              </div>
-            </StaggerItem>
+          <motion.h1
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
+            className="text-6xl sm:text-7xl lg:text-8xl font-display font-medium leading-[1.1] mb-8 tracking-tight"
+          >
+            Intelligent Systems <br />
+            <span className="text-muted-foreground/50">That Perceive.</span>
+          </motion.h1>
 
-            {/* Action Buttons */}
-            <StaggerItem>
-              <div className="flex flex-wrap justify-center gap-4 mb-8">
-                <Button
-                  onClick={handleContactClick}
-                  size="lg"
-                  data-testid="button-contact-me"
-                >
-                  Let's Connect
-                </Button>
-                <Button
-                  variant="outline"
-                  size="lg"
-                  onClick={() => {
-                    const element = document.getElementById('projects');
-                    if (element) {
-                      const headerHeight = 64;
-                      const elementPosition = element.offsetTop - headerHeight;
-                      
-                      window.scrollTo({
-                        top: elementPosition,
-                        behavior: 'smooth'
-                      });
-                    }
-                  }}
-                  data-testid="button-view-research"
-                >
-                  Explore My Projects
-                </Button>
-              </div>
-            </StaggerItem>
+          <motion.p
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.4, ease: "easeOut" }}
+            className="text-xl sm:text-2xl text-muted-foreground max-w-2xl leading-relaxed mb-12 font-light"
+          >
+            Bridging the gap between raw sensor data and intelligent perception.
+            I build autonomous systems that don't just see the world—they <span className="text-foreground">understand</span> it.
+          </motion.p>
 
-            {/* Social Links */}
-            <StaggerItem>
-              <div className="flex flex-wrap justify-center gap-4">
-                <Button
-                  variant="ghost"
-                  size="icon"
-                  onClick={() => handleExternalLink("GitHub")}
-                  data-testid="link-github"
-                >
-                  <Github className="w-5 h-5" />
-                </Button>
-                <Button
-                  variant="ghost"
-                  size="icon"
-                  onClick={() => handleExternalLink("LinkedIn")}
-                  data-testid="link-linkedin"
-                >
-                  <Linkedin className="w-5 h-5" />
-                </Button>
-              </div>
-            </StaggerItem>
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.6, ease: "easeOut" }}
+            className="flex flex-wrap gap-6"
+          >
+            <Button
+              onClick={scrollToProjects}
+              className="h-14 px-8 rounded-full bg-foreground text-background hover:bg-foreground/90 text-lg tracking-wide font-medium"
+            >
+              Explore Research
+            </Button>
 
-            {/* Research Highlights */}
-            <StaggerItem>
-              <div className="mt-12 flex flex-wrap justify-center gap-8 text-center">
-                <div>
-                  <div className="text-2xl font-bold text-primary mb-2">4</div>
-                  <div className="text-sm text-muted-foreground">Publications</div>
-                </div>
-                <div>
-                  <div className="text-2xl font-bold text-primary mb-2">8+</div>
-                  <div className="text-sm text-muted-foreground">Research Projects</div>
-                </div>
-              </div>
-            </StaggerItem>
-          </StaggerContainer>
+            <Button
+              variant="outline"
+              className="h-14 px-8 rounded-full border-white/10 hover:bg-white/5 text-lg tracking-wide font-medium group"
+              onClick={() => handleExternalLink("https://github.com/nehith23")}
+            >
+              <Github className="w-5 h-5 mr-3 text-muted-foreground group-hover:text-foreground transition-colors" />
+              Github
+            </Button>
+
+            <Button
+              variant="outline"
+              className="h-14 px-8 rounded-full border-white/10 hover:bg-white/5 text-lg tracking-wide font-medium group"
+              onClick={() => handleExternalLink("https://linkedin.com/in/nehith-v")}
+            >
+              <Linkedin className="w-5 h-5 mr-3 text-muted-foreground group-hover:text-foreground transition-colors" />
+              LinkedIn
+            </Button>
+          </motion.div>
         </div>
       </div>
+
+      {/* Scroll Indicator */}
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ delay: 1.5, duration: 1 }}
+        className="absolute bottom-12 left-1/2 -translate-x-1/2 flex flex-col items-center gap-4"
+      >
+        <span className="text-xs uppercase tracking-[0.2em] text-muted-foreground/50">Scroll</span>
+        <div className="w-[1px] h-12 bg-gradient-to-b from-transparent via-white/20 to-transparent" />
+      </motion.div>
     </section>
   );
 }
