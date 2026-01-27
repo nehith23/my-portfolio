@@ -22,11 +22,7 @@ export default function HeroSection() {
 
   return (
     <section id="home" className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20">
-      {/* Background Ambience */}
-      <div className="absolute inset-0 z-0">
-        <div className="absolute top-[-20%] right-[-10%] w-[600px] h-[600px] bg-primary/5 rounded-full blur-[120px]" />
-        <div className="absolute bottom-[-10%] left-[-10%] w-[500px] h-[500px] bg-accent/5 rounded-full blur-[100px]" />
-      </div>
+      {/* Background Ambience moved to global layout */}
 
       <div className="container relative z-10 px-6 max-w-7xl mx-auto">
         <div className="flex flex-col items-start max-w-4xl">
