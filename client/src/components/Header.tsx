@@ -27,11 +27,11 @@ export default function Header({ activeSection }: HeaderProps) {
   }, [isDark]);
 
   const navItems = [
-    { id: "home", label: "Overview" },
-    { id: "publications", label: "Research" },
-    { id: "projects", label: "Innovation" },
-    { id: "experience", label: "Journey" },
-    { id: "contact", label: "Connect" },
+    { id: "home", label: "Home" },
+    { id: "publications", label: "Publications" },
+    { id: "projects", label: "Projects" },
+    { id: "experience", label: "Experience" },
+    { id: "contact", label: "Contact" },
   ];
 
   const scrollToSection = (sectionId: string) => {
@@ -79,7 +79,7 @@ export default function Header({ activeSection }: HeaderProps) {
             onClick={() => scrollToSection('home')}
           >
             <h1 className="text-xl font-display font-medium tracking-wide">
-              NSV<span className="text-accent">.</span>AI
+              NSV<span className="text-accent"></span>
             </h1>
           </div>
 
