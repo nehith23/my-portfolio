@@ -1,8 +1,7 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Calendar, MapPin, Building, Award } from "lucide-react";
-import ScrollReveal from "@/components/animations/ScrollReveal";
-import StaggerContainer, { StaggerItem } from "@/components/animations/StaggerContainer";
+import { motion } from "framer-motion";
 
 interface Experience {
   id: string;
@@ -71,214 +70,84 @@ export default function ExperienceSection() {
     }
   ];
 
-  const getTypeIcon = (type: string) => {
-    switch (type) {
-      case "research":
-        return <Award className="w-4 h-4" />;
-      case "startup":
-        return <Building className="w-4 h-4" />;
-      case "ambassador":
-        return <MapPin className="w-4 h-4" />;
-      default:
-        return <Building className="w-4 h-4" />;
-    }
-  };
-
-  const getTypeColor = (type: string) => {
-    switch (type) {
-      case "research":
-        return "bg-primary/10 text-primary";
-      case "startup":
-        return "bg-primary/10 text-primary";
-      case "ambassador":
-        return "bg-primary/10 text-primary";
-      default:
-        return "bg-muted text-muted-foreground";
-    }
-  };
-
   return (
-    <section id="experience" className="min-h-screen flex items-center py-16">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 w-full">
-        <div className="max-w-4xl mx-auto">
-          {/* Section Header */}
-          <ScrollReveal direction="up" delay={0.1}>
-            <div className="text-center mb-16">
-              <h2 className="text-3xl sm:text-4xl font-bold text-foreground mb-6">
-                Research Experience
-              </h2>
-              <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
-                Professional and academic experience spanning research, entrepreneurship, 
-                and academic leadership roles.
-              </p>
-            </div>
-          </ScrollReveal>
+    <section id="experience" className="min-h-screen py-24 relative">
+      {/* Background Ambience similar to Hero */}
+      <div className="absolute top-1/4 left-[-10%] w-[500px] h-[500px] bg-primary/5 rounded-full blur-[120px] -z-10 pointer-events-none" />
 
-          {/* Experience Timeline */}
-          <StaggerContainer staggerDelay={0.15}>
-            <div className="space-y-6">
-              {experiences.map((experience, index) => (
-                <StaggerItem key={experience.id}>
-                  <Card className="hover-elevate">
-                    <CardHeader>
-                      <div className="flex items-start justify-between gap-4">
-                        <div className="flex-1">
-                          <div className="flex items-center gap-3 mb-2">
-                            <div className={`p-2 rounded-lg ${getTypeColor(experience.type)}`}>
-                              {getTypeIcon(experience.type)}
-                            </div>
-                            <div>
-                              <CardTitle className="text-xl">
-                                {experience.title}
-                              </CardTitle>
-                              <p className="text-lg font-medium text-primary">
-                                {experience.organization}
-                              </p>
-                            </div>
-                          </div>
-                          
-                          <div className="flex flex-wrap gap-4 text-sm text-muted-foreground">
-                            <div className="flex items-center gap-2">
-                              <Calendar className="w-4 h-4" />
-                              <span>{experience.period}</span>
-                            </div>
-                            <div className="flex items-center gap-2">
-                              <MapPin className="w-4 h-4" />
-                              <span>{experience.location}</span>
-                            </div>
-                          </div>
-                        </div>
-                        <Badge variant="outline" className="capitalize">
-                          {experience.type}
-                        </Badge>
-                      </div>
-                    </CardHeader>
-                    
-                    <CardContent>
-                      <div className="space-y-4">
-                        <div>
-                          <h4 className="font-medium mb-3">Key Responsibilities:</h4>
-                          <ul className="space-y-2">
-                            {experience.description.map((desc, descIndex) => (
-                              <li key={descIndex} className="flex items-start text-sm text-muted-foreground">
-                                <span className="w-1.5 h-1.5 bg-primary rounded-full mt-2 mr-3 flex-shrink-0" />
-                                {desc}
-                              </li>
-                            ))}
-                          </ul>
-                        </div>
+      <div className="container mx-auto px-6 max-w-7xl">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="mb-20"
+        >
+          <h2 className="text-4xl md:text-5xl font-display font-medium mb-6">
+            Experience
+          </h2>
+          <p className="text-xl text-muted-foreground max-w-3xl leading-relaxed">
+            Professional and academic experience spanning research, entrepreneurship,
+            and academic leadership.
+          </p>
+        </motion.div>
 
-                        {experience.achievements && (
-                          <div>
-                            <h4 className="font-medium mb-3">Key Achievements:</h4>
-                            <div className="flex flex-wrap gap-2">
-                              {experience.achievements.map((achievement) => (
-                                <Badge key={achievement} variant="secondary" className="text-xs">
-                                  {achievement}
-                                </Badge>
-                              ))}
-                            </div>
-                          </div>
-                        )}
-                      </div>
-                    </CardContent>
-                  </Card>
-                </StaggerItem>
-              ))}
-            </div>
-          </StaggerContainer>
+        <div className="relative border-l border-white/10 ml-0 md:ml-4 space-y-16">
+          {experiences.map((experience, index) => (
+            <motion.div
+              key={experience.id}
+              initial={{ opacity: 0, x: -20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: index * 0.1 }}
+              className="relative pl-8 md:pl-12"
+            >
+              {/* Timeline Dot */}
+              <div className="absolute left-[-5px] top-2 w-2.5 h-2.5 rounded-full bg-accent ring-4 ring-background" />
 
-          {/* Education Section */}
-          <div className="mt-16">
-            <ScrollReveal direction="up" delay={0.1}>
-              <h3 className="text-2xl font-bold text-foreground mb-8 text-center">
-                Education
-              </h3>
-            </ScrollReveal>
-            
-            <StaggerContainer staggerDelay={0.15}>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <StaggerItem>
-                  <Card className="hover-elevate h-full">
-                    <CardHeader>
-                      <div className="flex items-center gap-3">
-                        <div className="p-2 bg-primary/10 rounded-lg">
-                          <Award className="w-5 h-5 text-primary" />
-                        </div>
-                        <div>
-                          <CardTitle className="text-lg">
-                            MSc Robotics and Artificial Intelligence
-                          </CardTitle>
-                          <p className="text-sm text-primary font-medium">
-                            University College London
-                          </p>
-                        </div>
-                      </div>
-                    </CardHeader>
-                    <CardContent>
-                      <div className="space-y-3">
-                        <div className="flex items-center gap-2 text-sm text-muted-foreground">
-                          <Calendar className="w-4 h-4" />
-                          <span>September 2025</span>
-                        </div>
-                        <div className="flex items-center gap-2 text-sm text-muted-foreground">
-                          <MapPin className="w-4 h-4" />
-                          <span>London, UK</span>
-                        </div>
-                        <div className="mt-4">
-                          <p className="text-sm font-medium mb-2">Thesis:</p>
-                          <p className="text-sm text-muted-foreground">
-                            Hybrid 3D Reconstruction Pipeline for Cultural Heritage Preservation in Extreme Environments
-                          </p>
-                        </div>
-                      </div>
-                    </CardContent>
-                  </Card>
-                </StaggerItem>
+              <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 items-start">
+                {/* Header Info */}
+                <div className="lg:col-span-1">
+                  <h3 className="text-2xl font-display font-medium mb-2">{experience.organization}</h3>
+                  <div className="text-lg text-primary mb-4">{experience.title}</div>
+                  <div className="flex flex-col gap-2 text-sm text-muted-foreground">
+                    <div className="flex items-center gap-2">
+                      <Calendar className="w-4 h-4 text-accent" />
+                      <span>{experience.period}</span>
+                    </div>
+                    <div className="flex items-center gap-2">
+                      <MapPin className="w-4 h-4 text-accent" />
+                      <span>{experience.location}</span>
+                    </div>
+                  </div>
+                  <Badge variant="outline" className="mt-4 border-white/10">{experience.type}</Badge>
+                </div>
 
-                <StaggerItem>
-                  <Card className="hover-elevate h-full">
-                    <CardHeader>
-                      <div className="flex items-center gap-3">
-                        <div className="p-2 bg-primary/10 rounded-lg">
-                          <Award className="w-5 h-5 text-primary" />
-                        </div>
-                        <div>
-                          <CardTitle className="text-lg">
-                            BTech Artificial Intelligence Engineering
-                          </CardTitle>
-                          <p className="text-sm text-primary font-medium">
-                            Amrita Vishwa Vidyapeetham
-                          </p>
-                          <Badge variant="outline" className="text-xs mt-1">
-                            First Class with Distinction
+                {/* Details */}
+                <div className="lg:col-span-2">
+                  <div className="bg-card/30 backdrop-blur-sm border border-white/5 rounded-xl p-6 md:p-8 hover:border-accent/30 transition-colors duration-300">
+                    <ul className="space-y-4 mb-8">
+                      {experience.description.map((desc, i) => (
+                        <li key={i} className="flex items-start text-muted-foreground">
+                          <span className="w-1.5 h-1.5 bg-accent rounded-full mt-2.5 mr-3 flex-shrink-0" />
+                          <span className="leading-relaxed">{desc}</span>
+                        </li>
+                      ))}
+                    </ul>
+
+                    {experience.achievements && (
+                      <div className="flex flex-wrap gap-2">
+                        {experience.achievements.map((achievement) => (
+                          <Badge key={achievement} variant="secondary" className="bg-white/5 hover:bg-white/10 text-primary-foreground border-transparent">
+                            {achievement}
                           </Badge>
-                        </div>
+                        ))}
                       </div>
-                    </CardHeader>
-                    <CardContent>
-                      <div className="space-y-3">
-                        <div className="flex items-center gap-2 text-sm text-muted-foreground">
-                          <Calendar className="w-4 h-4" />
-                          <span>June 2024</span>
-                        </div>
-                        <div className="flex items-center gap-2 text-sm text-muted-foreground">
-                          <MapPin className="w-4 h-4" />
-                          <span>Kerala, India</span>
-                        </div>
-                        <div className="mt-4">
-                          <p className="text-sm font-medium mb-2">Thesis:</p>
-                          <p className="text-sm text-muted-foreground">
-                            Reinforcement Learning-Based Autonomous Landing of AirSim Simulated Quadcopter in Unreal Engine
-                          </p>
-                        </div>
-                      </div>
-                    </CardContent>
-                  </Card>
-                </StaggerItem>
+                    )}
+                  </div>
+                </div>
               </div>
-            </StaggerContainer>
-          </div>
+            </motion.div>
+          ))}
         </div>
       </div>
     </section>

@@ -1,10 +1,8 @@
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { Tooltip, TooltipContent, TooltipTrigger } from "@/components/ui/tooltip";
-import { ExternalLink, Calendar, Users } from "lucide-react";
-import ScrollReveal from "@/components/animations/ScrollReveal";
-import StaggerContainer, { StaggerItem } from "@/components/animations/StaggerContainer";
+import { ExternalLink, Calendar, Users, ArrowUpRight } from "lucide-react";
+import { motion } from "framer-motion";
 
 interface Publication {
   id: string;
@@ -80,129 +78,79 @@ export default function PublicationsSection() {
     },
   ];
 
-  const handleViewPublication = (id: string) => {
-    const publication = publications.find(pub => pub.id === id);
-    if (publication?.link) {
-      window.open(publication.link, '_blank');
-    } else {
-      console.log(`Viewing publication: ${id}`);
-    }
+  const handleViewPublication = (link?: string) => {
+    if (link) window.open(link, '_blank');
   };
 
   return (
-    <section id="publications" className="min-h-screen flex items-center py-16">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 w-full">
-        <div className="max-w-6xl mx-auto">
-          {/* Section Header */}
-          <ScrollReveal direction="up" delay={0.1}>
-            <div className="text-center mb-16">
-              <h2 className="text-3xl sm:text-4xl font-bold text-foreground mb-6">
-                Publications & Research
-              </h2>
-              <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
-                Peer-reviewed publications spanning computer vision, robotics, and AI with focus on 
-                practical applications and novel methodologies.
-              </p>
-            </div>
-          </ScrollReveal>
+    <section id="publications" className="min-h-screen py-24 bg-black/20">
+      <div className="container mx-auto px-6 max-w-7xl">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="mb-16"
+        >
+          <h2 className="text-4xl md:text-5xl font-display font-medium mb-6">
+            Publications
+          </h2>
+          <p className="text-xl text-muted-foreground max-w-3xl leading-relaxed">
+            Peer-reviewed publications spanning computer vision, robotics, and AI,
+            focusing on practical applications and novel methodologies.
+          </p>
+        </motion.div>
 
-          {/* Publications Grid */}
-          <StaggerContainer staggerDelay={0.15}>
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-              {publications.map((publication) => (
-                <StaggerItem key={publication.id}>
-                  <Card className="hover-elevate h-full">
-                    <CardHeader>
-                      <div className="flex items-start justify-between gap-4">
-                        <div className="flex-1">
-                          <CardTitle className="text-lg leading-tight mb-2">
-                            {publication.title}
-                          </CardTitle>
-                          <div className="flex items-center gap-2 text-sm text-muted-foreground mb-2">
-                            <Users className="w-4 h-4" />
-                            <span dangerouslySetInnerHTML={{
-                              __html: publication.authors.replace('Nehith Sai Vemulapalli', '<strong>Nehith Sai Vemulapalli</strong>')
-                            }} />
-                          </div>
-                          <div className="flex items-center gap-2 text-sm text-muted-foreground">
-                            <Calendar className="w-4 h-4" />
-                            <span>{publication.year}</span>
-                          </div>
-                        </div>
-                        <Badge 
-                          variant={publication.status === "published" ? "default" : "secondary"}
-                          className="flex-shrink-0"
-                        >
-                          {publication.status === "published" ? "Published" : "In Preparation"}
-                        </Badge>
-                      </div>
-                    </CardHeader>
-                    <CardContent>
-                      <div className="mb-4">
-                        <p className="text-sm text-muted-foreground italic">
-                          {publication.venue}
-                        </p>
-                      </div>
-                      
-                      <div className="flex flex-wrap gap-2 mb-4">
-                        {publication.keywords.map((keyword) => (
-                          <Badge key={keyword} variant="outline" className="text-xs">
-                            {keyword}
-                          </Badge>
-                        ))}
-                      </div>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          {publications.map((pub, index) => (
+            <motion.div
+              key={pub.id}
+              initial={{ opacity: 0, scale: 0.95 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true }}
+              transition={{ delay: index * 0.1 }}
+            >
+              <div className="group h-full bg-card/30 backdrop-blur-sm border border-white/5 rounded-xl p-8 hover:border-accent/30 transition-all duration-300 flex flex-col">
+                <div className="flex justify-between items-start mb-4 gap-4">
+                  <Badge
+                    variant={pub.status === "published" ? "default" : "secondary"}
+                    className="bg-white/5 text-foreground hover:bg-white/10 border-transparent"
+                  >
+                    {pub.status === "published" ? "Published" : "In Preparation"}
+                  </Badge>
+                  <span className="text-sm text-muted-foreground font-mono">{pub.year}</span>
+                </div>
 
-                      <Button
-                        variant="ghost"
-                        size="sm"
-                        onClick={() => handleViewPublication(publication.id)}
-                        data-testid={`button-view-publication-${publication.id}`}
-                      >
-                        <ExternalLink className="w-4 h-4 mr-2" />
-                        View Details
-                      </Button>
-                    </CardContent>
-                  </Card>
-                </StaggerItem>
-              ))}
-            </div>
-          </StaggerContainer>
+                <h3 className="text-xl font-display font-medium mb-3 leading-tight group-hover:text-accent transition-colors">
+                  {pub.title}
+                </h3>
 
-          {/* Publication Stats */}
-          <ScrollReveal direction="up" delay={0.2}>
-            <div className="mt-12 grid grid-cols-1 md:grid-cols-4 gap-6 text-center">
-              <div className="p-6 bg-background rounded-lg border">
-                <div className="text-2xl font-bold text-primary mb-2">6</div>
-                <div className="text-sm text-muted-foreground">Total Publications</div>
-              </div>
-              <div className="p-6 bg-background rounded-lg border">
-                <div className="text-2xl font-bold text-primary mb-2">4</div>
-                <div className="text-sm text-muted-foreground">Published Papers</div>
-              </div>
-              <div className="p-6 bg-background rounded-lg border">
-                <div className="text-2xl font-bold text-primary mb-2">2</div>
-                <div className="text-sm text-muted-foreground">In Preparation</div>
-              </div>
-              <Tooltip>
-                <TooltipTrigger asChild>
-                  <div className="p-6 bg-background rounded-lg border cursor-pointer hover-elevate">
-                    <div className="text-2xl font-bold text-primary mb-2">3</div>
-                    <div className="text-sm text-muted-foreground">Research Areas</div>
+                <p className="text-sm text-muted-foreground mb-6 line-clamp-3">
+                  {pub.venue}
+                </p>
+
+                <div className="mt-auto pt-6 border-t border-white/5 flex items-center justify-between">
+                  <div className="flex flex-wrap gap-2">
+                    {pub.keywords.slice(0, 2).map((kw) => (
+                      <span key={kw} className="text-xs text-muted-foreground/60 uppercase tracking-wider">
+                        {kw}
+                      </span>
+                    ))}
                   </div>
-                </TooltipTrigger>
-                <TooltipContent>
-                  <div className="text-sm">
-                    <div className="font-medium mb-1">Research Areas:</div>
-                    <ul className="space-y-1">
-                      <li>• Computer Vision</li>
-                      <li>• Machine Learning/AI</li>
-                      <li>• Robotics</li>
-                    </ul>
-                  </div>
-                </TooltipContent>
-              </Tooltip>
-            </div>
-          </ScrollReveal>
+
+                  {pub.link && (
+                    <Button
+                      variant="ghost"
+                      onClick={() => handleViewPublication(pub.link)}
+                      className="text-accent hover:text-accent hover:bg-accent/10 -mr-4"
+                    >
+                      Read Paper
+                      <ArrowUpRight className="w-4 h-4 ml-2" />
+                    </Button>
+                  )}
+                </div>
+              </div>
+            </motion.div>
+          ))}
         </div>
       </div>
     </section>
