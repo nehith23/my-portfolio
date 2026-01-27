@@ -10,7 +10,7 @@ export default function Footer() {
       GitHub: "https://github.com/nehith23",
       LinkedIn: "https://linkedin.com/in/nehith-v"
     };
-    
+
     const url = urls[platform as keyof typeof urls];
     if (url) {
       window.open(url, '_blank');
@@ -30,8 +30,8 @@ export default function Footer() {
             <div className="space-y-4">
               <h3 className="text-lg font-semibold">Nehith Sai Vemulapalli</h3>
               <p className="text-sm text-muted-foreground leading-relaxed">
-                Master's Graduate in Robotics & AI with expertise in computer vision, 
-                SLAM, and 3D reconstruction. Passionate about advancing autonomous 
+                Master's Graduate in Robotics & AI with expertise in computer vision,
+                SLAM, and 3D reconstruction. Passionate about advancing autonomous
                 systems and aerial robotics through innovative technology.
               </p>
               <div className="flex flex-wrap gap-2">
@@ -45,7 +45,7 @@ export default function Footer() {
             <div className="space-y-4">
               <h3 className="text-lg font-semibold">Quick Links</h3>
               <div className="grid grid-cols-2 gap-2 text-sm">
-                <button 
+                <button
                   onClick={() => {
                     const element = document.getElementById('publications');
                     if (element) {
@@ -59,7 +59,7 @@ export default function Footer() {
                 >
                   Publications
                 </button>
-                <button 
+                <button
                   onClick={() => {
                     const element = document.getElementById('projects');
                     if (element) {
@@ -73,7 +73,7 @@ export default function Footer() {
                 >
                   Projects
                 </button>
-                <button 
+                <button
                   onClick={() => {
                     const element = document.getElementById('experience');
                     if (element) {
@@ -87,7 +87,7 @@ export default function Footer() {
                 >
                   Experience
                 </button>
-                <button 
+                <button
                   onClick={() => {
                     const element = document.getElementById('skills');
                     if (element) {
@@ -101,7 +101,7 @@ export default function Footer() {
                 >
                   Skills
                 </button>
-                <button 
+                <button
                   onClick={() => {
                     const element = document.getElementById('contact');
                     if (element) {
@@ -115,7 +115,7 @@ export default function Footer() {
                 >
                   Contact
                 </button>
-                <button 
+                <button
                   onClick={() => console.log("Download CV")}
                   className="text-left text-muted-foreground hover:text-foreground transition-colors"
                   data-testid="footer-link-cv"
@@ -129,9 +129,8 @@ export default function Footer() {
             <div className="space-y-4">
               <h3 className="text-lg font-semibold">Connect</h3>
               <div className="space-y-3">
-                <div className="flex items-center gap-3 text-sm text-muted-foreground">
-                  <Mail className="w-4 h-4" />
-                  <span>vemulapallinehith@gmail.com</span>
+                <div className="text-sm text-muted-foreground">
+                  vemulapallinehith@gmail.com
                 </div>
                 <div className="text-sm text-muted-foreground">
                   London, United Kingdom
