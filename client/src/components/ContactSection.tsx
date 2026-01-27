@@ -49,7 +49,7 @@ export default function ContactSection() {
   };
 
   const downloadCV = () => {
-    const cvUrl = "/attached_assets/cv_phd_1760007892664.pdf";
+    const cvUrl = "/my-portfolio/attached_assets/cv_phd_1760007892664.pdf";
     const link = document.createElement("a");
     link.href = cvUrl;
     link.download = "Nehith_Sai_Vemulapalli_CV.pdf";
