@@ -88,7 +88,7 @@ export default function Header({ activeSection }: HeaderProps) {
             onClick={scrollToTop}
           >
             <h1 className="text-xl font-display font-medium tracking-wide">
-              NSV<span className="text-accent"></span>
+              Nehith.<span className="text-accent"></span>
             </h1>
           </div>
 
