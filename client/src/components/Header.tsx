@@ -33,7 +33,7 @@ export default function Header({ activeSection }: HeaderProps) {
     if (element) {
       const headerHeight = 64; // Height of fixed header
       const elementPosition = element.offsetTop - headerHeight;
-      
+
       window.scrollTo({
         top: elementPosition,
         behavior: 'smooth'
@@ -43,7 +43,7 @@ export default function Header({ activeSection }: HeaderProps) {
   };
 
   const viewCV = () => {
-    window.open("/attached_assets/cv_phd_1760007892664.pdf", '_blank');
+    window.open("/my-portfolio/attached_assets/cv_phd_1760007892664.pdf", '_blank');
   };
 
   return (
@@ -63,9 +63,8 @@ export default function Header({ activeSection }: HeaderProps) {
               <button
                 key={item.id}
                 onClick={() => scrollToSection(item.id)}
-                className={`text-sm font-medium transition-colors hover:text-primary ${
-                  activeSection === item.id ? "text-primary" : "text-muted-foreground"
-                }`}
+                className={`text-sm font-medium transition-colors hover:text-primary ${activeSection === item.id ? "text-primary" : "text-muted-foreground"
+                  }`}
                 data-testid={`nav-${item.id}`}
               >
                 {item.label}
@@ -123,9 +122,8 @@ export default function Header({ activeSection }: HeaderProps) {
                 <button
                   key={item.id}
                   onClick={() => scrollToSection(item.id)}
-                  className={`text-left text-sm font-medium transition-colors hover:text-primary ${
-                    activeSection === item.id ? "text-primary" : "text-muted-foreground"
-                  }`}
+                  className={`text-left text-sm font-medium transition-colors hover:text-primary ${activeSection === item.id ? "text-primary" : "text-muted-foreground"
+                    }`}
                   data-testid={`nav-mobile-${item.id}`}
                 >
                   {item.label}
