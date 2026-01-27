@@ -23,30 +23,17 @@ export default function ContactSection() {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    
-    try {
-      const response = await fetch("/api/contact", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(formData),
-      });
-      
-      const result = await response.json();
-      
-      if (response.ok) {
-        console.log("Message sent successfully!");
-        setFormData({ name: "", email: "", subject: "", message: "" });
-        alert(result.message || "Thank you for your message! I'll get back to you soon.");
-      } else {
-        console.error("Failed to send message:", result.error);
-        alert(result.error || "Failed to send message. Please try again.");
-      }
-    } catch (error) {
-      console.error("Error sending message:", error);
-      alert("Failed to send message. Please check your connection and try again.");
-    }
+
+    // Simulate form submission
+    console.log("Form submitted:", formData);
+
+    // Construct mailto link
+    const mailtoLink = `mailto:vemulapallinehith@gmail.com?subject=${encodeURIComponent(formData.subject)}&body=${encodeURIComponent(`Name: ${formData.name}\nEmail: ${formData.email}\n\n${formData.message}`)}`;
+
+    window.location.href = mailtoLink;
+
+    setFormData({ name: "", email: "", subject: "", message: "" });
+    alert("Opening your email client to send the message...");
   };
 
   const handleExternalLink = (platform: string) => {
@@ -54,34 +41,21 @@ export default function ContactSection() {
       GitHub: "https://github.com/nehith23",
       LinkedIn: "https://linkedin.com/in/nehith-v"
     };
-    
+
     const url = urls[platform as keyof typeof urls];
     if (url) {
       window.open(url, '_blank');
     }
   };
 
-  const downloadCV = async () => {
-    try {
-      const response = await fetch("/api/download-cv");
-      if (response.ok) {
-        const blob = await response.blob();
-        const url = window.URL.createObjectURL(blob);
-        const a = document.createElement("a");
-        a.href = url;
-        a.download = "Nehith_Sai_Vemulapalli_CV.pdf";
-        document.body.appendChild(a);
-        a.click();
-        document.body.removeChild(a);
-        window.URL.revokeObjectURL(url);
-      } else {
-        console.error("Failed to download CV");
-        alert("Failed to download CV. Please try again.");
-      }
-    } catch (error) {
-      console.error("Error downloading CV:", error);
-      alert("Error downloading CV. Please check your connection and try again.");
-    }
+  const downloadCV = () => {
+    const cvUrl = "/attached_assets/cv_phd_1760007892664.pdf";
+    const link = document.createElement("a");
+    link.href = cvUrl;
+    link.download = "Nehith_Sai_Vemulapalli_CV.pdf";
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
   };
 
   return (
@@ -95,7 +69,7 @@ export default function ContactSection() {
                 Get In Touch
               </h2>
               <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
-                Interested in collaboration, PhD opportunities, or research discussions? 
+                Interested in collaboration, PhD opportunities, or research discussions?
                 I'd love to hear from you.
               </p>
             </div>
@@ -293,8 +267,8 @@ export default function ContactSection() {
                 </CardHeader>
                 <CardContent>
                   <p className="text-muted-foreground mb-4">
-                    I'm actively seeking PhD positions, research roles, and job opportunities in robotics, 
-                    computer vision, and AI. I'm particularly interested in positions and collaborations involving 
+                    I'm actively seeking PhD positions, research roles, and job opportunities in robotics,
+                    computer vision, and AI. I'm particularly interested in positions and collaborations involving
                     3D reconstruction, autonomous systems, and practical applications of AI in robotics.
                   </p>
                   <div className="flex flex-wrap gap-2">
