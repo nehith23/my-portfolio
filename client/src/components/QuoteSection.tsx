@@ -4,29 +4,17 @@ import ScrollReveal from '@/components/animations/ScrollReveal';
 export default function QuoteSection() {
   return (
     <section
-      id="quote"
-      className="relative min-h-screen flex items-center justify-center py-16 bg-cover bg-center bg-no-repeat bg-fixed"
+      id="philosophy"
+      className="relative py-32 bg-cover bg-center bg-no-repeat bg-fixed"
       style={{
         backgroundImage: `url(${roboticsBackground})`
       }}
     >
-      {/* Dark Overlay for readability - lighter and no blur for better image visibility */}
-      <div className="absolute inset-0 bg-black/60" />
+      {/* Dark Overlay for readability */}
+      <div className="absolute inset-0 bg-black/65" />
 
       <div className="container relative z-10 mx-auto px-4 sm:px-6 lg:px-8 w-full">
         <div className="max-w-4xl mx-auto text-center">
-          {/* Section Header */}
-          <ScrollReveal direction="up" delay={0.1}>
-            <div className="mb-12">
-              <h2 className="text-3xl sm:text-4xl font-bold text-white mb-6">
-                Philosophy & Vision
-              </h2>
-              <p className="text-lg text-white/80 max-w-2xl mx-auto">
-                A guiding principle that shapes my approach to robotics and artificial intelligence.
-              </p>
-            </div>
-          </ScrollReveal>
-
           {/* Quote */}
           <ScrollReveal direction="up" delay={0.2} duration={1.2}>
             <div className="relative">
@@ -37,9 +25,7 @@ export default function QuoteSection() {
 
               <blockquote className="relative space-y-6">
                 <p className="text-2xl sm:text-3xl md:text-4xl font-display font-medium text-white leading-relaxed italic">
-                  "We built the body—the robot. We gave it the mind—the intelligent system.
-                  We set it free—the autonomous system. We are not just building tools,
-                  we're giving them will."
+                  "True intelligence isn't found in a vacuum; it's forged through interaction. My focus is bridging the gap between high-level reasoning and robust physical execution — building autonomous systems for unpredictable environments."
                 </p>
               </blockquote>
 
@@ -47,6 +33,15 @@ export default function QuoteSection() {
               <div className="absolute -bottom-24 -right-8 text-8xl text-white/10 font-serif leading-none select-none rotate-180">
                 "
               </div>
+            </div>
+          </ScrollReveal>
+
+          {/* Attribution */}
+          <ScrollReveal direction="up" delay={0.4}>
+            <div className="mt-12">
+              <p className="text-white/60 text-sm font-medium tracking-widest uppercase">
+                — Nehith Sai Vemulapalli
+              </p>
             </div>
           </ScrollReveal>
         </div>

@@ -1,6 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { Mail, Github, Linkedin, ArrowDown, ExternalLink, GraduationCap, MapPin, Phone } from "lucide-react";
+import { Mail, Github, Linkedin, ArrowDown, ExternalLink, GraduationCap, MapPin } from "lucide-react";
 import { motion } from "framer-motion";
 
 export default function HeroSection() {
@@ -65,7 +65,7 @@ export default function HeroSection() {
             transition={{ duration: 0.8, delay: 0.4, ease: "easeOut" }}
             className="text-lg text-muted-foreground max-w-3xl leading-relaxed mb-10 font-light"
           >
-            In a world where robots struggle to truly understand what they see, I bridge the gap between raw sensor data and intelligent perception. By combining advanced computer vision with SLAM and 3D reconstruction, I create systems that don't just capture images—they comprehend environments, enabling autonomous systems to navigate and interact with the complexity of our real world.
+            I combine advanced computer vision with SLAM and 3D reconstruction to create systems that don't just capture images — they comprehend environments, enabling autonomous systems to navigate and interact with the real world.
           </motion.p>
 
           <motion.div
@@ -74,7 +74,7 @@ export default function HeroSection() {
             transition={{ duration: 0.8, delay: 0.5, ease: "easeOut" }}
             className="flex flex-wrap justify-center gap-3 mb-10"
           >
-            {["4 Publications", "UCL Xplore Winner", "MSc Robotics & AI", "BTech First Class Honours"].map((award, i) => (
+            {["4 Published Papers", "UCL Xplore Winner", "MSc Robotics & AI", "BTech First Class Honours"].map((award, i) => (
               <div key={i} className="px-4 py-2 bg-white/5 border border-white/10 rounded-lg text-sm font-medium text-foreground/80 hover:bg-white/10 transition-colors cursor-default">
                 {award}
               </div>
@@ -91,11 +91,6 @@ export default function HeroSection() {
               <Mail className="w-4 h-4" />
               vemulapallinehith@gmail.com
             </a>
-            <span className="w-1 h-1 rounded-full bg-white/20" />
-            <span className="flex items-center gap-2">
-              <Phone className="w-4 h-4" />
-              +44 7936 634011
-            </span>
           </motion.div>
 
           <motion.div

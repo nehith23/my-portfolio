@@ -36,8 +36,8 @@ export default function Portfolio() {
     <div className="min-h-screen bg-background">
       <Header activeSection={activeSection} />
       <main>
-        <QuoteSection />
         <HeroSection />
+        <QuoteSection />
         <PublicationsSection />
         <ProjectsSection />
         <ExperienceSection />
