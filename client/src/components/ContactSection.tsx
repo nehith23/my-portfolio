@@ -3,7 +3,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Badge } from "@/components/ui/badge";
-import { Mail, MapPin, Github, Linkedin, Send, Download, GraduationCap } from "lucide-react";
+import { Mail, MapPin, Github, Linkedin, Send, Download } from "lucide-react";
 import { motion } from "framer-motion";
 
 export default function ContactSection() {
@@ -93,14 +93,6 @@ export default function ContactSection() {
               >
                 <Linkedin className="w-5 h-5 mr-3" />
                 LinkedIn
-              </Button>
-              <Button
-                variant="outline"
-                className="h-12 px-6 rounded-full border-white/10 hover:bg-white/5 transition-colors"
-                onClick={() => handleExternalLink("https://scholar.google.com/citations?user=YOUR_ID")}
-              >
-                <GraduationCap className="w-5 h-5 mr-3" />
-                Scholar
               </Button>
               <Button
                 className="h-12 px-6 rounded-full bg-foreground text-background hover:bg-foreground/90 transition-colors"
