@@ -45,8 +45,7 @@ export default function Footer() {
               ))}
               <a
                 href="/my-portfolio/attached_assets/Nehith_Vemulapalli_Resume.pdf"
-                target="_blank"
-                rel="noopener noreferrer"
+                download="Nehith_Vemulapalli_Resume.pdf"
                 className="text-left text-muted-foreground hover:text-accent transition-colors"
               >
                 Download CV

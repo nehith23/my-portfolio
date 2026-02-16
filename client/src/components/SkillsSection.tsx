@@ -77,7 +77,7 @@ export default function SkillsSection() {
   ];
 
   return (
-    <section id="skills" className="min-h-screen py-24 relative">
+    <section id="skills" className="py-24 relative">
       <div className="container mx-auto px-6 max-w-7xl">
         <motion.div
           initial={{ opacity: 0, y: 20 }}

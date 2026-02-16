@@ -30,7 +30,12 @@ export default function ContactSection() {
   };
 
   const downloadCV = () => {
-    window.open("/my-portfolio/attached_assets/Nehith_Vemulapalli_Resume.pdf", '_blank');
+    const link = document.createElement('a');
+    link.href = "/my-portfolio/attached_assets/Nehith_Vemulapalli_Resume.pdf";
+    link.download = "Nehith_Vemulapalli_Resume.pdf";
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
   };
 
   return (
