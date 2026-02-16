@@ -1,19 +1,11 @@
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Badge } from "@/components/ui/badge";
-import { Progress } from "@/components/ui/progress";
-import { Code, Cpu, Wrench, Database, Terminal } from "lucide-react";
+import { Code, Cpu, Wrench, Database, Microscope } from "lucide-react";
 import { motion } from "framer-motion";
 
 interface SkillCategory {
   id: string;
   title: string;
   icon: any;
-  skills: Array<{
-    name: string;
-    level: "Beginner" | "Intermediate" | "Advanced" | "Expert";
-    description?: string;
-    proficiency: number;
-  }>;
+  skills: string[];
 }
 
 export default function SkillsSection() {
@@ -22,46 +14,66 @@ export default function SkillsSection() {
       id: "programming",
       title: "Programming Languages",
       icon: Code,
-      skills: [
-        { name: "Python", level: "Expert", description: "Primary language for research and development", proficiency: 95 },
-        { name: "C++", level: "Intermediate", description: "Working knowledge for robotics applications", proficiency: 70 },
-        { name: "MATLAB", level: "Intermediate", description: "Used for algorithm prototyping and analysis", proficiency: 65 },
-      ]
+      skills: ["Python", "C++", "MATLAB", "JavaScript", "SQL"],
     },
     {
       id: "frameworks",
       title: "Frameworks & Libraries",
       icon: Database,
       skills: [
-        { name: "PyTorch", level: "Advanced", description: "Deep learning and neural networks", proficiency: 85 },
-        { name: "TensorFlow", level: "Advanced", description: "Machine learning model development", proficiency: 80 },
-        { name: "OpenCV", level: "Expert", description: "Computer vision and image processing", proficiency: 90 },
-        { name: "Open3D", level: "Advanced", description: "3D data processing and visualization", proficiency: 80 },
-        { name: "NumPy/Pandas", level: "Expert", description: "Scientific computing and data analysis", proficiency: 95 },
-      ]
+        "PyTorch",
+        "TensorFlow",
+        "OpenCV",
+        "Open3D",
+        "NumPy",
+        "Pandas",
+        "Scikit-learn",
+        "Matplotlib",
+      ],
     },
     {
       id: "robotics",
-      title: "Robotics Tools",
+      title: "Robotics & Simulation",
       icon: Cpu,
       skills: [
-        { name: "ROS2", level: "Advanced", description: "Robot Operating System for distributed robotics", proficiency: 85 },
-        { name: "Gazebo", level: "Advanced", description: "Robot simulation and testing", proficiency: 80 },
-        { name: "RViz2", level: "Advanced", description: "Robotics visualization and debugging", proficiency: 80 },
-        { name: "PyBullet", level: "Advanced", description: "Physics simulation and robotics", proficiency: 75 },
-      ]
+        "ROS2",
+        "Gazebo",
+        "RViz2",
+        "PyBullet",
+        "AirSim",
+        "COLMAP",
+        "MPC",
+        "EKF",
+      ],
     },
     {
       id: "tools",
       title: "Development Tools",
       icon: Wrench,
       skills: [
-        { name: "Git", level: "Advanced", description: "Version control and collaboration", proficiency: 90 },
-        { name: "Docker", level: "Intermediate", description: "Containerization and deployment", proficiency: 70 },
-        { name: "CloudCompare", level: "Advanced", description: "Point cloud processing", proficiency: 85 },
-        { name: "Linux", level: "Advanced", description: "Primary development environment", proficiency: 85 },
-      ]
-    }
+        "Git",
+        "Docker",
+        "Linux",
+        "CloudCompare",
+        "LaTeX",
+        "Unreal Engine",
+      ],
+    },
+    {
+      id: "research",
+      title: "Research Domains",
+      icon: Microscope,
+      skills: [
+        "SLAM & Visual Odometry",
+        "3D Reconstruction",
+        "Computer Vision",
+        "Reinforcement Learning",
+        "Path Planning",
+        "Multi-Agent Systems",
+        "Sensor Fusion",
+        "Control Theory",
+      ],
+    },
   ];
 
   return (
@@ -71,18 +83,18 @@ export default function SkillsSection() {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="text-center mb-16"
+          className="mb-16"
         >
           <h2 className="text-4xl md:text-5xl font-display font-medium mb-6">
             Technical Expertise
           </h2>
-          <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
+          <p className="text-xl text-muted-foreground max-w-3xl leading-relaxed">
             Comprehensive technical skillset spanning robotics perception, AI/ML frameworks,
             and autonomous systems development.
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {skillCategories.map((category, index) => {
             const IconComponent = category.icon;
             return (
@@ -98,37 +110,17 @@ export default function SkillsSection() {
                     <div className="p-3 bg-accent/10 rounded-lg">
                       <IconComponent className="w-6 h-6 text-accent" />
                     </div>
-                    <h3 className="text-2xl font-display font-medium">{category.title}</h3>
+                    <h3 className="text-xl font-display font-medium">{category.title}</h3>
                   </div>
 
-                  <div className="space-y-8">
+                  <div className="flex flex-wrap gap-2">
                     {category.skills.map((skill) => (
-                      <div key={skill.name} className="group">
-                        <div className="flex justify-between items-baseline mb-2">
-                          <h4 className="font-medium text-lg group-hover:text-accent transition-colors">
-                            {skill.name}
-                          </h4>
-                          <span className="text-xs font-mono text-muted-foreground/60 uppercase tracking-wider">
-                            {skill.level}
-                          </span>
-                        </div>
-
-                        <div className="h-1.5 w-full bg-white/5 rounded-full overflow-hidden mb-2">
-                          <motion.div
-                            initial={{ width: 0 }}
-                            whileInView={{ width: `${skill.proficiency}%` }}
-                            viewport={{ once: true }}
-                            transition={{ duration: 1, ease: "easeOut" }}
-                            className="h-full bg-accent/80 rounded-full"
-                          />
-                        </div>
-
-                        {skill.description && (
-                          <p className="text-sm text-muted-foreground line-clamp-1">
-                            {skill.description}
-                          </p>
-                        )}
-                      </div>
+                      <span
+                        key={skill}
+                        className="px-3 py-1.5 text-sm rounded-lg bg-white/5 text-muted-foreground hover:bg-accent/10 hover:text-accent transition-colors duration-200"
+                      >
+                        {skill}
+                      </span>
                     ))}
                   </div>
                 </div>
