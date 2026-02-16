@@ -26,7 +26,7 @@ export default function Footer() {
           <div className="space-y-4">
             <h3 className="text-lg font-display font-medium">Nehith Sai Vemulapalli</h3>
             <p className="text-sm text-muted-foreground leading-relaxed">
-              Master's Graduate in Robotics & AI from UCL, specializing in computer vision, SLAM, and 3D reconstruction.
+              Master's Graduate in Robotics & AI. Building intelligent systems that see, understand, and preserve our world.
             </p>
           </div>
 
@@ -43,13 +43,6 @@ export default function Footer() {
                   {link.label}
                 </button>
               ))}
-              <a
-                href="/my-portfolio/attached_assets/Nehith_Vemulapalli_Resume.pdf"
-                download="Nehith_Vemulapalli_Resume.pdf"
-                className="text-left text-muted-foreground hover:text-accent transition-colors"
-              >
-                Download CV
-              </a>
             </div>
           </div>
 
