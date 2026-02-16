@@ -21,7 +21,7 @@ export default function ExperienceSection() {
       id: "1",
       title: "Graduate Research Project",
       organization: "UCL HereEast",
-      organizationUrl: "https://www.ucl.ac.uk/",
+      organizationUrl: "https://www.ucl.ac.uk/here-east/",
       location: "London, UK",
       period: "May 2025 – September 2025",
       type: "Research",
