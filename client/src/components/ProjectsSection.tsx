@@ -348,7 +348,7 @@ export default function ProjectsSection() {
               onClick={() => setShowAll(!showAll)}
               className="px-8 py-3 text-sm uppercase tracking-widest text-accent border border-accent/30 rounded-xl hover:bg-accent/10 transition-all duration-300"
             >
-              {showAll ? "Show Less" : `Show All ${filteredByCategory.length} Projects`}
+              {showAll ? "Show Less" : "Show More"}
             </button>
           </motion.div>
         )}
