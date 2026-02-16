@@ -254,7 +254,7 @@ export default function ProjectsSection() {
             viewport={{ once: true }}
             className="text-4xl md:text-5xl font-display font-medium mb-6"
           >
-            Capabilities
+            Projects
           </motion.h2>
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -302,7 +302,7 @@ export default function ProjectsSection() {
                 className="group relative h-full"
               >
                 <div
-                  className="h-full bg-card border border-white/5 p-8 rounded-none hover:border-accent/30 transition-colors duration-300 flex flex-col cursor-pointer"
+                  className="h-full bg-card/30 backdrop-blur-sm border border-white/5 p-8 rounded-xl hover:border-accent/30 transition-all duration-300 flex flex-col cursor-pointer"
                   onClick={() => handleViewProject(project)}
                 >
                   <div className="flex justify-between items-start mb-6">
@@ -321,9 +321,9 @@ export default function ProjectsSection() {
                   </p>
 
                   <div className="flex flex-wrap gap-2 mt-auto">
-                    {project.technologies.slice(0, 3).map(tech => (
-                      <span key={tech} className="text-xs text-muted-foreground/60 uppercase tracking-wider">
-                        {tech} •
+                    {project.technologies.map(tech => (
+                      <span key={tech} className="text-xs px-2 py-1 rounded-md bg-white/5 text-muted-foreground/70 uppercase tracking-wider">
+                        {tech}
                       </span>
                     ))}
                   </div>
