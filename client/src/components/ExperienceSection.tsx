@@ -7,9 +7,10 @@ interface Experience {
   id: string;
   title: string;
   organization: string;
+  organizationUrl?: string;
   location: string;
   period: string;
-  type: "research" | "startup" | "ambassador";
+  type: "Research" | "Startup" | "Ambassador";
   description: string[];
   achievements?: string[];
 }
@@ -20,13 +21,14 @@ export default function ExperienceSection() {
       id: "1",
       title: "Graduate Research Project",
       organization: "UCL HereEast",
+      organizationUrl: "https://www.ucl.ac.uk/",
       location: "London, UK",
       period: "May 2025 – September 2025",
-      type: "research",
+      type: "Research",
       description: [
-        "Developed a hybrid 3D reconstruction pipeline for cultural heritage preservation, combining COLMAP, LiDAR data and 3D Gaussian Splatting for robust reconstruction.",
-        "Designed and implemented structural inspection path planning and multi-agent swarm control for Crazyflie mini drones using ROS2, Gazebo, and RViz2 as part of the Aerial Robotics module.",
-        "Collaborated with cross-functional faculty and peers to conduct experiments and advance research objectives."
+        "Built a hybrid 3D reconstruction pipeline fusing COLMAP, LiDAR, and 3D Gaussian Splatting for cultural heritage preservation.",
+        "Implemented structural inspection path planning and multi-agent swarm control for Crazyflie drones using ROS2 and Gazebo.",
+        "Collaborated with cross-functional faculty and peers on experimental research."
       ],
       achievements: [
         "Novel hybrid reconstruction approach",
@@ -40,10 +42,10 @@ export default function ExperienceSection() {
       organization: "AquaScout",
       location: "London, UK",
       period: "November 2024 – March 2025",
-      type: "startup",
+      type: "Startup",
       description: [
-        "Conceived and led AquaScout, a drone-based water quality testing startup, winning the UCL Xplore programme competition.",
-        "Advanced through a 12-week Venture Builder programme, refining the business model, technical roadmap, and go-to-market strategy."
+        "Founded a drone-based water quality testing startup, winning the UCL Xplore programme competition.",
+        "Completed a 12-week Venture Builder programme — refined business model, technical roadmap, and go-to-market strategy."
       ],
       achievements: [
         "UCL Xplore Winner",
@@ -55,12 +57,13 @@ export default function ExperienceSection() {
       id: "3",
       title: "Student Ambassador",
       organization: "UCL Department of Computer Science",
+      organizationUrl: "https://www.ucl.ac.uk/computer-science/",
       location: "London, UK",
       period: "December 2024 – September 2025",
-      type: "ambassador",
+      type: "Ambassador",
       description: [
         "Organized technical talks and networking sessions with visiting faculty and researchers.",
-        "Coordinated student engagement activities and logistics for departmental academic events."
+        "Coordinated logistics and student engagement for departmental academic events."
       ],
       achievements: [
         "Faculty networking",
@@ -107,7 +110,11 @@ export default function ExperienceSection() {
               <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 items-start">
                 {/* Header Info */}
                 <div className="lg:col-span-1">
-                  <h3 className="text-2xl font-display font-medium mb-2">{experience.organization}</h3>
+                  {experience.organizationUrl ? (
+                    <a href={experience.organizationUrl} target="_blank" rel="noopener noreferrer" className="text-2xl font-display font-medium mb-2 block hover:text-accent transition-colors">{experience.organization}</a>
+                  ) : (
+                    <h3 className="text-2xl font-display font-medium mb-2">{experience.organization}</h3>
+                  )}
                   <div className="text-lg text-primary mb-4">{experience.title}</div>
                   <div className="flex flex-col gap-2 text-sm text-muted-foreground">
                     <div className="flex items-center gap-2">
