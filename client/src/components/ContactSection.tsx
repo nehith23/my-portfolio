@@ -30,7 +30,7 @@ export default function ContactSection() {
   };
 
   const downloadCV = () => {
-    window.open("/my-portfolio/attached_assets/cv_phd_1760007892664.pdf", '_blank');
+    window.open("/my-portfolio/attached_assets/Nehith_Vemulapalli_Resume.pdf", '_blank');
   };
 
   return (

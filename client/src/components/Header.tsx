@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
-import { Moon, Sun, FileText, Menu, X } from "lucide-react";
+import { FileText, Menu, X } from "lucide-react";
 import { motion, useScroll, useTransform, AnimatePresence } from "framer-motion";
 
 interface HeaderProps {
@@ -8,7 +8,6 @@ interface HeaderProps {
 }
 
 export default function Header({ activeSection }: HeaderProps) {
-  const [isDark, setIsDark] = useState(true); // Default to dark for this theme
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   const { scrollY } = useScroll();
@@ -17,14 +16,9 @@ export default function Header({ activeSection }: HeaderProps) {
   const borderOpacity = useTransform(scrollY, [0, 50], [0, 1]);
 
   useEffect(() => {
-    const root = window.document.documentElement;
-    // Enforce dark mode for this new theme primarily, but allow toggle
-    if (isDark) {
-      root.classList.add("dark");
-    } else {
-      root.classList.remove("dark");
-    }
-  }, [isDark]);
+    // Enforce dark mode
+    window.document.documentElement.classList.add("dark");
+  }, []);
 
   const navItems = [
     { id: "home", label: "Home" },
@@ -57,7 +51,7 @@ export default function Header({ activeSection }: HeaderProps) {
   };
 
   const viewCV = () => {
-    window.open("/my-portfolio/attached_assets/cv_phd_1760007892664.pdf", '_blank');
+    window.open("/my-portfolio/attached_assets/Nehith_Vemulapalli_Resume.pdf", '_blank');
   };
 
   return (
@@ -88,7 +82,7 @@ export default function Header({ activeSection }: HeaderProps) {
             onClick={scrollToTop}
           >
             <h1 className="text-xl font-display font-medium tracking-wide">
-              Nehith.<span className="text-accent"></span>
+              Nehith<span className="text-accent">.</span>
             </h1>
           </div>
 
@@ -118,23 +112,10 @@ export default function Header({ activeSection }: HeaderProps) {
                 Resume
               </span>
             </button>
-
-            <button
-              onClick={() => setIsDark(!isDark)}
-              className="text-muted-foreground hover:text-foreground transition-colors"
-            >
-              {isDark ? <Sun className="w-5 h-5" /> : <Moon className="w-5 h-5" />}
-            </button>
           </div>
 
           {/* Mobile Menu Button - Visible below 960px */}
-          <div className="min-[960px]:hidden flex items-center space-x-4">
-            <button
-              onClick={() => setIsDark(!isDark)}
-              className="text-muted-foreground hover:text-foreground transition-colors mr-2"
-            >
-              {isDark ? <Sun className="w-5 h-5" /> : <Moon className="w-5 h-5" />}
-            </button>
+          <div className="min-[960px]:hidden flex items-center">
             <button
               onClick={() => setIsMobileMenuOpen(true)}
               className="text-foreground p-2"
