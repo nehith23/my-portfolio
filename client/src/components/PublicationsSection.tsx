@@ -1,7 +1,7 @@
 import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { ExternalLink, Calendar, Users, ArrowUpRight } from "lucide-react";
+import { ExternalLink, Calendar, Users, ArrowUpRight, FileText } from "lucide-react";
 import { motion } from "framer-motion";
 
 interface Publication {
@@ -14,6 +14,22 @@ interface Publication {
   abstract?: string;
   keywords: string[];
   link?: string;
+}
+
+function formatAuthors(authors: string): JSX.Element {
+  // Bold "Nehith Sai Vemulapalli" or "Vemulapalli, N. S." in the author string
+  const parts = authors.split(/(Nehith Sai Vemulapalli|Vemulapalli, N\. S\.)/);
+  return (
+    <>
+      {parts.map((part, i) =>
+        part === "Nehith Sai Vemulapalli" || part === "Vemulapalli, N. S." ? (
+          <span key={i} className="font-semibold text-foreground">{part}</span>
+        ) : (
+          <span key={i}>{part}</span>
+        )
+      )}
+    </>
+  );
 }
 
 export default function PublicationsSection() {
@@ -62,7 +78,7 @@ export default function PublicationsSection() {
       id: "5",
       title: "Hybrid 3D Reconstruction Pipeline for Cultural Heritage Preservation in Extreme Environments",
       authors: "Vemulapalli, N. S.",
-      venue: "Target Conference: International Conference on Robotics and Automation (ICRA)",
+      venue: "Target: International Conference on Robotics and Automation (ICRA)",
       year: "2025",
       status: "in-preparation",
       keywords: ["3D Reconstruction", "Computer Vision", "Cultural Heritage"],
@@ -71,16 +87,81 @@ export default function PublicationsSection() {
       id: "6",
       title: "Self-Reconfigurable Robots for Space Exploration & Morphology-Shifting Simulation",
       authors: "Vemulapalli, N. S.",
-      venue: "Target Conference: International Conference on Robotics and Automation (ICRA)",
+      venue: "Target: International Conference on Robotics and Automation (ICRA)",
       year: "2025",
       status: "in-preparation",
       keywords: ["Robotics", "Space Exploration", "Reconfigurable Systems"],
     },
   ];
 
+  const published = publications.filter(p => p.status === "published");
+  const inPreparation = publications.filter(p => p.status === "in-preparation");
+
   const handleViewPublication = (link?: string) => {
     if (link) window.open(link, '_blank');
   };
+
+  const renderPublicationCard = (pub: Publication, index: number) => (
+    <motion.div
+      key={pub.id}
+      initial={{ opacity: 0, scale: 0.95 }}
+      whileInView={{ opacity: 1, scale: 1 }}
+      viewport={{ once: true }}
+      transition={{ delay: index * 0.1 }}
+    >
+      <div className="group h-full bg-card/30 backdrop-blur-sm border border-white/5 rounded-xl p-8 hover:border-accent/30 transition-all duration-300 flex flex-col">
+        <div className="flex justify-between items-start mb-4 gap-4">
+          <Badge
+            variant={pub.status === "published" ? "default" : "secondary"}
+            className={pub.status === "published"
+              ? "bg-accent/10 text-accent border-accent/20 hover:bg-accent/20"
+              : "bg-yellow-500/10 text-yellow-400 border-yellow-500/20 hover:bg-yellow-500/20"
+            }
+          >
+            {pub.status === "published" ? "Published" : "In Preparation"}
+          </Badge>
+          <span className="text-sm text-muted-foreground font-mono">{pub.year}</span>
+        </div>
+
+        <h3 className="text-xl font-display font-medium mb-3 leading-tight group-hover:text-accent transition-colors">
+          {pub.title}
+        </h3>
+
+        {/* Authors with bolded name */}
+        <p className="text-sm text-muted-foreground mb-3 flex items-start gap-2">
+          <Users className="w-4 h-4 mt-0.5 shrink-0 text-muted-foreground/50" />
+          <span>{formatAuthors(pub.authors)}</span>
+        </p>
+
+        {/* Venue */}
+        <p className="text-sm text-muted-foreground/70 mb-6 italic">
+          {pub.venue}
+        </p>
+
+        <div className="mt-auto pt-6 border-t border-white/5 flex items-center justify-between gap-4">
+          {/* All keywords shown */}
+          <div className="flex flex-wrap gap-2">
+            {pub.keywords.map((kw) => (
+              <span key={kw} className="text-xs px-2 py-1 rounded-md bg-white/5 text-muted-foreground/70 uppercase tracking-wider">
+                {kw}
+              </span>
+            ))}
+          </div>
+
+          {pub.link && (
+            <Button
+              variant="ghost"
+              onClick={() => handleViewPublication(pub.link)}
+              className="text-accent hover:text-accent hover:bg-accent/10 -mr-4 shrink-0"
+            >
+              Read Paper
+              <ArrowUpRight className="w-4 h-4 ml-2" />
+            </Button>
+          )}
+        </div>
+      </div>
+    </motion.div>
+  );
 
   return (
     <section id="publications" className="min-h-screen py-24 bg-black/20">
@@ -100,58 +181,37 @@ export default function PublicationsSection() {
           </p>
         </motion.div>
 
+        {/* Published Papers */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-          {publications.map((pub, index) => (
-            <motion.div
-              key={pub.id}
-              initial={{ opacity: 0, scale: 0.95 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              viewport={{ once: true }}
-              transition={{ delay: index * 0.1 }}
-            >
-              <div className="group h-full bg-card/30 backdrop-blur-sm border border-white/5 rounded-xl p-8 hover:border-accent/30 transition-all duration-300 flex flex-col">
-                <div className="flex justify-between items-start mb-4 gap-4">
-                  <Badge
-                    variant={pub.status === "published" ? "default" : "secondary"}
-                    className="bg-accent/10 text-accent border-accent/20 hover:bg-accent/20"
-                  >
-                    {pub.status === "published" ? "Published" : "In Preparation"}
-                  </Badge>
-                  <span className="text-sm text-muted-foreground font-mono">{pub.year}</span>
-                </div>
-
-                <h3 className="text-xl font-display font-medium mb-3 leading-tight group-hover:text-accent transition-colors">
-                  {pub.title}
-                </h3>
-
-                <p className="text-sm text-muted-foreground mb-6 line-clamp-3">
-                  {pub.venue}
-                </p>
-
-                <div className="mt-auto pt-6 border-t border-white/5 flex items-center justify-between">
-                  <div className="flex flex-wrap gap-2">
-                    {pub.keywords.slice(0, 2).map((kw) => (
-                      <span key={kw} className="text-xs text-muted-foreground/60 uppercase tracking-wider">
-                        {kw}
-                      </span>
-                    ))}
-                  </div>
-
-                  {pub.link && (
-                    <Button
-                      variant="ghost"
-                      onClick={() => handleViewPublication(pub.link)}
-                      className="text-accent hover:text-accent hover:bg-accent/10 -mr-4"
-                    >
-                      Read Paper
-                      <ArrowUpRight className="w-4 h-4 ml-2" />
-                    </Button>
-                  )}
-                </div>
-              </div>
-            </motion.div>
-          ))}
+          {published.map((pub, index) => renderPublicationCard(pub, index))}
         </div>
+
+        {/* In Preparation Section */}
+        {inPreparation.length > 0 && (
+          <>
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              className="mt-20 mb-10"
+            >
+              <div className="flex items-center gap-4">
+                <FileText className="w-5 h-5 text-yellow-400" />
+                <h3 className="text-2xl font-display font-medium text-white/80">
+                  In Preparation
+                </h3>
+                <div className="flex-1 h-px bg-white/10" />
+              </div>
+              <p className="text-sm text-muted-foreground mt-2 ml-9">
+                Upcoming manuscripts targeting top-tier venues.
+              </p>
+            </motion.div>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+              {inPreparation.map((pub, index) => renderPublicationCard(pub, index))}
+            </div>
+          </>
+        )}
       </div>
     </section>
   );
