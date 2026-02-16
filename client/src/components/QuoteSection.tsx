@@ -5,7 +5,7 @@ export default function QuoteSection() {
   return (
     <section
       id="philosophy"
-      className="relative py-32 bg-cover bg-center bg-no-repeat bg-fixed"
+      className="relative py-40 bg-cover bg-center bg-no-repeat bg-fixed"
       style={{
         backgroundImage: `url(${roboticsBackground})`
       }}
