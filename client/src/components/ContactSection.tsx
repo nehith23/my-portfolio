@@ -3,7 +3,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Badge } from "@/components/ui/badge";
-import { Mail, Phone, MapPin, Github, Linkedin, Send, Download } from "lucide-react";
+import { Mail, MapPin, Github, Linkedin, Send, Download, GraduationCap } from "lucide-react";
 import { motion } from "framer-motion";
 
 export default function ContactSection() {
@@ -68,16 +68,6 @@ export default function ContactSection() {
 
               <div className="flex items-start gap-6">
                 <div className="p-3 rounded-full bg-white/5 border border-white/10">
-                  <Phone className="w-6 h-6 text-accent" />
-                </div>
-                <div>
-                  <p className="text-lg font-medium text-foreground mb-1">Phone</p>
-                  <p className="text-muted-foreground text-lg">+44 7936 634011</p>
-                </div>
-              </div>
-
-              <div className="flex items-start gap-6">
-                <div className="p-3 rounded-full bg-white/5 border border-white/10">
                   <MapPin className="w-6 h-6 text-accent" />
                 </div>
                 <div>
@@ -103,6 +93,14 @@ export default function ContactSection() {
               >
                 <Linkedin className="w-5 h-5 mr-3" />
                 LinkedIn
+              </Button>
+              <Button
+                variant="outline"
+                className="h-12 px-6 rounded-full border-white/10 hover:bg-white/5 transition-colors"
+                onClick={() => handleExternalLink("https://scholar.google.com/citations?user=YOUR_ID")}
+              >
+                <GraduationCap className="w-5 h-5 mr-3" />
+                Scholar
               </Button>
               <Button
                 className="h-12 px-6 rounded-full bg-foreground text-background hover:bg-foreground/90 transition-colors"
