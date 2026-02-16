@@ -14,6 +14,7 @@ export default function Footer() {
     { label: "Publications", id: "publications" },
     { label: "Projects", id: "projects" },
     { label: "Experience", id: "experience" },
+    { label: "Education", id: "education" },
     { label: "Skills", id: "skills" },
     { label: "Contact", id: "contact" },
   ];
