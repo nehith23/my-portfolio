@@ -52,7 +52,7 @@ export default function ProjectsSection() {
       title: "Graph-Based SLAM & ORB-SLAM2 Evaluation",
       description: "Modified ORB-SLAM2 to analyze feature selection and loop closure effects on trajectory estimation; benchmarked performance using COLMAP and EVO tools.",
       fullDescription: "This project documents major tasks in localization, mapping, and state estimation. It compares classical filtering methods (EKF) with modern graph-based optimization techniques (g2o/ORB-SLAM2) applied to real-world and benchmark datasets.",
-      technologies: ["ORB-SLAM2", "ROS2", "COLMAP", "C++", "g2o"],
+      technologies: ["ORB-SLAM2", "ROS2", "COLMAP"],
       category: "Robotics",
       icon: Brain,
       highlights: [
@@ -228,10 +228,14 @@ export default function ProjectsSection() {
   const [selectedCategory, setSelectedCategory] = useState("All");
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [showAll, setShowAll] = useState(false);
 
-  const filteredProjects = selectedCategory === "All"
+  const filteredByCategory = selectedCategory === "All"
     ? projects
     : projects.filter(project => project.category === selectedCategory);
+
+  const filteredProjects = showAll ? filteredByCategory : filteredByCategory.slice(0, 4);
+  const hasMore = filteredByCategory.length > 4;
 
   const handleViewProject = (project: Project) => {
     setSelectedProject(project);
@@ -332,6 +336,22 @@ export default function ProjectsSection() {
             ))}
           </AnimatePresence>
         </motion.div>
+
+        {/* Show More / Show Less */}
+        {hasMore && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            className="flex justify-center mt-12"
+          >
+            <button
+              onClick={() => setShowAll(!showAll)}
+              className="px-8 py-3 text-sm uppercase tracking-widest text-accent border border-accent/30 rounded-xl hover:bg-accent/10 transition-all duration-300"
+            >
+              {showAll ? "Show Less" : `Show All ${filteredByCategory.length} Projects`}
+            </button>
+          </motion.div>
+        )}
       </div>
 
       <ProjectDetailModal
