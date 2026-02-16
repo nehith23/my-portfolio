@@ -65,7 +65,7 @@ export default function HeroSection() {
             transition={{ duration: 0.8, delay: 0.4, ease: "easeOut" }}
             className="text-lg text-muted-foreground max-w-3xl leading-relaxed mb-10 font-light"
           >
-            I combine advanced computer vision with SLAM and 3D reconstruction to create systems that don't just capture images — they comprehend environments, enabling autonomous systems to navigate and interact with the real world.
+            I develop intelligent systems that bridge the gap between abstract computation and physical reality. My work focuses on the full robotics stack — integrating perception, reasoning, and control to create machines that can navigate, adapt, and perform effectively within the complexity of the human world.
           </motion.p>
 
           <motion.div
