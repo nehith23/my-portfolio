@@ -21,7 +21,7 @@ export default function HeroSection() {
   };
 
   return (
-    <section id="home" className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20">
+    <section id="home" className="relative min-h-screen flex items-center justify-center overflow-hidden pt-32">
       {/* Background Ambience moved to global layout */}
 
       <div className="container relative z-10 px-6 max-w-7xl mx-auto">

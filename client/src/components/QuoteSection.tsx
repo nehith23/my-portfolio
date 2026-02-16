@@ -36,14 +36,6 @@ export default function QuoteSection() {
             </div>
           </ScrollReveal>
 
-          {/* Attribution */}
-          <ScrollReveal direction="up" delay={0.4}>
-            <div className="mt-12">
-              <p className="text-white/60 text-sm font-medium tracking-widest uppercase">
-                — Nehith Sai Vemulapalli
-              </p>
-            </div>
-          </ScrollReveal>
         </div>
       </div>
     </section>
