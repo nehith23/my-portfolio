@@ -52,7 +52,7 @@ export default function Header({ activeSection }: HeaderProps) {
   };
 
   const viewCV = () => {
-    window.open("/my-portfolio/attached_assets/Nehith_Vemulapalli_Resume.pdf", '_blank');
+    window.open("/attached_assets/Nehith_Vemulapalli_Resume.pdf", '_blank');
   };
 
   return (

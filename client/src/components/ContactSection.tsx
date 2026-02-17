@@ -31,7 +31,7 @@ export default function ContactSection() {
 
   const downloadCV = () => {
     const link = document.createElement('a');
-    link.href = "/my-portfolio/attached_assets/Nehith_Vemulapalli_Resume.pdf";
+    link.href = "/attached_assets/Nehith_Vemulapalli_Resume.pdf";
     link.download = "Nehith_Vemulapalli_Resume.pdf";
     document.body.appendChild(link);
     link.click();
