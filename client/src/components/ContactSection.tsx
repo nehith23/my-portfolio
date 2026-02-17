@@ -82,7 +82,7 @@ export default function ContactSection() {
               </div>
             </div>
 
-            <div className="flex gap-4">
+            <div className="flex flex-wrap gap-4">
               <Button
                 variant="outline"
                 className="h-12 px-6 rounded-full border-white/10 hover:bg-white/5 transition-colors"
