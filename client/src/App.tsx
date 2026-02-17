@@ -8,7 +8,7 @@ import NotFound from "@/pages/not-found";
 
 function Router() {
   return (
-    <WouterRouter base="/my-portfolio">
+    <WouterRouter>
       <Switch>
         <Route path="/" component={Portfolio} />
         {/* Fallback to 404 */}
