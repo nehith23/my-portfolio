@@ -56,7 +56,7 @@ export default function HeroSection() {
             transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
             className="text-2xl sm:text-3xl md:text-4xl font-display font-medium leading-tight mb-8 text-foreground/90 max-w-4xl"
           >
-            Building intelligent systems that see, understand, and preserve our world
+            Building intelligent systems that see, understand, and explore our world
           </motion.h2>
 
           <motion.p

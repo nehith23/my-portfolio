@@ -27,7 +27,7 @@ export default function Footer() {
           <div className="space-y-4">
             <h3 className="text-lg font-display font-medium">Nehith Sai Vemulapalli</h3>
             <p className="text-sm text-muted-foreground leading-relaxed">
-              Master's Graduate in Robotics & AI. Building intelligent systems that see, understand, and preserve our world.
+              Master's Graduate in Robotics & AI. Building intelligent systems that see, understand, and explore our world.
             </p>
           </div>
 
