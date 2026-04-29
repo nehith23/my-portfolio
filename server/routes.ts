@@ -3,6 +3,12 @@ import { createServer, type Server } from "http";
 import { storage } from "./storage";
 import path from "path";
 import express from "express";
+import { fileURLToPath } from "url";
+import { dirname } from "path";
+import { existsSync } from "fs";
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
 
 export async function registerRoutes(app: Express): Promise<Server> {
   // Serve attached assets (PDFs, images, etc.)
@@ -11,13 +17,30 @@ export async function registerRoutes(app: Express): Promise<Server> {
     express.static(path.join(process.cwd(), "attached_assets")),
   );
 
+  // Helper function to find resume.pdf in dev or production
+  const getResumePath = () => {
+    // Try multiple possible locations
+    const locations = [
+      path.join(process.cwd(), "resume.pdf"), // Dev environment
+      path.join(process.cwd(), "dist/public/resume.pdf"), // Production
+      path.join(__dirname, "../resume.pdf"), // Relative to bundled server
+      path.join(__dirname, "../../resume.pdf"), // Fallback
+    ];
+
+    for (const loc of locations) {
+      if (existsSync(loc)) {
+        return loc;
+      }
+    }
+
+    // Default to root resume.pdf
+    return path.join(process.cwd(), "resume.pdf");
+  };
+
   // CV Download endpoint
   app.get("/api/download-cv", (req, res) => {
     try {
-      const cvPath = path.join(
-        process.cwd(),
-        "resume.pdf",
-      );
+      const cvPath = getResumePath();
 
       // Set appropriate headers for PDF download with requested filename 'resume.pdf'
       res.setHeader("Content-Type", "application/pdf");
@@ -39,10 +62,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
   // Serve CV for viewing with filename 'resume.pdf'
   app.get("/resume.pdf", (req, res) => {
     try {
-      const cvPath = path.join(
-        process.cwd(),
-        "resume.pdf",
-      );
+      const cvPath = getResumePath();
       res.setHeader("Content-Type", "application/pdf");
       // inline so browser opens it, but suggest filename as resume.pdf
       res.setHeader("Content-Disposition", 'inline; filename="resume.pdf"');
