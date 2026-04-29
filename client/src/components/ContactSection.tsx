@@ -11,11 +11,11 @@ export default function ContactSection() {
     name: "",
     email: "",
     subject: "",
-    message: ""
+    message: "",
   });
 
   const handleInputChange = (field: string, value: string) => {
-    setFormData(prev => ({ ...prev, [field]: value }));
+    setFormData((prev) => ({ ...prev, [field]: value }));
   };
 
   const handleSubmit = (e: React.FormEvent) => {
@@ -26,23 +26,25 @@ export default function ContactSection() {
   };
 
   const handleExternalLink = (url: string) => {
-    window.open(url, '_blank');
+    window.open(url, "_blank");
   };
 
   const downloadCV = () => {
-    const link = document.createElement('a');
-    link.href = "/attached_assets/Nehith_Vemulapalli_Resume.pdf";
-    link.download = "Nehith_Vemulapalli_Resume.pdf";
+    const link = document.createElement("a");
+    link.href = "/api/download-cv";
+    link.download = "resume.pdf";
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
   };
 
   return (
-    <section id="contact" className="min-h-screen py-24 relative flex items-center">
+    <section
+      id="contact"
+      className="min-h-screen py-24 relative flex items-center"
+    >
       <div className="container mx-auto px-6 max-w-7xl">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-20">
-
           {/* Left Column: Info */}
           <motion.div
             initial={{ opacity: 0, x: -20 }}
@@ -54,8 +56,9 @@ export default function ContactSection() {
               Let's Connect
             </h2>
             <p className="text-xl text-muted-foreground leading-relaxed mb-12">
-              Interested in collaboration, PhD opportunities, or research discussions?
-              I'm always open to exploring new frontiers in robotics and perception.
+              Interested in collaboration, PhD opportunities, or research
+              discussions? I'm always open to exploring new frontiers in
+              robotics and perception.
             </p>
 
             <div className="space-y-8 mb-12">
@@ -64,8 +67,13 @@ export default function ContactSection() {
                   <Mail className="w-6 h-6 text-accent" />
                 </div>
                 <div>
-                  <p className="text-lg font-medium text-foreground mb-1">Email</p>
-                  <a href="mailto:vemulapallinehith@gmail.com" className="text-muted-foreground hover:text-accent transition-colors text-lg">
+                  <p className="text-lg font-medium text-foreground mb-1">
+                    Email
+                  </p>
+                  <a
+                    href="mailto:vemulapallinehith@gmail.com"
+                    className="text-muted-foreground hover:text-accent transition-colors text-lg"
+                  >
                     vemulapallinehith@gmail.com
                   </a>
                 </div>
@@ -76,8 +84,12 @@ export default function ContactSection() {
                   <MapPin className="w-6 h-6 text-accent" />
                 </div>
                 <div>
-                  <p className="text-lg font-medium text-foreground mb-1">Location</p>
-                  <p className="text-muted-foreground text-lg">London, United Kingdom</p>
+                  <p className="text-lg font-medium text-foreground mb-1">
+                    Location
+                  </p>
+                  <p className="text-muted-foreground text-lg">
+                    London, United Kingdom
+                  </p>
                 </div>
               </div>
             </div>
@@ -86,7 +98,9 @@ export default function ContactSection() {
               <Button
                 variant="outline"
                 className="h-12 px-6 rounded-full border-white/10 hover:bg-white/5 transition-colors"
-                onClick={() => handleExternalLink("https://github.com/nehith23")}
+                onClick={() =>
+                  handleExternalLink("https://github.com/nehith23")
+                }
               >
                 <Github className="w-5 h-5 mr-3" />
                 GitHub
@@ -94,7 +108,9 @@ export default function ContactSection() {
               <Button
                 variant="outline"
                 className="h-12 px-6 rounded-full border-white/10 hover:bg-white/5 transition-colors"
-                onClick={() => handleExternalLink("https://linkedin.com/in/nehith-v")}
+                onClick={() =>
+                  handleExternalLink("https://linkedin.com/in/nehith-v")
+                }
               >
                 <Linkedin className="w-5 h-5 mr-3" />
                 LinkedIn
@@ -120,7 +136,9 @@ export default function ContactSection() {
             <form onSubmit={handleSubmit} className="space-y-6">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div className="space-y-2">
-                  <label className="text-sm font-medium tracking-wide text-muted-foreground uppercase">Name</label>
+                  <label className="text-sm font-medium tracking-wide text-muted-foreground uppercase">
+                    Name
+                  </label>
                   <Input
                     value={formData.name}
                     onChange={(e) => handleInputChange("name", e.target.value)}
@@ -129,7 +147,9 @@ export default function ContactSection() {
                   />
                 </div>
                 <div className="space-y-2">
-                  <label className="text-sm font-medium tracking-wide text-muted-foreground uppercase">Email</label>
+                  <label className="text-sm font-medium tracking-wide text-muted-foreground uppercase">
+                    Email
+                  </label>
                   <Input
                     type="email"
                     value={formData.email}
@@ -141,7 +161,9 @@ export default function ContactSection() {
               </div>
 
               <div className="space-y-2">
-                <label className="text-sm font-medium tracking-wide text-muted-foreground uppercase">Subject</label>
+                <label className="text-sm font-medium tracking-wide text-muted-foreground uppercase">
+                  Subject
+                </label>
                 <Input
                   value={formData.subject}
                   onChange={(e) => handleInputChange("subject", e.target.value)}
@@ -151,7 +173,9 @@ export default function ContactSection() {
               </div>
 
               <div className="space-y-2">
-                <label className="text-sm font-medium tracking-wide text-muted-foreground uppercase">Message</label>
+                <label className="text-sm font-medium tracking-wide text-muted-foreground uppercase">
+                  Message
+                </label>
                 <Textarea
                   value={formData.message}
                   onChange={(e) => handleInputChange("message", e.target.value)}

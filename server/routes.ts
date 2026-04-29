@@ -6,17 +6,24 @@ import express from "express";
 
 export async function registerRoutes(app: Express): Promise<Server> {
   // Serve attached assets (PDFs, images, etc.)
-  app.use('/attached_assets', express.static(path.join(process.cwd(), 'attached_assets')));
+  app.use(
+    "/attached_assets",
+    express.static(path.join(process.cwd(), "attached_assets")),
+  );
 
   // CV Download endpoint
   app.get("/api/download-cv", (req, res) => {
     try {
-      const cvPath = path.join(process.cwd(), "attached_assets", "cv_phd_1760007892664.pdf");
-      
-      // Set appropriate headers for PDF download
-      res.setHeader('Content-Type', 'application/pdf');
-      res.setHeader('Content-Disposition', 'attachment; filename="Nehith_Sai_Vemulapalli_CV.pdf"');
-      
+      const cvPath = path.join(
+        process.cwd(),
+        "attached_assets",
+        "Nehith_Vemulapalli_Resume.pdf",
+      );
+
+      // Set appropriate headers for PDF download with requested filename 'resume.pdf'
+      res.setHeader("Content-Type", "application/pdf");
+      res.setHeader("Content-Disposition", 'attachment; filename="resume.pdf"');
+
       // Send the file
       res.sendFile(cvPath, (err) => {
         if (err) {
@@ -30,11 +37,34 @@ export async function registerRoutes(app: Express): Promise<Server> {
     }
   });
 
+  // Serve CV for viewing with filename 'resume.pdf'
+  app.get("/resume.pdf", (req, res) => {
+    try {
+      const cvPath = path.join(
+        process.cwd(),
+        "attached_assets",
+        "Nehith_Vemulapalli_Resume.pdf",
+      );
+      res.setHeader("Content-Type", "application/pdf");
+      // inline so browser opens it, but suggest filename as resume.pdf
+      res.setHeader("Content-Disposition", 'inline; filename="resume.pdf"');
+      res.sendFile(cvPath, (err) => {
+        if (err) {
+          console.error("Error serving resume:", err);
+          res.status(404).send("Resume not found");
+        }
+      });
+    } catch (err) {
+      console.error("Error in resume route:", err);
+      res.status(500).send("Internal server error");
+    }
+  });
+
   // Contact form submission endpoint
   app.post("/api/contact", (req, res) => {
     try {
       const { name, email, subject, message } = req.body;
-      
+
       // Basic validation
       if (!name || !email || !subject || !message) {
         return res.status(400).json({ error: "All fields are required" });
@@ -52,13 +82,13 @@ export async function registerRoutes(app: Express): Promise<Server> {
         email,
         subject,
         message,
-        timestamp: new Date().toISOString()
+        timestamp: new Date().toISOString(),
       });
 
       // TODO: Integrate with email service (SendGrid, etc.)
-      res.json({ 
-        success: true, 
-        message: "Thank you for your message! I'll get back to you soon." 
+      res.json({
+        success: true,
+        message: "Thank you for your message! I'll get back to you soon.",
       });
     } catch (error) {
       console.error("Error in contact form:", error);

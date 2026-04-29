@@ -1,7 +1,13 @@
 import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { ExternalLink, Calendar, Users, ArrowUpRight, FileText } from "lucide-react";
+import {
+  ExternalLink,
+  Calendar,
+  Users,
+  ArrowUpRight,
+  FileText,
+} from "lucide-react";
 import { motion } from "framer-motion";
 
 interface Publication {
@@ -23,10 +29,12 @@ function formatAuthors(authors: string): JSX.Element {
     <>
       {parts.map((part, i) =>
         part === "Nehith Sai Vemulapalli" || part === "Vemulapalli, N. S." ? (
-          <span key={i} className="font-semibold text-foreground">{part}</span>
+          <span key={i} className="font-semibold text-foreground">
+            {part}
+          </span>
         ) : (
           <span key={i}>{part}</span>
-        )
+        ),
       )}
     </>
   );
@@ -35,39 +43,11 @@ function formatAuthors(authors: string): JSX.Element {
 export default function PublicationsSection() {
   const publications: Publication[] = [
     {
-      id: "1",
-      title: "Face Detection with Landmark using YOLOv8",
-      authors: "Nehith Sai Vemulapalli; P. Pruthvi; G. S. Prabhat; S. Abhishek; T. Anjali",
-      venue: "2023 3rd International Conference on Emerging Frontiers in Electrical and Electronic Technologies (ICEFEET)",
-      year: "2023",
-      status: "published",
-      keywords: ["Computer Vision", "Deep Learning", "Object Detection"],
-      link: "https://ieeexplore.ieee.org/document/10452204/metrics#metrics",
-    },
-    {
-      id: "2",
-      title: "Application of Unsupervised Learning in Detecting Behavioral Patterns in E-commerce Customers",
-      authors: "Nehith Sai Vemulapalli; P. Pruthvi; N. Moneesh; S. Rakshith; J. D. Udayan",
-      venue: "Proceedings of the 5th International Conference on Data Science, Machine Learning and Applications; Volume 1 (pp.1208-1217)",
-      year: "2024",
-      status: "published",
-      keywords: ["Machine Learning", "Unsupervised Learning", "Data Analysis"],
-      link: "https://www.researchgate.net/publication/386110391_Application_of_Unsupervised_Learning_in_Detecting_Behavioral_Patterns_in_E-commerce_Customers",
-    },
-    {
-      id: "3",
-      title: "Reinforcement Learning-Based Autonomous Landing of AirSim Simulated Quadcopter in Unreal Engine",
-      authors: "Nehith Sai Vemulapalli; P. Pruthvi; G. S. Prabhat; S. Don",
-      venue: "2024 15th International Conference on Computing Communication and Networking Technologies (ICCCNT)",
-      year: "2024",
-      status: "published",
-      keywords: ["Reinforcement Learning", "Autonomous Systems", "Simulation"],
-      link: "https://ieeexplore.ieee.org/document/10725648",
-    },
-    {
       id: "4",
-      title: "Strategic Network Intervention: Simulating and Blocking Contagion Spread Using Dominating Sets",
-      authors: "Nehith Sai Vemulapalli; P. Pruthvi; N. Moneesh; S. Srivastav; J. D. Udayan",
+      title:
+        "Strategic Network Intervention: Simulating and Blocking Contagion Spread Using Dominating Sets",
+      authors:
+        "Nehith Sai Vemulapalli; P. Pruthvi; N. Moneesh; S. Srivastav; J. D. Udayan",
       venue: "Chapter in World Congress on Smart Computing (pp.109-122)",
       year: "2025",
       status: "published",
@@ -75,30 +55,72 @@ export default function PublicationsSection() {
       link: "https://www.researchgate.net/publication/390507848_Strategic_Network_Intervention_Simulating_and_Blocking_Contagion_Spread_Using_Dominating_Sets",
     },
     {
+      id: "3",
+      title:
+        "Reinforcement Learning-Based Autonomous Landing of AirSim Simulated Quadcopter in Unreal Engine",
+      authors: "Nehith Sai Vemulapalli; P. Pruthvi; G. S. Prabhat; S. Don",
+      venue:
+        "2024 15th International Conference on Computing Communication and Networking Technologies (ICCCNT)",
+      year: "2024",
+      status: "published",
+      keywords: ["Reinforcement Learning", "Autonomous Systems", "Simulation"],
+      link: "https://ieeexplore.ieee.org/document/10725648",
+    },
+    {
+      id: "2",
+      title:
+        "Application of Unsupervised Learning in Detecting Behavioral Patterns in E-commerce Customers",
+      authors:
+        "Nehith Sai Vemulapalli; P. Pruthvi; N. Moneesh; S. Rakshith; J. D. Udayan",
+      venue:
+        "Proceedings of the 5th International Conference on Data Science, Machine Learning and Applications; Volume 1 (pp.1208-1217)",
+      year: "2024",
+      status: "published",
+      keywords: ["Machine Learning", "Unsupervised Learning", "Data Analysis"],
+      link: "https://www.researchgate.net/publication/386110391_Application_of_Unsupervised_Learning_in_Detecting_Behavioral_Patterns_in_E-commerce_Customers",
+    },
+    {
+      id: "1",
+      title: "Face Detection with Landmark using YOLOv8",
+      authors:
+        "Nehith Sai Vemulapalli; P. Pruthvi; G. S. Prabhat; S. Abhishek; T. Anjali",
+      venue:
+        "2023 3rd International Conference on Emerging Frontiers in Electrical and Electronic Technologies (ICEFEET)",
+      year: "2023",
+      status: "published",
+      keywords: ["Computer Vision", "Deep Learning", "Object Detection"],
+      link: "https://ieeexplore.ieee.org/document/10452204/metrics#metrics",
+    },
+    {
       id: "5",
-      title: "Hybrid 3D Reconstruction Pipeline for Cultural Heritage Preservation in Extreme Environments",
+      title:
+        "Hybrid 3D Reconstruction Pipeline for Cultural Heritage Preservation in Extreme Environments",
       authors: "Vemulapalli, N. S.",
-      venue: "Target: International Conference on Robotics and Automation (ICRA)",
-      year: "2025",
+      venue: "Target: Graphics and Cultural Heritage (GCH)",
+      year: "2026",
       status: "in-preparation",
       keywords: ["3D Reconstruction", "Computer Vision", "Cultural Heritage"],
     },
     {
       id: "6",
-      title: "Self-Reconfigurable Robots for Space Exploration & Morphology-Shifting Simulation",
+      title:
+        "Self-Reconfigurable Robots for Space Exploration & Morphology-Shifting Simulation",
       authors: "Vemulapalli, N. S.",
-      venue: "Target: International Conference on Robotics and Automation (ICRA)",
-      year: "2025",
+      venue:
+        "Target: International Conference on Robotics and Automation (ICRA)",
+      year: "2026",
       status: "in-preparation",
       keywords: ["Robotics", "Space Exploration", "Reconfigurable Systems"],
     },
   ];
 
-  const published = publications.filter(p => p.status === "published");
-  const inPreparation = publications.filter(p => p.status === "in-preparation");
+  const published = publications.filter((p) => p.status === "published");
+  const inPreparation = publications.filter(
+    (p) => p.status === "in-preparation",
+  );
 
   const handleViewPublication = (link?: string) => {
-    if (link) window.open(link, '_blank');
+    if (link) window.open(link, "_blank");
   };
 
   const renderPublicationCard = (pub: Publication, index: number) => (
@@ -113,14 +135,17 @@ export default function PublicationsSection() {
         <div className="flex justify-between items-start mb-4 gap-4">
           <Badge
             variant={pub.status === "published" ? "default" : "secondary"}
-            className={pub.status === "published"
-              ? "bg-accent/10 text-accent border-accent/20 hover:bg-accent/20"
-              : "bg-yellow-500/10 text-yellow-400 border-yellow-500/20 hover:bg-yellow-500/20"
+            className={
+              pub.status === "published"
+                ? "bg-accent/10 text-accent border-accent/20 hover:bg-accent/20"
+                : "bg-yellow-500/10 text-yellow-400 border-yellow-500/20 hover:bg-yellow-500/20"
             }
           >
             {pub.status === "published" ? "Published" : "In Preparation"}
           </Badge>
-          <span className="text-sm text-muted-foreground font-mono">{pub.year}</span>
+          <span className="text-sm text-muted-foreground font-mono">
+            {pub.year}
+          </span>
         </div>
 
         <h3 className="text-xl font-display font-medium mb-3 leading-tight group-hover:text-accent transition-colors">
@@ -142,7 +167,10 @@ export default function PublicationsSection() {
           {/* All keywords shown */}
           <div className="flex flex-wrap gap-2">
             {pub.keywords.map((kw) => (
-              <span key={kw} className="text-xs px-2 py-1 rounded-md bg-white/5 text-muted-foreground/70 uppercase tracking-wider">
+              <span
+                key={kw}
+                className="text-xs px-2 py-1 rounded-md bg-white/5 text-muted-foreground/70 uppercase tracking-wider"
+              >
                 {kw}
               </span>
             ))}
@@ -176,8 +204,8 @@ export default function PublicationsSection() {
             Publications
           </h2>
           <p className="text-xl text-muted-foreground max-w-3xl leading-relaxed">
-            Peer-reviewed publications spanning computer vision, robotics, and AI,
-            focusing on practical applications and novel methodologies.
+            Peer-reviewed publications spanning computer vision, robotics, and
+            AI, focusing on practical applications and novel methodologies.
           </p>
         </motion.div>
 
@@ -208,7 +236,9 @@ export default function PublicationsSection() {
             </motion.div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-              {inPreparation.map((pub, index) => renderPublicationCard(pub, index))}
+              {inPreparation.map((pub, index) =>
+                renderPublicationCard(pub, index),
+              )}
             </div>
           </>
         )}

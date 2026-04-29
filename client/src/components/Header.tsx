@@ -1,7 +1,12 @@
 import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { FileText, Menu, X } from "lucide-react";
-import { motion, useScroll, useTransform, AnimatePresence } from "framer-motion";
+import {
+  motion,
+  useScroll,
+  useTransform,
+  AnimatePresence,
+} from "framer-motion";
 
 interface HeaderProps {
   activeSection?: string;
@@ -37,7 +42,7 @@ export default function Header({ activeSection }: HeaderProps) {
       const elementPosition = element.offsetTop - headerHeight;
       window.scrollTo({
         top: elementPosition,
-        behavior: 'smooth'
+        behavior: "smooth",
       });
     }
     setIsMobileMenuOpen(false);
@@ -46,13 +51,13 @@ export default function Header({ activeSection }: HeaderProps) {
   const scrollToTop = () => {
     window.scrollTo({
       top: 0,
-      behavior: 'smooth'
+      behavior: "smooth",
     });
     setIsMobileMenuOpen(false);
   };
 
   const viewCV = () => {
-    window.open("/attached_assets/Nehith_Vemulapalli_Resume.pdf", '_blank');
+    window.open("/resume.pdf", "_blank");
   };
 
   return (
@@ -78,10 +83,7 @@ export default function Header({ activeSection }: HeaderProps) {
 
         <div className="container mx-auto px-6 h-20 flex items-center justify-between">
           {/* Logo */}
-          <div
-            className="flex-shrink-0 cursor-pointer"
-            onClick={scrollToTop}
-          >
+          <div className="flex-shrink-0 cursor-pointer" onClick={scrollToTop}>
             <h1 className="text-xl font-display font-medium tracking-wide">
               Nehith<span className="text-accent">.</span>
             </h1>
@@ -93,8 +95,11 @@ export default function Header({ activeSection }: HeaderProps) {
               <button
                 key={item.id}
                 onClick={() => scrollToSection(item.id)}
-                className={`text-sm tracking-widest uppercase transition-colors hover:text-accent ${activeSection === item.id ? "text-accent" : "text-muted-foreground"
-                  }`}
+                className={`text-sm tracking-widest uppercase transition-colors hover:text-accent ${
+                  activeSection === item.id
+                    ? "text-accent"
+                    : "text-muted-foreground"
+                }`}
               >
                 {item.label}
               </button>
@@ -138,7 +143,9 @@ export default function Header({ activeSection }: HeaderProps) {
             className="fixed inset-0 z-[60] bg-background/95 backdrop-blur-xl"
           >
             <div className="p-6 flex justify-between items-center border-b border-white/10 h-20">
-              <span className="font-display font-medium text-xl pl-2">Menu</span>
+              <span className="font-display font-medium text-xl pl-2">
+                Menu
+              </span>
               <button
                 onClick={() => setIsMobileMenuOpen(false)}
                 className="p-2 text-foreground hover:text-accent transition-colors"

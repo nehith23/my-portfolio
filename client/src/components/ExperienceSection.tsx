@@ -10,7 +10,7 @@ interface Experience {
   organizationUrl?: string;
   location: string;
   period: string;
-  type: "Research" | "Startup" | "Ambassador";
+  type: "Research" | "Startup" | "Ambassador" | "Intern";
   description: string[];
   achievements?: string[];
 }
@@ -28,30 +28,31 @@ export default function ExperienceSection() {
       description: [
         "Built a hybrid 3D reconstruction pipeline fusing COLMAP, LiDAR, and 3D Gaussian Splatting for cultural heritage preservation.",
         "Implemented structural inspection path planning and multi-agent swarm control for Crazyflie drones using ROS2 and Gazebo.",
-        "Collaborated with cross-functional faculty and peers on experimental research."
+        "Collaborated with cross-functional faculty and peers on experimental research.",
       ],
       achievements: [
         "Novel hybrid reconstruction approach",
         "Multi-agent drone coordination",
-        "Faculty collaboration"
-      ]
+        "Faculty collaboration",
+      ],
     },
     {
       id: "2",
-      title: "Founder",
+      title: "Student Entrepreneur",
       organization: "AquaScout",
       location: "London, UK",
       period: "November 2024 – March 2025",
       type: "Startup",
       description: [
-        "Founded a drone-based water quality testing startup, winning the UCL Xplore programme competition.",
-        "Completed a 12-week Venture Builder programme — refined business model, technical roadmap, and go-to-market strategy."
+        "Won UCL Xplore programme competition among 50+ teams with drone-based water quality testing proposal",
+        "Completed 12-week Venture Builder programme, developing business model, market analysis, and go-to-market strategy",
+        "Designed technical architecture for autonomous UAV water monitoring system with preliminary simulation validation",
       ],
       achievements: [
         "UCL Xplore Winner",
         "Venture Builder Graduate",
-        "Technical Leadership"
-      ]
+        "Technical Leadership",
+      ],
     },
     {
       id: "3",
@@ -63,14 +64,31 @@ export default function ExperienceSection() {
       type: "Ambassador",
       description: [
         "Organized technical talks and networking sessions with visiting faculty and researchers.",
-        "Coordinated logistics and student engagement for departmental academic events."
+        "Coordinated logistics and student engagement for departmental academic events.",
       ],
       achievements: [
         "Faculty networking",
         "Event coordination",
-        "Student engagement"
-      ]
-    }
+        "Student engagement",
+      ],
+    },
+    {
+      id: "4",
+      title: "Research Intern",
+      organization: "National Institute of Technology Karnataka",
+      location: "Remote",
+      period: "Nov 2021 – Jan 2022",
+      type: "Intern",
+      description: [
+        "Conducted data analysis on heart attack rates based on age and demographics across India, applying statistical methods to identify risk patterns.",
+        "Developed predictive models for cardiovascular risk assessment, gaining hands-on experience in data preprocessing, feature engineering, and model selection.",
+      ],
+      achievements: [
+        "Data Preprocessing & Feature Engineering",
+        "Predictive Model Development",
+        "Statistical Analysis",
+      ],
+    },
   ];
 
   return (
@@ -89,8 +107,8 @@ export default function ExperienceSection() {
             Experience
           </h2>
           <p className="text-xl text-muted-foreground max-w-3xl leading-relaxed">
-            Professional and academic experience spanning research, entrepreneurship,
-            and academic leadership.
+            Professional and academic experience spanning research,
+            entrepreneurship, and academic leadership.
           </p>
         </motion.div>
 
@@ -111,11 +129,22 @@ export default function ExperienceSection() {
                 {/* Header Info */}
                 <div className="lg:col-span-1">
                   {experience.organizationUrl ? (
-                    <a href={experience.organizationUrl} target="_blank" rel="noopener noreferrer" className="text-2xl font-display font-medium mb-2 block hover:text-accent transition-colors">{experience.organization}</a>
+                    <a
+                      href={experience.organizationUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-2xl font-display font-medium mb-2 block hover:text-accent transition-colors"
+                    >
+                      {experience.organization}
+                    </a>
                   ) : (
-                    <h3 className="text-2xl font-display font-medium mb-2">{experience.organization}</h3>
+                    <h3 className="text-2xl font-display font-medium mb-2">
+                      {experience.organization}
+                    </h3>
                   )}
-                  <div className="text-lg text-primary mb-4">{experience.title}</div>
+                  <div className="text-lg text-primary mb-4">
+                    {experience.title}
+                  </div>
                   <div className="flex flex-col gap-2 text-sm text-muted-foreground">
                     <div className="flex items-center gap-2">
                       <Calendar className="w-4 h-4 text-accent" />
@@ -126,7 +155,9 @@ export default function ExperienceSection() {
                       <span>{experience.location}</span>
                     </div>
                   </div>
-                  <Badge variant="outline" className="mt-4 border-white/10">{experience.type}</Badge>
+                  <Badge variant="outline" className="mt-4 border-white/10">
+                    {experience.type}
+                  </Badge>
                 </div>
 
                 {/* Details */}
@@ -134,7 +165,10 @@ export default function ExperienceSection() {
                   <div className="bg-card/30 backdrop-blur-sm border border-white/5 rounded-xl p-6 md:p-8 hover:border-accent/30 transition-colors duration-300">
                     <ul className="space-y-4 mb-8">
                       {experience.description.map((desc, i) => (
-                        <li key={i} className="flex items-start text-muted-foreground">
+                        <li
+                          key={i}
+                          className="flex items-start text-muted-foreground"
+                        >
                           <span className="w-1.5 h-1.5 bg-accent rounded-full mt-2.5 mr-3 flex-shrink-0" />
                           <span className="leading-relaxed">{desc}</span>
                         </li>
@@ -144,7 +178,11 @@ export default function ExperienceSection() {
                     {experience.achievements && (
                       <div className="flex flex-wrap gap-2">
                         {experience.achievements.map((achievement) => (
-                          <Badge key={achievement} variant="outline" className="bg-accent/10 text-accent border-accent/20 hover:bg-accent/20 px-3 py-1 transition-colors">
+                          <Badge
+                            key={achievement}
+                            variant="outline"
+                            className="bg-accent/10 text-accent border-accent/20 hover:bg-accent/20 px-3 py-1 transition-colors"
+                          >
                             {achievement}
                           </Badge>
                         ))}
