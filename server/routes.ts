@@ -16,8 +16,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
     try {
       const cvPath = path.join(
         process.cwd(),
-        "attached_assets",
-        "Nehith_Vemulapalli_Resume.pdf",
+        "resume.pdf",
       );
 
       // Set appropriate headers for PDF download with requested filename 'resume.pdf'
@@ -42,8 +41,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
     try {
       const cvPath = path.join(
         process.cwd(),
-        "attached_assets",
-        "Nehith_Vemulapalli_Resume.pdf",
+        "resume.pdf",
       );
       res.setHeader("Content-Type", "application/pdf");
       // inline so browser opens it, but suggest filename as resume.pdf
