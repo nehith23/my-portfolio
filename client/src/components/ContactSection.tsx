@@ -31,7 +31,7 @@ export default function ContactSection() {
 
   const downloadCV = () => {
     const link = document.createElement("a");
-    link.href = "/api/download-cv";
+    link.href = "/resume.pdf";
     link.download = "resume.pdf";
     document.body.appendChild(link);
     link.click();
