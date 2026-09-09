@@ -1,6 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { Mail, Github, Linkedin, Twitter, ArrowDown, ExternalLink, GraduationCap, MapPin } from "lucide-react";
+import { Mail, Github, Linkedin, ArrowDown, ExternalLink, GraduationCap, MapPin } from "lucide-react";
 import { motion } from "framer-motion";
 
 export default function HeroSection() {
@@ -128,7 +128,7 @@ export default function HeroSection() {
               <Linkedin className="w-5 h-5" />
             </a>
             <a href="https://x.com/NehithSae23" target="_blank" rel="noopener noreferrer" aria-label="X (Twitter)" className="p-2 text-muted-foreground hover:text-foreground transition-colors">
-              <Twitter className="w-5 h-5" />
+              <span className="text-lg font-semibold leading-none">X</span>
             </a>
           </motion.div>
 
