@@ -4,6 +4,7 @@ import { QueryClientProvider } from "@tanstack/react-query";
 import { Toaster } from "@/components/ui/toaster";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import Portfolio from "@/pages/Portfolio";
+import BlogPost from "@/pages/BlogPost";
 import NotFound from "@/pages/not-found";
 
 function Router() {
@@ -11,6 +12,10 @@ function Router() {
     <WouterRouter>
       <Switch>
         <Route path="/" component={Portfolio} />
+        <Route
+          path="/blog/chassis-i-researched-picked-and-didnt-print"
+          component={BlogPost}
+        />
         {/* Fallback to 404 */}
         <Route component={NotFound} />
       </Switch>

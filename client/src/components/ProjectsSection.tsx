@@ -27,6 +27,7 @@ interface Project {
   outcomes?: string[];
   githubUrl?: string;
   demoUrl?: string;
+  blogUrl?: string;
 }
 
 export default function ProjectsSection() {
@@ -67,6 +68,7 @@ export default function ProjectsSection() {
         "Established a foundation for EKF fusion and autonomous navigation",
       ],
       githubUrl: "https://github.com/nehith23/SLAM-rover",
+      blogUrl: "/blog/chassis-i-researched-picked-and-didnt-print",
     },
     {
       id: "1",

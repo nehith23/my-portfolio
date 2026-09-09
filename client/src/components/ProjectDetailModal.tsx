@@ -23,6 +23,7 @@ interface Project {
   outcomes?: string[];
   githubUrl?: string;
   demoUrl?: string;
+  blogUrl?: string;
 }
 
 interface ProjectDetailModalProps {
@@ -31,11 +32,15 @@ interface ProjectDetailModalProps {
   onClose: () => void;
 }
 
-export default function ProjectDetailModal({ project, isOpen, onClose }: ProjectDetailModalProps) {
+export default function ProjectDetailModal({
+  project,
+  isOpen,
+  onClose,
+}: ProjectDetailModalProps) {
   if (!project) return null;
 
   const handleExternalLink = (url: string) => {
-    window.open(url, '_blank');
+    window.open(url, "_blank");
   };
 
   return (
@@ -70,6 +75,15 @@ export default function ProjectDetailModal({ project, isOpen, onClose }: Project
                   Demo
                 </Button>
               )}
+              {project.blogUrl && (
+                <Button
+                  variant="outline"
+                  size="sm"
+                  onClick={() => window.location.assign(project.blogUrl!)}
+                >
+                  Read build log
+                </Button>
+              )}
             </div>
           </div>
         </DialogHeader>
@@ -99,7 +113,9 @@ export default function ProjectDetailModal({ project, isOpen, onClose }: Project
           {/* Technical Challenges */}
           {project.challenges && (
             <div>
-              <h3 className="text-lg font-semibold mb-3">Technical Challenges</h3>
+              <h3 className="text-lg font-semibold mb-3">
+                Technical Challenges
+              </h3>
               <ul className="space-y-2">
                 {project.challenges.map((challenge, index) => (
                   <li key={index} className="flex items-start">
