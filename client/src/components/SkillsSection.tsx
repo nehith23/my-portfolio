@@ -14,21 +14,26 @@ export default function SkillsSection() {
       id: "programming",
       title: "Programming Languages",
       icon: Code,
-      skills: ["Python", "C++", "MATLAB", "JavaScript", "SQL"],
+      skills: [
+        "Python (Proficient)",
+        "C++ (Working Knowledge)",
+        "MATLAB",
+        "LaTeX",
+      ],
     },
     {
       id: "frameworks",
-      title: "Frameworks & Libraries",
+      title: "Computer Vision & SLAM",
       icon: Database,
       skills: [
-        "PyTorch",
-        "TensorFlow",
+        "ORB-SLAM",
+        "COLMAP",
         "OpenCV",
         "Open3D",
-        "NumPy",
-        "Pandas",
-        "Scikit-learn",
-        "Matplotlib",
+        "Object Detection",
+        "Sensor Fusion",
+        "Multi-sensor Fusion",
+        "Point Cloud Processing",
       ],
     },
     {
@@ -36,42 +41,50 @@ export default function SkillsSection() {
       title: "Robotics & Simulation",
       icon: Cpu,
       skills: [
-        "ROS2",
+        "ROS/ROS2",
         "Gazebo",
-        "RViz2",
+        "RViz",
+        "Aerostack2",
         "PyBullet",
-        "AirSim",
-        "COLMAP",
-        "MPC",
-        "EKF",
+        "Webots",
+        "Arduino",
+        "Raspberry Pi",
+        "Pinocchio",
       ],
     },
     {
       id: "tools",
-      title: "Development Tools",
+      title: "Machine Learning & Development Tools",
       icon: Wrench,
       skills: [
+        "PyTorch",
+        "TensorFlow",
+        "Keras",
+        "Scikit-learn",
+        "NumPy",
+        "Pandas",
+        "Matplotlib",
         "Git",
         "Docker",
         "Linux",
-        "CloudCompare",
-        "LaTeX",
-        "Unreal Engine",
+        "Fusion 360",
+        "SolidWorks",
+        "3D Printing",
       ],
     },
     {
       id: "research",
-      title: "Research Domains",
+      title: "3D Reconstruction & Sensing",
       icon: Microscope,
       skills: [
+        "3D Gaussian Splatting",
+        "LiDAR Processing",
+        "Photogrammetry",
+        "CloudCompare",
         "SLAM & Visual Odometry",
-        "3D Reconstruction",
-        "Computer Vision",
-        "Reinforcement Learning",
-        "Path Planning",
+        "Motion Planning",
         "Multi-Agent Systems",
-        "Sensor Fusion",
-        "Control Theory",
+        "Reinforcement Learning",
       ],
     },
   ];
@@ -89,8 +102,8 @@ export default function SkillsSection() {
             Technical Expertise
           </h2>
           <p className="text-xl text-muted-foreground max-w-3xl leading-relaxed">
-            Comprehensive technical skillset spanning robotics perception, AI/ML frameworks,
-            and autonomous systems development.
+            Comprehensive technical skillset spanning robotics perception, AI/ML
+            frameworks, and autonomous systems development.
           </p>
         </motion.div>
 
@@ -110,7 +123,9 @@ export default function SkillsSection() {
                     <div className="p-3 bg-accent/10 rounded-lg">
                       <IconComponent className="w-6 h-6 text-accent" />
                     </div>
-                    <h3 className="text-xl font-display font-medium">{category.title}</h3>
+                    <h3 className="text-xl font-display font-medium">
+                      {category.title}
+                    </h3>
                   </div>
 
                   <div className="flex flex-wrap gap-2">

@@ -19,16 +19,15 @@ export default function ExperienceSection() {
   const experiences: Experience[] = [
     {
       id: "1",
-      title: "Graduate Research Project",
+      title: "Graduate Research Assistant",
       organization: "UCL HereEast",
       organizationUrl: "https://www.ucl.ac.uk/here-east/",
       location: "London, UK",
-      period: "May 2025 – September 2025",
+      period: "May 2025 – December 2025",
       type: "Research",
       description: [
-        "Built a hybrid 3D reconstruction pipeline fusing COLMAP, LiDAR, and 3D Gaussian Splatting for cultural heritage preservation.",
-        "Implemented structural inspection path planning and multi-agent swarm control for Crazyflie drones using ROS2 and Gazebo.",
-        "Collaborated with cross-functional faculty and peers on experimental research.",
+        "Conducted research on hybrid 3D reconstruction for cultural heritage preservation, combining photogrammetry, LiDAR, and neural rendering.",
+        "Collaborated with cross-functional research teams to design experiments and advance state-of-the-art 3D reconstruction.",
       ],
       achievements: [
         "Novel hybrid reconstruction approach",
