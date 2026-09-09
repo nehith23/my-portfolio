@@ -57,7 +57,7 @@ export default function Header({ activeSection }: HeaderProps) {
   };
 
   const viewCV = () => {
-    window.open("/resume.pdf", "_blank");
+    window.open("/resume.pdf?v=20260909", "_blank");
   };
 
   return (
