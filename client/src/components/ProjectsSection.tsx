@@ -32,6 +32,43 @@ interface Project {
 export default function ProjectsSection() {
   const projects: Project[] = [
     {
+      id: "9",
+      title: "Visual SLAM Rover",
+      description:
+        "Building a compact autonomous rover for room mapping and navigation using monocular visual-inertial SLAM, wheel odometry, and ROS 2.",
+      fullDescription:
+        "An end-to-end robotics project combining embedded firmware, calibrated sensing, and ROS 2 autonomy. The rover uses an ESP32 with quadrature-encoded N20 motors, an MPU6050 IMU, and a Logitech C270 webcam to support monocular-inertial SLAM without LiDAR. The roadmap includes EKF sensor fusion, Nav2 autonomous navigation, and voice-controlled interaction.",
+      technologies: [
+        "ROS 2",
+        "Python",
+        "C++",
+        "ESP32",
+        "Monocular SLAM",
+        "IMU Sensor Fusion",
+        "Wheel Odometry",
+        "Nav2",
+      ],
+      category: "Robotics",
+      icon: Camera,
+      highlights: [
+        "Monocular visual-inertial mapping without LiDAR",
+        "Quadrature encoder and IMU integration",
+        "Calibrated Logitech C270 camera pipeline",
+        "Modular ROS 2 autonomy stack",
+      ],
+      challenges: [
+        "Synchronizing ESP32 sensor timestamps for reliable fusion",
+        "Converting sparse monocular SLAM points into an occupancy map",
+        "Building a rigid, repeatable camera and IMU mounting system",
+      ],
+      outcomes: [
+        "Validated motor driver, IMU, camera, and encoder hardware",
+        "Completed camera calibration and ROS camera-info output",
+        "Established a foundation for EKF fusion and autonomous navigation",
+      ],
+      githubUrl: "https://github.com/nehith23/SLAM-rover",
+    },
+    {
       id: "1",
       title:
         "Hybrid 3D Reconstruction Pipeline for Cultural Heritage Preservation",
