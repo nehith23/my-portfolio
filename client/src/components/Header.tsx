@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
+import { Link } from "wouter";
 import { FileText, Menu, X } from "lucide-react";
 import {
   motion,
@@ -104,6 +105,12 @@ export default function Header({ activeSection }: HeaderProps) {
                 {item.label}
               </button>
             ))}
+            <Link
+              href="/blog/chassis-i-researched-picked-and-didnt-print"
+              className="text-sm tracking-widest uppercase text-muted-foreground transition-colors hover:text-accent"
+            >
+              Blog
+            </Link>
           </nav>
 
           {/* Desktop Actions */}
@@ -163,6 +170,13 @@ export default function Header({ activeSection }: HeaderProps) {
                   {item.label}
                 </button>
               ))}
+              <Link
+                href="/blog/chassis-i-researched-picked-and-didnt-print"
+                onClick={() => setIsMobileMenuOpen(false)}
+                className="text-3xl font-display font-light tracking-wider hover:text-accent transition-colors"
+              >
+                Blog
+              </Link>
 
               <div className="pt-8 flex flex-col items-center gap-6">
                 <button
